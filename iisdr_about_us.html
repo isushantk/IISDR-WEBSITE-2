@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About IISDR - Indian Institute of Skill Development and Research">
+    <title>About Us - IISDR</title>
+    <style>
+        /* ============================================
+           GLOBAL STYLES & CSS RESET
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        html.text-sm {
+            font-size: 14px;
+        }
+
+        html.text-lg {
+            font-size: 18px;
+        }
+
+        body {
+            font-family: Arial, 'Helvetica Neue', sans-serif;
+            color: #333333;
+            background-color: #ffffff;
+            line-height: 1.6;
+        }
+
+        body.high-contrast {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        body.high-contrast a {
+            color: #ffff00;
+            text-decoration: underline;
+        }
+
+        a {
+            color: #003d99;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #ff9933;
+        }
+
+        button {
+            font-family: Arial, sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid #cccccc;
+            background-color: #f5f5f5;
+            padding: 8px 12px;
+        }
+
+        button:hover {
+            background-color: #e8e8e8;
+        }
+
+        button:focus {
+            outline: 3px solid #ff9933;
+            outline-offset: 2px;
+        }
+
+
+
+        /* ============================================
+           MAIN HEADER
+           ============================================ */
+        .main-header {
+            background-color: #ffffff;
+            padding: 30px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #003d99;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-left {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex: 1;
+        }
+
+        .logo-placeholder {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .header-text {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .header-text p {
+            margin: 0;
+            line-height: 1.2;
+            color: #003d99;
+            font-weight: 600;
+        }
+
+        .header-text .header-text-hi {
+            font-size: 1.15rem;
+        }
+
+        .header-text .header-text-kn {
+            font-size: 1.05rem;
+        }
+
+        .header-text .header-text-en {
+            font-size: 1.7rem;
+            font-weight: 700;
+            letter-spacing: 0.4px;
+        }
+
+        .header-right {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .secondary-logo {
+            width: 70px;
+            height: 70px;
+            background-color: #f5f5f5;
+            border: 1px solid #cccccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            text-align: center;
+            padding: 5px;
+            border-radius: 2px;
+        }
+
+        /* ============================================
+           NAVIGATION BAR
+           ============================================ */
+        .nav-bar {
+            background-color: #003d99;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0;
+            border-bottom: 3px solid #ff9933;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            flex: 1;
+        }
+
+        .nav-links li {
+            border-right: 1px solid #002d77;
+        }
+
+        .nav-links li:last-child {
+            border-right: none;
+        }
+
+        .nav-links a {
+            display: block;
+            padding: 15px 18px;
+            color: #ffffff;
+            font-weight: normal;
+            font-size: 0.95rem;
+            text-decoration: none;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background-color: #002d77;
+            color: #ff9933;
+            border-bottom-color: #ff9933;
+        }
+
+        /* ============================================
+           DROPDOWN MENU STYLES
+           ============================================ */
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown > a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-dropdown > a::after {
+            content: "▼";
+            font-size: 0.7rem;
+            margin-left: 4px;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #ffffff;
+            min-width: 250px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            border: 1px solid #cccccc;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 12px 18px;
+            color: #003d99;
+            text-decoration: none;
+            border-bottom: 1px solid #e8e8e8;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f5f5f5;
+            color: #ff9933;
+            border-bottom: none;
+            padding-left: 22px;
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .nav-dropdown > a.active {
+            background-color: #002d77;
+            color: #ff9933;
+            border-bottom-color: #ff9933;
+        }
+
+        /* ============================================
+           HERO BANNER
+           ============================================ */
+        .hero-banner {
+            width: 100%;
+            height: 350px;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 350"><defs><pattern id="p" patternUnits="userSpaceOnUse" width="100" height="100"><circle cx="50" cy="50" r="40" fill="%23d4a574" opacity="0.3"/></pattern></defs><rect fill="%238b7355" width="1200" height="350"/><rect fill="url(%23p)" width="1200" height="350"/></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 2px solid #003d99;
+            position: relative;
+        }
+
+        .hero-banner h1 {
+            color: #ffffff;
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        /* ============================================
+           BREADCRUMB
+           ============================================ */
+        .breadcrumb {
+            background-color: #f5f5f5;
+            padding: 12px 20px;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #cccccc;
+        }
+
+        .breadcrumb a {
+            color: #003d99;
+            margin: 0 5px;
+        }
+
+        .breadcrumb a:hover {
+            color: #ff9933;
+            text-decoration: underline;
+        }
+
+        /* ============================================
+           MAIN CONTENT AREA
+           ============================================ */
+        .about-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            padding: 30px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #fafafa;
+        }
+
+        .about-content {
+            background-color: #ffffff;
+            padding: 25px;
+            border: 1px solid #cccccc;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+        }
+
+        .about-content h2 {
+            font-size: 1.4rem;
+            color: #003d99;
+            font-weight: bold;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ff9933;
+            padding-bottom: 12px;
+        }
+
+        .about-content p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #555555;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        /* ============================================
+           SIDEBAR
+           ============================================ */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        /* SEARCH BOX */
+        .search-box {
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #cccccc;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #cccccc;
+            border-radius: 3px;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        .search-box button {
+            width: 100%;
+            background-color: #003d99;
+            color: #ffffff;
+            border: 1px solid #003d99;
+            padding: 10px;
+            font-weight: bold;
+            border-radius: 3px;
+        }
+
+        .search-box button:hover {
+            background-color: #002d77;
+        }
+
+        /* CATEGORIES */
+        .categories-section {
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #cccccc;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+        }
+
+        .categories-section h3 {
+            font-size: 1.1rem;
+            color: #138808;
+            font-weight: bold;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #ff9933;
+            padding-bottom: 10px;
+        }
+
+        .category-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #e8e8e8;
+            font-size: 0.95rem;
+        }
+
+        .category-item:last-child {
+            border-bottom: none;
+        }
+
+        .category-item a {
+            color: #003d99;
+            font-weight: 500;
+        }
+
+        .category-item a:hover {
+            color: #ff9933;
+        }
+
+        .category-count {
+            background-color: #cccccc;
+            color: #ffffff;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        /* TAGS */
+        .tags-section {
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #cccccc;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+        }
+
+        .tags-section h3 {
+            font-size: 1.1rem;
+            color: #138808;
+            font-weight: bold;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #ff9933;
+            padding-bottom: 10px;
+        }
+
+        .tags-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #f0f0f0;
+            color: #333333;
+            padding: 8px 14px;
+            border: 1px solid #d0d0d0;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .tag:hover {
+            background-color: #003d99;
+            color: #ffffff;
+            border-color: #003d99;
+        }
+
+        /* RECENT NEWS */
+        .recent-news {
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #cccccc;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+        }
+
+        .recent-news h3 {
+            font-size: 1.1rem;
+            color: #138808;
+            font-weight: bold;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #ff9933;
+            padding-bottom: 10px;
+        }
+
+        .news-item {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 12px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .news-thumbnail {
+            width: 80px;
+            height: 80px;
+            background-color: #e8e8e8;
+            border: 1px solid #cccccc;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: #999999;
+        }
+
+        .news-content h4 {
+            font-size: 0.95rem;
+            color: #003d99;
+            font-weight: bold;
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+
+        .news-content h4 a {
+            color: #003d99;
+            text-decoration: none;
+        }
+
+        .news-content h4 a:hover {
+            color: #ff9933;
+            text-decoration: underline;
+        }
+
+        .news-date {
+            font-size: 0.8rem;
+            color: #999999;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            background-color: #1a1a1a;
+            color: #cccccc;
+            padding: 30px 20px;
+            margin-top: 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1.5fr 1.2fr 1.2fr;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+
+        .footer-section {
+            border-right: 1px solid #444444;
+            padding-right: 20px;
+        }
+
+        .footer-section:last-child {
+            border-right: none;
+            padding-right: 0;
+        }
+
+        .footer-section h3 {
+            color: #ff9933;
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .footer-section p,
+        .footer-section li {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            margin-bottom: 6px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section a {
+            color: #99ccff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #ff9933;
+            text-decoration: underline;
+        }
+
+        .footer-contact-item {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444444;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #999999;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-bottom-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom-info span {
+            flex: 1;
+            text-align: center;
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
+        @media (max-width: 1024px) {
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+
+            .footer-section {
+                border-right: none;
+                border-bottom: 1px solid #444444;
+                padding-right: 0;
+                padding-bottom: 20px;
+            }
+
+            .footer-section:last-child {
+                border-bottom: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-left {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .hero-banner h1 {
+                font-size: 1.8rem;
+            }
+
+            .about-container {
+                padding: 15px 10px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .footer-section {
+                border-right: none;
+                border-bottom: 1px solid #444444;
+                padding-right: 0;
+                padding-bottom: 15px;
+            }
+
+            .footer-section:last-child {
+                border-bottom: none;
+            }
+        }
+
+        /* ============================================
+           ACCESSIBILITY
+           ============================================ */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background-color: #003d99;
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        :focus {
+            outline: 3px solid #ff9933;
+            outline-offset: 2px;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+
+
+    <!-- ============================================
+         MAIN HEADER
+         ============================================ -->
+    <header class="main-header">
+        <div class="header-left">
+            <img src="iisdr-logo.png" alt="IISDR Logo" class="logo-placeholder">
+            <div class="header-text">
+                <p class="header-text-hi">भारतीय कौशल विकास एवं अनुसंधान संस्थान</p>
+                <p class="header-text-kn">ಇಂಡಿಯನ್ ಇನ್ಸ್ಟಿಟ್ಯೂಟ್ ಆಫ್ ಸ್ಕಿಲ್ ಡೆವಲಪ್ಮೆಂಟ್ ಅಂಡ್ ರಿಸರ್ಚ್</p>
+                <p class="header-text-en">INDIAN INSTITUTE OF SKILL DEVELOPMENT AND RESEARCH</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================
+         NAVIGATION
+         ============================================ -->
+    <nav class="nav-bar" role="navigation" aria-label="Main navigation">
+        <ul class="nav-links">
+            <li><a href="iisdr_website.html">Home</a></li>
+            <li><a href="#" class="active">About Us</a></li>
+            <li><a href="iisdr_programs.html">Programs</a></li>
+            <li class="nav-dropdown">
+                <a href="#">MoU Partner</a>
+                <div class="dropdown-menu">
+                    <a href="#">Infosys Limited</a>
+                    <a href="#">TCS (Tata Consultancy Services)</a>
+                    <a href="#">MSNIM - Manel Srinivasa Nayak Institute</a>
+                    <a href="#">Department of Hospital Administration</a>
+                    <a href="#">Utkarsh Charitable & Welfare Trust</a>
+                </div>
+            </li>
+            <li><a href="iisdr_activities.html">Activities</a></li>
+            <li class="nav-dropdown">
+                <a href="#">E-Journal</a>
+                <div class="dropdown-menu">
+                    <a href="iisdr_ejournal_about_thrive.html">About THRIVE</a>
+                    <a href="iisdr_journal_particulars.html">Journal Particulars</a>
+                    <a href="iisdr_editorial_board.html">Editorial Board</a>
+                    <a href="iisdr_author_guidelines.html">Author Guidelines</a>
+                    <a href="#">E-Journal</a>
+                    <a href="iisdr_disclaimer.html">Disclaimer</a>
+                    <a href="iisdr_ejournal_contact_us.html">Contact Us</a>
+                </div>
+            </li>
+            <li><a href="#">Certification</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- ============================================
+         HERO BANNER
+         ============================================ -->
+    <section class="hero-banner" role="region" aria-label="About IISDR banner">
+        <h1>About IISDR</h1>
+    </section>
+
+    <!-- ============================================
+         BREADCRUMB
+         ============================================ -->
+    <div class="breadcrumb">
+        <a href="iisdr_website.html">Home</a> / <span>About Us</span>
+    </div>
+
+    <!-- ============================================
+         MAIN CONTENT
+         ============================================ -->
+    <main id="main-content" class="about-container">
+        <!-- LEFT COLUMN: ABOUT CONTENT -->
+        <article class="about-content">
+            <h2>About IISDR:</h2>
+
+            <p>
+                <strong>The Indian Institute of Skill Development and Research (IISDR)</strong> is a dedicated initiative established under the aegis of Utkarsh Charitable and Welfare Trust (UCWT) with the objective of empowering individuals through high-quality skill development, vocational training, and research-driven learning. IISDR is a professional institution was created with a strong belief that skill-based education is the foundation for personal growth, sustainable livelihoods, and national progress.
+            </p>
+
+            <p>
+                At IISDR, we focus on providing industry-relevant, practical, and affordable training programs that cater to learners from diverse backgrounds. Our institute works systematically to bridge the gap between academic knowledge and real-world skill requirements by designing courses that are aligned with the evolving needs of modern industries.
+            </p>
+
+            <p>
+                Backed by the values and commitment of Utkarsh Charitable and Welfare Trust, we strive to make skill education accessible for all—especially for underprivileged and rural communities. The Trust's long-standing work in social welfare, education, women empowerment, and community upliftment forms the backbone of IISDR's mission.
+            </p>
+
+            <p>
+                <strong>The training methodology at IISDR</strong> emphasizes hands-on learning, project-based activities, workshops, and continuous evaluation, ensuring that each learner gains confidence, competence, and the ability to excel professionally. Through our dedicated team of trainers, updated course materials, and structured support system, we aim to nurture skilled professionals and responsible individuals.
+            </p>
+
+            <p>
+                IISDR also focus on research and innovation, working to identify skill gaps and introduce new training modules that can contribute to the nation's skill ecosystem. Our commitment extends beyond training; IISDR actively participates in community outreach programs, awareness campaigns, and livelihood initiatives to make a broader social impact.
+            </p>
+
+            <p>
+                At IISDR, we believe that every individual deserves an opportunity to learn, grow, and succeed. With the guiding support of Utkarsh Charitable and Welfare Trust, we continue to work toward creating a skilled, empowered, and self-reliant society.
+            </p>
+        </article>
+
+        <!-- RIGHT COLUMN: SIDEBAR -->
+        <aside class="sidebar">
+            <!-- Search Box -->
+            <div class="search-box">
+                <input type="text" placeholder="Search..." aria-label="Search about content">
+                <button aria-label="Submit search">🔍 Search</button>
+            </div>
+
+            <!-- Categories -->
+            <div class="categories-section">
+                <h3>Categories</h3>
+                <div class="category-item">
+                    <a href="#">Skill Development</a>
+                    <span class="category-count">28</span>
+                </div>
+                <div class="category-item">
+                    <a href="#">Training Programs</a>
+                    <span class="category-count">15</span>
+                </div>
+                <div class="category-item">
+                    <a href="#">Research & Innovation</a>
+                    <span class="category-count">12</span>
+                </div>
+                <div class="category-item">
+                    <a href="#">Community Outreach</a>
+                    <span class="category-count">8</span>
+                </div>
+                <div class="category-item">
+                    <a href="#">Industry Partnerships</a>
+                    <span class="category-count">22</span>
+                </div>
+            </div>
+
+            <!-- Tags -->
+            <div class="tags-section">
+                <h3>Tags</h3>
+                <div class="tags-list">
+                    <a href="#" class="tag">Training</a>
+                    <a href="#" class="tag">Skill Development</a>
+                    <a href="#" class="tag">Education</a>
+                    <a href="#" class="tag">Research</a>
+                    <a href="#" class="tag">Vocational</a>
+                    <a href="#" class="tag">Innovation</a>
+                    <a href="#" class="tag">Career</a>
+                    <a href="#" class="tag">Empowerment</a>
+                </div>
+            </div>
+
+            <!-- Recent News -->
+            <div class="recent-news">
+                <h3>Recent News</h3>
+
+                <div class="news-item">
+                    <div class="news-thumbnail">🏫</div>
+                    <div class="news-content">
+                        <h4><a href="#">New Training Center Inauguration</a></h4>
+                        <div class="news-date">📅 April 20, 2026</div>
+                    </div>
+                </div>
+
+                <div class="news-item">
+                    <div class="news-thumbnail">🤝</div>
+                    <div class="news-content">
+                        <h4><a href="#">MoU Signed with Leading Industry Partners</a></h4>
+                        <div class="news-date">📅 April 18, 2026</div>
+                    </div>
+                </div>
+
+                <div class="news-item">
+                    <div class="news-thumbnail">🎓</div>
+                    <div class="news-content">
+                        <h4><a href="#">Batch 2026 Certification Success</a></h4>
+                        <div class="news-date">📅 April 15, 2026</div>
+                    </div>
+                </div>
+
+                <div class="news-item">
+                    <div class="news-thumbnail">📊</div>
+                    <div class="news-content">
+                        <h4><a href="#">Research Paper Published in E-Journal</a></h4>
+                        <div class="news-date">📅 April 10, 2026</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="footer">
+        <div class="footer-content">
+            <!-- Section 1: Contact Information -->
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <div class="footer-contact-item">
+                    <strong>IISDR Headquarters:</strong><br>
+                    123 Education Park, Tech Valley<br>
+                    New Delhi - 110001, India<br>
+                    <strong>Phone:</strong> +91-11-XXXX-XXXX<br>
+                    <strong>Email:</strong> <a href="mailto:info@iisdr.org">info@iisdr.org</a>
+                </div>
+                <div class="footer-contact-item">
+                    <strong>Utkarsh Charitable & Welfare Trust:</strong><br>
+                    Heritage Building, Community Square<br>
+                    Mumbai - 400001, India<br>
+                    <strong>Phone:</strong> +91-22-XXXX-XXXX<br>
+                    <strong>Email:</strong> <a href="mailto:support@ucwt.org">support@ucwt.org</a>
+                </div>
+            </div>
+
+            <!-- Section 2: Important Links -->
+            <div class="footer-section">
+                <h3>Important Links</h3>
+                <ul>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                    <li><a href="#terms">Terms of Use</a></li>
+                    <li><a href="#copyright">Copyright Policy</a></li>
+                    <li><a href="#disclaimer">Disclaimer</a></li>
+                    <li><a href="#grievance">Grievance Redressal</a></li>
+                    <li><a href="#rti">Right to Information (RTI)</a></li>
+                </ul>
+            </div>
+
+            <!-- Section 3: Support & Policies -->
+            <div class="footer-section">
+                <h3>Support & Policies</h3>
+                <ul>
+                    <li><a href="#website-policies">Website Policies</a></li>
+                    <li><a href="#help">Help & FAQs</a></li>
+                    <li><a href="#accessibility">Accessibility Statement</a></li>
+                    <li><a href="#sitemap">Sitemap</a></li>
+                    <li><a href="#feedback">Send Feedback</a></li>
+                    <li><a href="#report-issue">Report an Issue</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="footer-bottom-info">
+                <span>
+                    Designed and Developed by <strong>Utkarsh Digital Solutions</strong>
+                </span>
+                <span>
+                    © 2026 Utkarsh Charitable and Welfare Trust. All rights reserved.
+                </span>
+                <span>
+                    Last Updated: <span id="last-updated">25 April 2026</span>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         JAVASCRIPT
+         ============================================ -->
+    <script>
+        // TEXT SIZE CONTROLS
+        function changeTextSize(size) {
+            const html = document.documentElement;
+            const buttons = {
+                'sm': document.getElementById('text-smaller'),
+                'normal': document.getElementById('text-normal'),
+                'lg': document.getElementById('text-larger')
+            };
+
+            Object.values(buttons).forEach(btn => btn.classList.remove('active'));
+            buttons[size].classList.add('active');
+
+            html.classList.remove('text-sm', 'text-lg');
+            if (size === 'sm') html.classList.add('text-sm');
+            if (size === 'lg') html.classList.add('text-lg');
+
+            localStorage.setItem('textSize', size);
+        }
+
+        // CONTRAST CONTROLS
+        function toggleContrast(mode) {
+            const body = document.body;
+            const buttons = {
+                'normal': document.getElementById('contrast-normal'),
+                'high': document.getElementById('contrast-high')
+            };
+
+            Object.values(buttons).forEach(btn => btn.classList.remove('active'));
+            buttons[mode].classList.add('active');
+
+            body.classList.toggle('high-contrast', mode === 'high');
+            localStorage.setItem('contrastMode', mode);
+        }
+
+        // LANGUAGE TOGGLE
+        function changeLanguage(lang) {
+            const buttons = {
+                'en': document.getElementById('lang-en'),
+                'hi': document.getElementById('lang-hi')
+            };
+
+            Object.values(buttons).forEach(btn => btn.classList.remove('active'));
+            buttons[lang].classList.add('active');
+
+            localStorage.setItem('language', lang);
+        }
+
+        function toggleScreenReaderMode() {
+            alert('Screen Reader Access mode enabled. Use keyboard navigation with Tab, Enter, and arrow keys.');
+        }
+
+        // RESTORE USER PREFERENCES
+        function restoreUserPreferences() {
+            const textSize = localStorage.getItem('textSize') || 'normal';
+            const contrastMode = localStorage.getItem('contrastMode') || 'normal';
+
+            changeTextSize(textSize);
+            toggleContrast(contrastMode);
+        }
+
+        document.addEventListener('DOMContentLoaded', restoreUserPreferences);
+    </script>
+</body>
+</html>

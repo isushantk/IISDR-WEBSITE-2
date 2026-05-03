@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editorial Board - IISDR</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        /* Header */
+        .header {
+            background-color: #ffffff;
+            border-bottom: 3px solid #003d99;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo-placeholder {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+
+        .header-text {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .header-text p {
+            margin: 0;
+            line-height: 1.2;
+            color: #003d99;
+            font-weight: 600;
+        }
+
+        .header-text .header-text-hi {
+            font-size: 1.15rem;
+        }
+
+        .header-text .header-text-kn {
+            font-size: 1.05rem;
+        }
+
+        .header-text .header-text-en {
+            font-size: 1.7rem;
+            font-weight: 700;
+            letter-spacing: 0.4px;
+        }
+
+        .header-right {
+            display: flex;
+            gap: 15px;
+        }
+
+        .logo-box {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .logo-box img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+
+        .logo-box p {
+            font-size: 11px;
+            color: #666;
+        }
+
+        /* Navigation */
+        .navbar {
+            background-color: #003d99;
+            display: flex;
+            width: 100%;
+            border-bottom: 2px solid #002d77;
+            position: relative;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            flex: 1;
+        }
+
+        .nav-links li {
+            border-right: 1px solid #002d77;
+        }
+
+        .nav-links li:last-child {
+            border-right: none;
+        }
+
+        .nav-links a {
+            display: block;
+            padding: 15px 18px;
+            color: #ffffff;
+            font-weight: normal;
+            font-size: 0.95rem;
+            text-decoration: none;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background-color: #002d77;
+            color: #ff9933;
+            border-bottom-color: #ff9933;
+        }
+
+        /* ============================================
+           DROPDOWN MENU STYLES
+           ============================================ */
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown > a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-dropdown > a::after {
+            content: "▼";
+            font-size: 0.7rem;
+            margin-left: 4px;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #ffffff;
+            min-width: 250px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            border: 1px solid #cccccc;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 12px 18px;
+            color: #003d99;
+            text-decoration: none;
+            border-bottom: 1px solid #e8e8e8;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f5f5f5;
+            color: #ff9933;
+            border-bottom: none;
+            padding-left: 22px;
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background-color: #f9f9f9;
+            padding: 12px 30px;
+            font-size: 12px;
+            color: #666;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .breadcrumb a {
+            color: #003d99;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Container */
+        .main-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            max-width: 1200px;
+            margin: 20px auto;
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        .content {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            padding: 25px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        .content h2 {
+            color: #003d99;
+            font-size: 20px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ff9933;
+            padding-bottom: 10px;
+        }
+
+        .board-section {
+            margin-bottom: 30px;
+        }
+
+        .board-section h3 {
+            color: #003d99;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            border-left: 4px solid #ff9933;
+            padding-left: 10px;
+        }
+
+        .member-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            line-height: 1.6;
+        }
+
+        .member-item:last-child {
+            border-bottom: none;
+        }
+
+        .member-name {
+            color: #003d99;
+            font-weight: bold;
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        .member-details {
+            color: #666;
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+
+        .member-email a {
+            color: #003d99;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .member-email a:hover {
+            text-decoration: underline;
+        }
+
+        .member-link a {
+            color: #003d99;
+            text-decoration: none;
+            font-size: 12px;
+            display: block;
+            margin-top: 5px;
+            word-break: break-all;
+        }
+
+        .member-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .sidebar-widget {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        .sidebar-widget h3 {
+            color: #003d99;
+            font-size: 14px;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #ff9933;
+            padding-bottom: 8px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #ddd;
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+
+        .search-box button {
+            width: 100%;
+            padding: 8px;
+            background-color: #003d99;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .search-box button:hover {
+            background-color: #002d77;
+        }
+
+        .categories-list {
+            list-style: none;
+        }
+
+        .categories-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .categories-list li:last-child {
+            border-bottom: none;
+        }
+
+        .categories-list a {
+            color: #003d99;
+            text-decoration: none;
+            flex-grow: 1;
+        }
+
+        .categories-list a:hover {
+            text-decoration: underline;
+        }
+
+        .count-badge {
+            background-color: #138808;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            color: #003d99;
+            padding: 5px 10px;
+            font-size: 11px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .tag:hover {
+            background-color: #ff9933;
+            color: white;
+            border-color: #ff9933;
+        }
+
+        .recent-news-list {
+            list-style: none;
+        }
+
+        .recent-news-item {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            gap: 10px;
+        }
+
+        .recent-news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-thumbnail {
+            width: 50px;
+            height: 50px;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #999;
+        }
+
+        .news-content {
+            flex-grow: 1;
+        }
+
+        .news-content a {
+            color: #003d99;
+            text-decoration: none;
+            font-size: 12px;
+            display: block;
+            line-height: 1.4;
+            margin-bottom: 4px;
+        }
+
+        .news-content a:hover {
+            text-decoration: underline;
+        }
+
+        .news-date {
+            font-size: 11px;
+            color: #999;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #1a1a1a;
+            color: #ccc;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .footer-section h4 {
+            color: #ff9933;
+            font-size: 13px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .footer-section p, .footer-section li {
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: #ff9933;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 15px;
+            text-align: center;
+            font-size: 11px;
+            color: #999;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-bottom p {
+            margin: 5px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+
+            .header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .header-right {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-wrap: wrap;
+            }
+
+            .navbar {
+                height: auto;
+            }
+
+            .nav-links li {
+                flex-basis: 50%;
+                border-right: 1px solid #002d77;
+            }
+
+            .nav-links li:nth-child(even) {
+                border-right: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-left">
+            <img src="iisdr-logo.png" alt="IISDR Logo" class="logo-placeholder">
+            <div class="header-text">
+                <p class="header-text-hi">भारतीय कौशल विकास एवं अनुसंधान संस्थान</p>
+                <p class="header-text-kn">ಇಂಡಿಯನ್ ಇನ್ಸ್ಟಿಟ್ಯೂಟ್ ಆಫ್ ಸ್ಕಿಲ್ ಡೆವಲಪ್ಮೆಂಟ್ ಅಂಡ್ ರಿಸರ್ಚ್</p>
+                <p class="header-text-en">INDIAN INSTITUTE OF SKILL DEVELOPMENT AND RESEARCH</p>
+            </div>
+        </div>
+            <div class="logo-box">
+                <p>Initiative Logo 2</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="iisdr_website.html">Home</a></li>
+            <li><a href="iisdr_about_us.html">About Us</a></li>
+            <li><a href="iisdr_programs.html">Programs</a></li>
+            <li class="nav-dropdown">
+                <a href="#">MoU Partner</a>
+                <div class="dropdown-menu">
+                    <a href="#">Infosys Limited</a>
+                    <a href="#">TCS (Tata Consultancy Services)</a>
+                    <a href="#">MSNIM - Manel Srinivasa Nayak Institute</a>
+                    <a href="#">Department of Hospital Administration</a>
+                    <a href="#">Utkarsh Charitable & Welfare Trust</a>
+                </div>
+            </li>
+            <li><a href="iisdr_information_bulletins.html">Information Bulletins</a></li>
+            <li class="nav-dropdown">
+                <a href="#">E-Journal</a>
+                <div class="dropdown-menu">
+                    <a href="iisdr_ejournal_about_thrive.html">About THRIVE</a>
+                    <a href="iisdr_journal_particulars.html">Journal Particulars</a>
+                    <a href="iisdr_editorial_board.html">Editorial Board</a>
+                    <a href="iisdr_author_guidelines.html">Author Guidelines</a>
+                    <a href="#">E-Journal</a>
+                    <a href="iisdr_disclaimer.html">Disclaimer</a>
+                    <a href="iisdr_ejournal_contact_us.html">Contact Us</a>
+                </div>
+            </li>
+            <li><a href="#">Certification Programs</a></li>
+            <li><a href="iisdr_ejournal_contact_us.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="iisdr_website.html">Home</a> > 
+        <a href="#">E-Journal</a> > 
+        Editorial Board
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Main Content -->
+        <div class="content">
+            <h2>THRIVE Volumes & Issues</h2>
+            <div class="volumes-list">
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 15px;">
+                        <a href="#" style="color: #003d99; font-size: 1rem; font-weight: 500;">Volume 1 | Issue 2 | July to December 2025</a>
+                    </li>
+                    <li style="margin-bottom: 15px;">
+                        <a href="#" style="color: #003d99; font-size: 1rem; font-weight: 500;">Volume 1 | Issue 1 | January to June 2025</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <h2 style="margin-top: 40px;">Editorial Board</h2>
+            
+            <!-- Chief Editor Section -->
+            <div class="board-section">
+                <h3>Chief Editor</h3>
+                <div class="member-item">
+                    <div class="member-name">Dr. Priya Maria Mascarenhas</div>
+                    <div class="member-details">Practitioner and Director - IISDR at Mangaluru, D.K.,Karnataka</div>
+                    <div class="member-email">E-mail: <a href="mailto:ddiisdr@gmail.com">ddiisdr@gmail.com</a></div>
+                </div>
+            </div>
+
+            <!-- Editorial Board Section -->
+            <div class="board-section">
+                <h3>Editorial Board</h3>
+                
+                <div class="member-item">
+                    <div class="member-name">Prof. Amitabh Anand</div>
+                    <div class="member-details">Professor at Excelia Business School, France</div>
+                    <div class="member-email">E-mail: <a href="mailto:ananda@excelia-group.com">ananda@excelia-group.com</a></div>
+                    <div class="member-link"><a href="https://www.excelia-group.com/faculty-research/faculty/human-resources-management-department/amitabh-anand" target="_blank">https://www.excelia-group.com/faculty-research/faculty/human-resources-management-department/amitabh-anand</a></div>
+                </div>
+
+                <div class="member-item">
+                    <div class="member-name">Prof. Dinesh Elango</div>
+                    <div class="member-details">Associate Dean and Professor. School of Business, American University of Phnom, Cambodia</div>
+                    <div class="member-email">E-mail: <a href="mailto:d.elango@aupp.edu.in">d.elango@aupp.edu.in</a></div>
+                    <div class="member-link"><a href="https://www.aupp.edu.kh/faculty/dinesh-elango/" target="_blank">https://www.aupp.edu.kh/faculty/dinesh-elango/</a></div>
+                </div>
+
+                <div class="member-item">
+                    <div class="member-name">Prof. Mohan S. Singhe</div>
+                    <div class="member-details">Professor, Department of Post Graduate Studies and Research in Social Work, Mangalore University, Mangalagangothri, Mangaluru, D.K.,Karnataka</div>
+                    <div class="member-email">E-mail: <a href="mailto:mohansinghe@mangaloreuniversity.ac.in">mohansinghe@mangaloreuniversity.ac.in</a></div>
+                    <div class="member-link"><a href="https://mangaloreuniversity.ac.in/kannada/sites/default/files/SOCIALWORK/Dr.%20Mohan%20S.Singhe.pdf" target="_blank">https://mangaloreuniversity.ac.in/kannada/sites/default/files/SOCIALWORK/Dr.%20Mohan%20S.Singhe.pdf</a></div>
+                </div>
+
+                <div class="member-item">
+                    <div class="member-name">Dr. Sebastin K.V</div>
+                    <div class="member-details">Dean - Academics, School of Social Work, Roshni Nilaya, Mangaluru, D.K., Karnataka</div>
+                    <div class="member-email">E-mail: <a href="mailto:sebastinkv@sswroshni.in">sebastinkv@sswroshni.in</a></div>
+                    <div class="member-link"><a href="https://www.sswroshni.in/eng/about-us/administration/dean-academics" target="_blank">https://www.sswroshni.in/eng/about-us/administration/dean-academics</a></div>
+                </div>
+
+                <div class="member-item">
+                    <div class="member-name">Dr. Veena Shenoy</div>
+                    <div class="member-details">Head SDG's Impact at ISBR Business School, Bengaluru and the founder and CEO of Inclusiv, a social impact start up at Bengaluru, Karnataka</div>
+                    <div class="member-email">E-mail: <a href="mailto:veena.s@isbr.in">veena.s@isbr.in</a></div>
+                    <div class="member-link"><a href="https://www.isbr.in/core-faculty-team.html" target="_blank">https://www.isbr.in/core-faculty-team.html</a></div>
+                </div>
+
+                <div class="member-item">
+                    <div class="member-name">Dr. Asha Albuquerque Pai</div>
+                    <div class="member-details">Assistant Professor (Senior Scale) at PSPH, Manipal,Udupi, Karnataka</div>
+                    <div class="member-email">E-mail: <a href="mailto:asha.pai@manipal.edu">asha.pai@manipal.edu</a></div>
+                    <div class="member-link"><a href="https://www.manipal.edu/psph/department-faculty/faculty-list/Ashapai/_jcr_content.html" target="_blank">https://www.manipal.edu/psph/department-faculty/faculty-list/Ashapai/_jcr_content.html</a></div>
+                </div>
+            </div>
+
+            <!-- Advisory Board Section -->
+            <div class="board-section">
+                <h3>Advisory Board</h3>
+                
+                <div class="member-item">
+                    <div class="member-name">Dr. Steevan Pinto</div>
+                    <div class="member-details">Chairman, NIPM Mangaluru Chapter and Researcher, School of Humanities, Social Sciences & Management at NITK, Surathkal, Mangaluru, D.K.,Karnataka</div>
+                    <div class="member-email">E-mail: <a href="mailto:steevmsw@gmail.com">steevmsw@gmail.com</a></div>
+                </div>
+
+                <div class="member-item">
+                    <div class="member-name">Dr. Laxmish Rai</div>
+                    <div class="member-details">Secretary, NIPM Mangaluru Chapter and Director – M/s SKF Elixer India Pvt. Ltd, Mangaluru, D.K., Karnataka</div>
+                    <div class="member-email">E-mail: <a href="mailto:rai.laxmish15@gmail.com">rai.laxmish15@gmail.com</a></div>
+                </div>
+
+                <div class="member-item">
+                    <div class="member-name">Mr. Naveen Shankar Naik</div>
+                    <div class="member-details">Member – NIPM, Mangaluru, Karnataka</div>
+                    <div class="member-email">E-mail: <a href="mailto:sathynaveehnhr@gmail.com">sathynaveehnhr@gmail.com</a></div>
+                </div>
+
+                <div class="member-item">
+                    <div class="member-name">Ms. Arundathi Hegde</div>
+                    <div class="member-details">Deputy Director - IISDR, Mangaluru, Karnataka</div>
+                    <div class="member-email">E-mail: <a href="mailto:ucwtoffice@gmail.com">ucwtoffice@gmail.com</a></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Search Widget -->
+            <div class="sidebar-widget">
+                <h3>Search</h3>
+                <div class="search-box">
+                    <input type="text" placeholder="Search...">
+                    <button>🔍 Search</button>
+                </div>
+            </div>
+
+            <!-- Recent News Widget -->
+            <div class="sidebar-widget">
+                <h3>Recent news</h3>
+                <ul class="recent-news-list">
+                    <li class="recent-news-item">
+                        <div class="news-thumbnail" style="background-color: #f0f0f0; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #666;">Healthcare</div>
+                        <div class="news-content">
+                            <a href="#">Healthcare</a>
+                            <span class="news-date">📅 March 20, 2024</span>
+                        </div>
+                    </li>
+                    <li class="recent-news-item">
+                        <div class="news-thumbnail" style="background-color: #f0f0f0; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #666;">Volunteering</div>
+                        <div class="news-content">
+                            <a href="#">Volunteering Clean</a>
+                            <span class="news-date">📅 October 24, 2024</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+                        </div>
+                    </li>
+                    <li class="recent-news-item">
+                        <div class="news-thumbnail">Image</div>
+                        <div class="news-content">
+                            <a href="#">Community Outreach Program</a>
+                            <span class="news-date">15 Apr 2026</span>
+                        </div>
+                    </li>
+                    <li class="recent-news-item">
+                        <div class="news-thumbnail">Image</div>
+                        <div class="news-content">
+                            <a href="#">New Board Members Announced</a>
+                            <span class="news-date">05 Apr 2026</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p><strong>IISDR:</strong></p>
+                <p>123, Institutional Complex<br>New Delhi - 110016<br>Phone: +91-11-XXXX-XXXX<br>Email: info@iisdr.org</p>
+                <p style="margin-top: 15px;"><strong>UCWT:</strong></p>
+                <p>456, Welfare Building<br>New Delhi - 110001<br>Phone: +91-11-YYYY-YYYY<br>Email: contact@ucwt.org</p>
+            </div>
+            <div class="footer-section">
+                <h4>Important Links</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="#">Copyright Policy</a></li>
+                    <li><a href="iisdr_disclaimer.html">Disclaimer</a></li>
+                    <li><a href="#">Feedback</a></li>
+                    <li><a href="#">Help</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Website Policies</h4>
+                <ul>
+                    <li><a href="#">Website Accessibility</a></li>
+                    <li><a href="#">Help & Support</a></li>
+                    <li><a href="#">Contact Webmaster</a></li>
+                    <li><a href="#">Visitor Feedback</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Designed and Developed by [Placeholder]. © 2026 Utkarsh Charitable and Welfare Trust. All rights reserved.</p>
+            <p>Last Updated: 20 April 2026 | Visitor Counter: 125,430</p>
+        </div>
+    </footer>
+</body>
+</html>

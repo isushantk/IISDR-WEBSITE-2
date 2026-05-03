@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Author Guidelines - IISDR</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        /* Header */
+        .header {
+            background-color: #ffffff;
+            border-bottom: 3px solid #003d99;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo-placeholder {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+
+        .header-text {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .header-text p {
+            margin: 0;
+            line-height: 1.2;
+            color: #003d99;
+            font-weight: 600;
+        }
+
+        .header-text .header-text-hi {
+            font-size: 1.15rem;
+        }
+
+        .header-text .header-text-kn {
+            font-size: 1.05rem;
+        }
+
+        .header-text .header-text-en {
+            font-size: 1.7rem;
+            font-weight: 700;
+            letter-spacing: 0.4px;
+        }
+
+        .header-right {
+            display: flex;
+            gap: 15px;
+        }
+
+        .logo-box {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .logo-box img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+
+        .logo-box p {
+            font-size: 11px;
+            color: #666;
+        }
+
+        /* Navigation */
+        .navbar {
+            background-color: #003d99;
+            display: flex;
+            width: 100%;
+            border-bottom: 3px solid #ff9933;
+            position: relative;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            flex: 1;
+        }
+
+        .nav-links li {
+            border-right: 1px solid #002d77;
+        }
+
+        .nav-links li:last-child {
+            border-right: none;
+        }
+
+        .nav-links a {
+            display: block;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 15px 18px;
+            font-size: 0.95rem;
+            font-weight: normal;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background-color: #002d77;
+            color: #ff9933;
+            border-bottom-color: #ff9933;
+        }
+
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown > a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-dropdown > a::after {
+            content: "\25BC";
+            font-size: 0.7rem;
+            margin-left: 4px;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #ffffff;
+            min-width: 250px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            border: 1px solid #cccccc;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu li {
+            border: none;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 12px 18px;
+            color: #003d99;
+            text-decoration: none;
+            border-bottom: 1px solid #e8e8e8;
+            transition: all 0.3s ease;
+            font-weight: normal;
+            border-bottom-color: transparent;
+        }
+
+        .dropdown-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f5f5f5;
+            color: #ff9933;
+            padding-left: 22px;
+        }
+
+        .nav-search {
+            padding: 12px 15px;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            border-left: 1px solid #002d77;
+        }
+
+        .nav-search input {
+            padding: 6px 10px;
+            border: 1px solid #cccccc;
+            border-radius: 2px;
+            font-size: 0.9rem;
+            width: 180px;
+        }
+
+        .nav-search button {
+            background-color: #ff9933;
+            color: #ffffff;
+            border: 1px solid #ff9933;
+            padding: 6px 12px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .nav-search button:hover {
+            background-color: #e68a1f;
+            border-color: #e68a1f;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300"><rect fill="%238B7355" width="1200" height="300"/></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Main Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            max-width: 1200px;
+            margin: 20px auto;
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        .content {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            padding: 25px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        .content h2 {
+            color: #003d99;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #ff9933;
+            padding-bottom: 10px;
+        }
+
+        .content h3 {
+            color: #003d99;
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 18px;
+            margin-bottom: 10px;
+        }
+
+        .content p {
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 12px;
+            color: #333;
+        }
+
+        .content ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .content ul li {
+            margin-bottom: 8px;
+        }
+
+        .content a {
+            color: #003d99;
+            text-decoration: none;
+        }
+
+        .content a:hover {
+            text-decoration: underline;
+        }
+
+        .instructions-section {
+            margin-bottom: 25px;
+        }
+
+        .bullet-list {
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        .bullet-list li {
+            margin-bottom: 6px;
+            font-size: 13px;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .sidebar-widget {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        .sidebar-widget h3 {
+            color: #003d99;
+            font-size: 14px;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #ff9933;
+            padding-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #ddd;
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+
+        .search-box button {
+            width: 100%;
+            padding: 8px;
+            background-color: #003d99;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .search-box button:hover {
+            background-color: #002d77;
+        }
+
+        .recent-news-item {
+            display: flex;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .recent-news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-image {
+            width: 60px;
+            height: 60px;
+            background-color: #ddd;
+            border: 1px solid #ccc;
+            flex-shrink: 0;
+        }
+
+        .news-content {
+            flex-grow: 1;
+        }
+
+        .news-title {
+            font-size: 12px;
+            font-weight: bold;
+            color: #003d99;
+            margin-bottom: 4px;
+        }
+
+        .news-date {
+            font-size: 11px;
+            color: #999;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .categories-list {
+            list-style: none;
+        }
+
+        .categories-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .categories-list li:last-child {
+            border-bottom: none;
+        }
+
+        .categories-list a {
+            color: #003d99;
+            text-decoration: none;
+            flex-grow: 1;
+        }
+
+        .categories-list a:hover {
+            text-decoration: underline;
+        }
+
+        .count-badge {
+            background-color: #138808;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            color: #003d99;
+            padding: 5px 10px;
+            font-size: 11px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .tag:hover {
+            background-color: #e8e8e8;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #003d99;
+            color: white;
+            padding: 30px;
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            font-size: 12px;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 12px;
+            font-size: 13px;
+            border-bottom: 2px solid #ff9933;
+            padding-bottom: 8px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+            color: #ff9933;
+        }
+
+        .footer-contact {
+            line-height: 1.8;
+        }
+
+        .footer-bottom {
+            background-color: #002d77;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 11px;
+            margin-top: 20px;
+            grid-column: 1 / -1;
+        }
+
+        .publication-info {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            margin-top: 20px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .publication-info p {
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+            }
+
+            .search-bar {
+                margin-left: 0;
+                width: 100%;
+                margin-top: 10px;
+            }
+
+            .footer {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-left">
+            <img src="iisdr-logo.png" alt="IISDR Logo" class="logo-placeholder">
+            <div class="header-text">
+                <p class="header-text-hi">भारतीय कौशल विकास एवं अनुसंधान संस्थान</p>
+                <p class="header-text-kn">ಇಂಡಿಯನ್ ಇನ್ಸ್ಟಿಟ್ಯೂಟ್ ಆಫ್ ಸ್ಕಿಲ್ ಡೆವಲಪ್ಮೆಂಟ್ ಅಂಡ್ ರಿಸರ್ಚ್</p>
+                <p class="header-text-en">INDIAN INSTITUTE OF SKILL DEVELOPMENT AND RESEARCH</p>
+            </div>
+        </div>
+        <div class="header-right">
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="iisdr_about_us.html">About Us</a></li>
+            <li><a href="iisdr_programs.html">Programs</a></li>
+            <li class="nav-dropdown">
+                <a href="#">MoU Partner</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Infosys Limited</a></li>
+                    <li><a href="#">TCS (Tata Consultancy Services)</a></li>
+                    <li><a href="#">MSNIM - Manel Srinivasa Nayak Institute</a></li>
+                    <li><a href="#">Department of Hospital Administration</a></li>
+                    <li><a href="#">Utkarsh Charitable &amp; Welfare Trust</a></li>
+                </ul>
+            </li>
+            <li><a href="iisdr_information_bulletins.html">Information Bulletins</a></li>
+            <li class="nav-dropdown">
+                <a href="#">E-Journal</a>
+                <ul class="dropdown-menu">
+                    <li><a href="iisdr_ejournal_about_thrive.html">About THRIVE</a></li>
+                    <li><a href="iisdr_journal_particulars.html">Journal Particulars</a></li>
+                    <li><a href="iisdr_editorial_board.html">Editorial Board</a></li>
+                    <li><a href="iisdr_author_guidelines.html" class="active">Author Guidelines</a></li>
+                    <li><a href="iisdr_ejournal.html">E-Journal</a></li>
+                    <li><a href="iisdr_disclaimer.html">Disclaimer</a></li>
+                    <li><a href="iisdr_ejournal_contact_us.html">Contact Us</a></li>
+                </ul>
+            </li>
+            <li><a href="iisdr_certification.html">Certification Programs</a></li>
+            <li><a href="iisdr_ejournal_contact_us.html">Contact Us</a></li>
+        </ul>
+        <div class="nav-search">
+            <input type="text" placeholder="Search IISDR..." aria-label="Search website">
+            <button aria-label="Submit search">&#128269;</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Author Guidelines</h1>
+    </div>
+
+    <!-- Main Grid -->
+    <div class="main-grid">
+        <!-- Main Content -->
+        <div class="content">
+            <!-- Instructions Section -->
+            <h2>Instructions to Authors:</h2>
+            <p>The authors are requested to submit the original manuscripts which are not published in any other journal or not under consideration for publication.</p>
+            <p>Prepare your Manuscript for Online Submission as indicated below. These standards are necessary for peer-reviewing.</p>
+            
+            <ul class="bullet-list">
+                <li>Submitted papers should be in English Language.</li>
+                <li>Manuscript should be submitted as a MS word Document.</li>
+                <li>Manuscript should be prepared as per journal guidelines.</li>
+                <li>All papers are subjected to scientific peer review.</li>
+                <li>All papers must be submitted online through <a href="mailto:ddiisdr@gmail.com">ddiisdr@gmail.com</a></li>
+            </ul>
+
+            <!-- Requirements Section -->
+            <div class="instructions-section">
+                <h3>1. Requirements for submission of an article:</h3>
+                <ul class="bullet-list">
+                    <li>The author's name, address, email address, and mobile number should be included in the cover letter for correspondence.</li>
+                    <li>The letter should provide a brief summary of what is previously known and what new information the submitted work has added to the field.</li>
+                    <li>The document's title.</li>
+                    <li>Names and initials of the authors.</li>
+                </ul>
+            </div>
+
+            <!-- Abbreviations Section -->
+            <div class="instructions-section">
+                <h3>2. Abbreviations:</h3>
+                <p>When an acronym appears in the text for the first time, it should be defined.</p>
+            </div>
+
+            <!-- Manuscript Preparation Section -->
+            <div class="instructions-section">
+                <h3>3. Manuscript Preparation:</h3>
+                <p>The format of all original research publications should like this:</p>
+
+                <h3 style="margin-top: 15px;">I. Title</h3>
+                <p>The title should be concise and reflect the entire work of the submitted manuscript.</p>
+
+                <h3>II. Abstract</h3>
+                <p>Abstract must consist of the purpose of the work, methods used in the study, key findings and the major conclusions of the research works, not more than 300 words. The abstract should be followed by 3 to 4 keywords.</p>
+
+                <h3>III. Main Text:</h3>
+                <p>Main text will consist of Introduction, Literature review, Methodology, hypothesis, analysis and findings in detail.</p>
+
+                <h3>IV. Conclusion:</h3>
+                <p>Give the major conclusion from the present study. This section may stand alone or be clubbed together with discussion.</p>
+
+                <h3>V. References:</h3>
+                <p>Place the references at the end of the manuscript in American Psychological Association (APA) format.</p>
+            </div>
+
+            <!-- Publication Information -->
+            <div class="publication-info">
+                <h3 style="margin-top: 0;">Publication Information:</h3>
+                <p><strong>THRIVE</strong> is published biannually in January and June every year. All editorial correspondence should address to the editor by email to <a href="mailto:ddiisdr@gmail.com">ddiisdr@gmail.com</a></p>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Search Widget -->
+            <div class="sidebar-widget">
+                <h3>Search</h3>
+                <div class="search-box">
+                    <input type="text" placeholder="Enter keywords...">
+                    <button>Search</button>
+                </div>
+            </div>
+
+            <!-- Recent News Widget -->
+            <div class="sidebar-widget">
+                <h3>Recent news</h3>
+                
+                <div class="recent-news-item">
+                    <div class="news-image"></div>
+                    <div class="news-content">
+                        <div class="news-title">Healthcare</div>
+                        <div class="news-date">📅 March 20, 2024</div>
+                    </div>
+                </div>
+
+                <div class="recent-news-item">
+                    <div class="news-image"></div>
+                    <div class="news-content">
+                        <div class="news-title">Volunteering Clean</div>
+                        <div class="news-date">📅 October 24, 2024</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categories Widget -->
+            <div class="sidebar-widget">
+                <h3>Categories</h3>
+                <ul class="categories-list">
+                    <li>
+                        <a href="#">Drinking water</a>
+                        <span class="count-badge">20</span>
+                    </li>
+                    <li>
+                        <a href="#">Food Donation</a>
+                        <span class="count-badge">30</span>
+                    </li>
+                    <li>
+                        <a href="#">Children Education</a>
+                        <span class="count-badge">10</span>
+                    </li>
+                    <li>
+                        <a href="#">Poverty Development</a>
+                        <span class="count-badge">15</span>
+                    </li>
+                    <li>
+                        <a href="#">Clothing Donation</a>
+                        <span class="count-badge">20</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Tags Widget -->
+            <div class="sidebar-widget">
+                <h3>Tags</h3>
+                <div class="tags">
+                    <a href="#" class="tag">Donation</a>
+                    <a href="#" class="tag">Clothing</a>
+                    <a href="#" class="tag">Food</a>
+                    <a href="#" class="tag">Child</a>
+                    <a href="#" class="tag">Education</a>
+                    <a href="#" class="tag">Poverty</a>
+                    <a href="#" class="tag">Clean Water</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#">Our Story</a></li>
+                <li><a href="#">Newsroom</a></li>
+                <li><a href="#">Causes</a></li>
+                <li><a href="#">Become a volunteer</a></li>
+                <li><a href="#">Partner with us</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Policies & Guidelines</h4>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Use</a></li>
+                <li><a href="#">Copyright Policy</a></li>
+                <li><a href="iisdr_disclaimer.html">Disclaimer</a></li>
+                <li><a href="#">Website Policies</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section footer-contact">
+            <h4>Contact Information</h4>
+            <p><strong>IISDR:</strong> info@iisdr.org | +91 9036067963</p>
+            <p><strong>UCWT:</strong> ucwtmir@gmail.com | +91 9876543210</p>
+            <div style="margin-top: 15px;">
+                <a href="#">Get Direction</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p><strong>Designed and Developed by</strong> IISDR Tech Team | © 2026 Utkarsh Charitable and Welfare Trust. All rights reserved.<br>
+            Last Updated: April 26, 2026 | Visitor Count: <strong>15,243</strong></p>
+        </div>
+    </div>
+</body>
+</html>

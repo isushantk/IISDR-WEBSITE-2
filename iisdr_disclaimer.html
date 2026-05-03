@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Disclaimer - THRIVE E-Journal by IISDR">
+    <title>Disclaimer - E-Journal</title>
+    <style>
+        /* ============================================
+           GLOBAL STYLES & CSS RESET
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: Arial, 'Helvetica Neue', sans-serif;
+            color: #333333;
+            background-color: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            color: #003d99;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #ff9933;
+        }
+
+        button {
+            font-family: Arial, sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid #cccccc;
+            background-color: #f5f5f5;
+            padding: 8px 12px;
+        }
+
+        button:hover {
+            background-color: #e8e8e8;
+        }
+
+        button:focus {
+            outline: 3px solid #ff9933;
+            outline-offset: 2px;
+        }
+
+        /* ============================================
+           MAIN HEADER
+           ============================================ */
+        .main-header {
+            background-color: #ffffff;
+            padding: 30px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #003d99;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-left {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex: 1;
+        }
+
+        .logo-placeholder {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .header-text {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .header-text p {
+            margin: 0;
+            line-height: 1.2;
+            color: #003d99;
+            font-weight: 600;
+        }
+
+        .header-text .header-text-hi {
+            font-size: 1.15rem;
+        }
+
+        .header-text .header-text-kn {
+            font-size: 1.05rem;
+        }
+
+        .header-text .header-text-en {
+            font-size: 1.7rem;
+            font-weight: 700;
+            letter-spacing: 0.4px;
+        }
+
+        .header-right {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .secondary-logo {
+            width: 70px;
+            height: 70px;
+            background-color: #f5f5f5;
+            border: 1px solid #cccccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 3px;
+            font-size: 0.65rem;
+            text-align: center;
+            padding: 5px;
+            color: #999999;
+        }
+
+        /* ============================================
+           NAVIGATION BAR
+           ============================================ */
+        .nav-bar {
+            background-color: #003d99;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0;
+            border-bottom: 3px solid #ff9933;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            flex: 1;
+        }
+
+        .nav-links li {
+            border-right: 1px solid #002d77;
+        }
+
+        .nav-links li:last-child {
+            border-right: none;
+        }
+
+        .nav-links a {
+            display: block;
+            padding: 15px 18px;
+            color: #ffffff;
+            font-weight: normal;
+            font-size: 0.95rem;
+            text-decoration: none;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background-color: #002d77;
+            color: #ff9933;
+            border-bottom-color: #ff9933;
+        }
+
+        /* ============================================
+           DROPDOWN MENU STYLES
+           ============================================ */
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown > a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-dropdown > a::after {
+            content: "▼";
+            font-size: 0.7rem;
+            margin-left: 4px;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #ffffff;
+            min-width: 250px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            border: 1px solid #cccccc;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 12px 18px;
+            color: #003d99;
+            text-decoration: none;
+            border-bottom: 1px solid #e8e8e8;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f5f5f5;
+            color: #ff9933;
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* ============================================
+           HERO BANNER
+           ============================================ */
+        .hero-banner {
+            background: linear-gradient(135deg, #003d99 0%, #002d77 100%);
+            color: #ffffff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .hero-banner h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        /* ============================================
+           BREADCRUMB
+           ============================================ */
+        .breadcrumb {
+            background-color: #f9f9f9;
+            padding: 12px 20px;
+            font-size: 0.9rem;
+            color: #666666;
+            border-bottom: 1px solid #e8e8e8;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb a {
+            color: #003d99;
+        }
+
+        .breadcrumb a:hover {
+            color: #ff9933;
+            text-decoration: underline;
+        }
+
+        /* ============================================
+           MAIN CONTENT GRID
+           ============================================ */
+        .about-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .about-content {
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #cccccc;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+        }
+
+        .about-content h2 {
+            font-size: 1.4rem;
+            color: #003d99;
+            font-weight: bold;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ff9933;
+        }
+
+        .about-content p {
+            margin-bottom: 15px;
+            text-align: justify;
+            line-height: 1.8;
+        }
+
+        .about-content strong {
+            color: #003d99;
+            font-weight: bold;
+        }
+
+        /* ============================================
+           SIDEBAR
+           ============================================ */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .search-box {
+            background-color: #ffffff;
+            padding: 15px;
+            border: 1px solid #cccccc;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid #cccccc;
+            border-radius: 3px;
+            font-size: 0.9rem;
+        }
+
+        .search-box input:focus {
+            outline: 2px solid #ff9933;
+            border-color: #ff9933;
+        }
+
+        .search-box button {
+            padding: 8px 15px;
+            background-color: #003d99;
+            color: #ffffff;
+            border: none;
+            border-radius: 3px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-box button:hover {
+            background-color: #002d77;
+        }
+
+        /* ============================================
+           CATEGORIES SECTION
+           ============================================ */
+        .categories-section {
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #cccccc;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+        }
+
+        .categories-section h3 {
+            font-size: 1.1rem;
+            color: #138808;
+            font-weight: bold;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #ff9933;
+            padding-bottom: 10px;
+        }
+
+        .category-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .category-item:last-child {
+            border-bottom: none;
+        }
+
+        .category-item a {
+            color: #003d99;
+            flex: 1;
+        }
+
+        .category-item a:hover {
+            color: #ff9933;
+            text-decoration: underline;
+        }
+
+        .category-count {
+            background-color: #003d99;
+            color: #ffffff;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        /* ============================================
+           TAGS SECTION
+           ============================================ */
+        .tags-section {
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #cccccc;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+        }
+
+        .tags-section h3 {
+            font-size: 1.1rem;
+            color: #138808;
+            font-weight: bold;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #ff9933;
+            padding-bottom: 10px;
+        }
+
+        .tags-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #f5f5f5;
+            color: #003d99;
+            padding: 5px 10px;
+            border: 1px solid #cccccc;
+            border-radius: 3px;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            background-color: #003d99;
+            color: #ffffff;
+            border-color: #003d99;
+        }
+
+        /* ============================================
+           RECENT NEWS SECTION
+           ============================================ */
+        .recent-news {
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #cccccc;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+        }
+
+        .recent-news h3 {
+            font-size: 1.1rem;
+            color: #138808;
+            font-weight: bold;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #ff9933;
+            padding-bottom: 10px;
+        }
+
+        .news-item {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 12px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .news-thumbnail {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #003d99 0%, #ff9933 100%);
+            border: 1px solid #cccccc;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: #ffffff;
+            font-weight: bold;
+            text-align: center;
+            padding: 5px;
+        }
+
+        .news-content h4 {
+            font-size: 0.95rem;
+            color: #003d99;
+            font-weight: bold;
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+
+        .news-content h4 a {
+            color: #003d99;
+            text-decoration: none;
+        }
+
+        .news-content h4 a:hover {
+            color: #ff9933;
+            text-decoration: underline;
+        }
+
+        .news-date {
+            font-size: 0.8rem;
+            color: #999999;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            background-color: #1a1a1a;
+            color: #cccccc;
+            padding: 30px 20px;
+            margin-top: 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1.5fr 1.2fr 1.2fr;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+
+        .footer-section {
+            border-right: 1px solid #444444;
+            padding-right: 20px;
+        }
+
+        .footer-section:last-child {
+            border-right: none;
+            padding-right: 0;
+        }
+
+        .footer-section h3 {
+            color: #ff9933;
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .footer-section p,
+        .footer-section li {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            margin-bottom: 6px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section a {
+            color: #99ccff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #ff9933;
+            text-decoration: underline;
+        }
+
+        .footer-contact-item {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444444;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #999999;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-bottom-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom-info span {
+            flex: 1;
+            text-align: center;
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
+        @media (max-width: 1024px) {
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+
+            .footer-section {
+                border-right: none;
+                border-bottom: 1px solid #444444;
+                padding-right: 0;
+                padding-bottom: 20px;
+            }
+
+            .footer-section:last-child {
+                border-bottom: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-left {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .hero-banner h1 {
+                font-size: 1.8rem;
+            }
+
+            .about-container {
+                padding: 15px 10px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .footer-section {
+                border-right: none;
+                border-bottom: 1px solid #444444;
+                padding-right: 0;
+                padding-bottom: 15px;
+            }
+
+            .footer-section:last-child {
+                border-bottom: none;
+            }
+        }
+
+        /* ============================================
+           ACCESSIBILITY
+           ============================================ */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background-color: #003d99;
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        :focus {
+            outline: 3px solid #ff9933;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- ============================================
+         MAIN HEADER
+         ============================================ -->
+    <header class="main-header">
+        <div class="header-left">
+            <img src="iisdr-logo.png" alt="IISDR Logo" class="logo-placeholder">
+            <div class="header-text">
+                <p class="header-text-hi">भारतीय कौशल विकास एवं अनुसंधान संस्थान</p>
+                <p class="header-text-kn">ಇಂಡಿಯನ್ ಇನ್ಸ್ಟಿಟ್ಯೂಟ್ ಆಫ್ ಸ್ಕಿಲ್ ಡೆವಲಪ್ಮೆಂಟ್ ಅಂಡ್ ರಿಸರ್ಚ್</p>
+                <p class="header-text-en">INDIAN INSTITUTE OF SKILL DEVELOPMENT AND RESEARCH</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================
+         NAVIGATION
+         ============================================ -->
+    <nav class="nav-bar" role="navigation" aria-label="Main navigation">
+        <ul class="nav-links">
+            <li><a href="iisdr_website.html">Home</a></li>
+            <li><a href="iisdr_about_us.html">About Us</a></li>
+            <li><a href="iisdr_programs.html">Programs</a></li>
+            <li class="nav-dropdown">
+                <a href="#">MoU Partner</a>
+                <div class="dropdown-menu">
+                    <a href="#">Infosys Limited</a>
+                    <a href="#">TCS (Tata Consultancy Services)</a>
+                    <a href="#">MSNIM - Manel Srinivasa Nayak Institute</a>
+                    <a href="#">Department of Hospital Administration</a>
+                    <a href="#">Utkarsh Charitable & Welfare Trust</a>
+                </div>
+            </li>
+            <li><a href="iisdr_information_bulletins.html">Information Bulletins</a></li>
+            <li class="nav-dropdown">
+                <a href="#">E-Journal</a>
+                <div class="dropdown-menu">
+                    <a href="iisdr_ejournal_about_thrive.html">About THRIVE</a>
+                    <a href="iisdr_journal_particulars.html">Journal Particulars</a>
+                    <a href="iisdr_editorial_board.html">Editorial Board</a>
+                    <a href="iisdr_author_guidelines.html">Author Guidelines</a>
+                    <a href="#">E-Journal</a>
+                    <a href="iisdr_disclaimer.html">Disclaimer</a>
+                    <a href="iisdr_ejournal_contact_us.html">Contact Us</a>
+                </div>
+            </li>
+            <li><a href="#">Certification</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- ============================================
+         HERO BANNER
+         ============================================ -->
+    <section class="hero-banner" role="region" aria-label="About THRIVE banner">
+        <h1>Disclaimer</h1>
+    </section>
+
+    <!-- ============================================
+         BREADCRUMB
+         ============================================ -->
+    <div class="breadcrumb">
+        <a href="iisdr_website.html">Home</a> / <a href="iisdr_ejournal.html">E-Journal</a> / <span>Disclaimer</span>
+    </div>
+
+    <!-- ============================================
+         MAIN CONTENT
+         ============================================ -->
+    <main id="main-content" class="about-container">
+        <!-- LEFT COLUMN: DISCLAIMER CONTENT -->
+        <article class="about-content">
+            <h2>Disclaimer</h2>
+            
+            <p>
+                The views expressed in the articles are those of the respective authors. Neither THRIVE Review nor the Indian Institute of Skill Development and Research can accept any responsibility, nor do they necessarily agree with those views expressed in the articles.
+            </p>
+
+            <p>
+                The publishers or editors do not take any responsibilities for the breach, if any, of Intellectual Property Rights of third parties. Errors, if any, are purely unintentional and readers are requested to communicate such errors to the editors or publishers to avoid discrepancies.
+            </p>
+
+            <p>
+                The editorial board will make every effort to ensure that no false or misleading information, claims, or opinions appear in this e-journal; however, the information and viewpoints contained in the articles, editorials, and advertising are the responsibility of the respective contributors.
+            </p>
+        </article>
+
+        <!-- RIGHT COLUMN: SIDEBAR -->
+        <aside class="sidebar">
+            <!-- Search Box -->
+            <div class="search-box">
+                <input type="text" placeholder="Search..." aria-label="Search disclaimer content">
+                <button aria-label="Submit search">🔍 Search</button>
+            </div>
+
+            <!-- Recent News -->
+            <div class="recent-news">
+                <h3>Recent news</h3>
+
+                <div class="news-item">
+                    <div class="news-thumbnail" style="background-color: #f0f0f0; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #666;">Healthcare</div>
+                    <div class="news-content">
+                        <h4><a href="#">Healthcare</a></h4>
+                        <div class="news-date">📅 March 20, 2024</div>
+                    </div>
+                </div>
+
+                <div class="news-item">
+                    <div class="news-thumbnail" style="background-color: #f0f0f0; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #666;">Volunteering</div>
+                    <div class="news-content">
+                        <h4><a href="#">Volunteering Clean</a></h4>
+                        <div class="news-date">📅 October 24, 2024</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="footer">
+        <div class="footer-content">
+            <!-- Section 1: Contact Information -->
+            <section class="footer-section">
+                <h3>Contact Information</h3>
+                <div class="footer-contact-item">
+                    <strong>IISDR</strong>
+                    <p>Indian Institute of Skill Development and Research</p>
+                    <p>Mangaluru, Karnataka, India</p>
+                    <p>📧 info@iisdr.org</p>
+                    <p>📞 +91 (0)824-2204XXX</p>
+                </div>
+                <div class="footer-contact-item">
+                    <strong>UCWT</strong>
+                    <p>Utkarsh Charitable and Welfare Trust</p>
+                    <p>📧 contact@ucwt.org</p>
+                </div>
+            </section>
+
+            <!-- Section 2: Important Links -->
+            <section class="footer-section">
+                <h3>Important Links</h3>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="#">Copyright Policy</a></li>
+                    <li><a href="iisdr_disclaimer.html">Disclaimer</a></li>
+                    <li><a href="#">Accessibility Statement</a></li>
+                </ul>
+            </section>
+
+            <!-- Section 3: Support -->
+            <section class="footer-section">
+                <h3>Support & Feedback</h3>
+                <ul>
+                    <li><a href="#">Website Policies</a></li>
+                    <li><a href="#">Help & FAQs</a></li>
+                    <li><a href="#">Send Feedback</a></li>
+                    <li><a href="#">Report an Issue</a></li>
+                </ul>
+            </section>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="footer-bottom-info">
+                <span>Designed and Developed by [Placeholder]. © 2026 Utkarsh Charitable and Welfare Trust. All rights reserved.</span>
+                <span>Last Updated: April 26, 2026</span>
+                <span>Visitors: 📊 Counter</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

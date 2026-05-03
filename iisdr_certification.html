@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="IISDR Certification Program Authentication - Sign in or create an account to access IISDR certification programs.">
+    <meta name="keywords" content="IISDR, certification, login, sign in, OTP, phone verification, email">
+    <title>Certification Program Login – IISDR</title>
+    <style>
+        /* ============================================
+           GLOBAL RESET & BASE
+           ============================================ */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        body {
+            font-family: Arial, 'Helvetica Neue', sans-serif;
+            color: #333333;
+            background-color: #f0f4fc;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        a { color: #003d99; text-decoration: none; transition: color 0.2s; }
+        a:hover { color: #ff9933; }
+
+        button {
+            font-family: Arial, sans-serif;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        /* ============================================
+           HEADER
+           ============================================ */
+        .main-header {
+            background-color: #ffffff;
+            padding: 18px 24px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            border-bottom: 3px solid #003d99;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.10);
+        }
+
+        .logo-placeholder {
+            width: 68px;
+            height: 68px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .header-text p { margin: 0; line-height: 1.25; color: #003d99; font-weight: 600; }
+        .header-text .header-text-hi { font-size: 1rem; }
+        .header-text .header-text-kn { font-size: 0.92rem; }
+        .header-text .header-text-en { font-size: 1.5rem; font-weight: 700; letter-spacing: 0.3px; }
+
+        /* ============================================
+           MAIN NAVIGATION BAR
+           ============================================ */
+        .nav-bar {
+            background-color: #003d99;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0;
+            border-bottom: 3px solid #ff9933;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            flex: 1;
+        }
+
+        .nav-links li {
+            border-right: 1px solid #002d77;
+        }
+
+        .nav-links li:last-child {
+            border-right: none;
+        }
+
+        .nav-links a {
+            display: block;
+            padding: 15px 18px;
+            color: #ffffff;
+            font-weight: normal;
+            font-size: 0.95rem;
+            text-decoration: none;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background-color: #002d77;
+            color: #ff9933;
+            border-bottom-color: #ff9933;
+        }
+
+        /* ============================================
+           DROPDOWN MENU STYLES
+           ============================================ */
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown > a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-dropdown > a::after {
+            content: "▼";
+            font-size: 0.7rem;
+            margin-left: 4px;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #ffffff;
+            min-width: 250px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            border: 1px solid #cccccc;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 12px 18px;
+            color: #003d99;
+            text-decoration: none;
+            border-bottom: 1px solid #e8e8e8;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f5f5f5;
+            color: #ff9933;
+            border-bottom: none;
+            padding-left: 22px;
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .nav-dropdown > a.active {
+            background-color: #002d77;
+            color: #ff9933;
+            border-bottom-color: #ff9933;
+        }
+
+        .nav-search {
+            padding: 12px 15px;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            border-left: 1px solid #002d77;
+        }
+
+        .nav-search input {
+            padding: 6px 10px;
+            border: 1px solid #cccccc;
+            border-radius: 2px;
+            font-size: 0.9rem;
+            width: 180px;
+        }
+
+        .nav-search button {
+            background-color: #ff9933;
+            color: #ffffff;
+            border: 1px solid #ff9933;
+            padding: 6px 12px;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+
+        .nav-search button:hover {
+            background-color: #e68a1f;
+            border-color: #e68a1f;
+        }
+
+        /* ============================================
+           PAGE WRAPPER
+           ============================================ */
+        .cert-page-wrapper {
+            min-height: calc(100vh - 160px);
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 48px 20px 60px;
+            background: linear-gradient(135deg, #e8eef9 0%, #f0f4fc 60%, #e8f0fe 100%);
+        }
+
+        .cert-page-inner {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 40px;
+            max-width: 1000px;
+            width: 100%;
+            align-items: start;
+        }
+
+        /* ============================================
+           LEFT INFO PANEL
+           ============================================ */
+        .cert-info-panel {
+            padding-top: 8px;
+        }
+
+        .cert-info-badge {
+            display: inline-block;
+            background-color: #ff9933;
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .cert-info-panel h1 {
+            font-size: 2rem;
+            color: #003d99;
+            font-weight: 700;
+            line-height: 1.25;
+            margin-bottom: 14px;
+        }
+
+        .cert-info-panel h1 span {
+            color: #ff9933;
+        }
+
+        .cert-info-panel p {
+            color: #555;
+            font-size: 0.96rem;
+            line-height: 1.75;
+            margin-bottom: 22px;
+        }
+
+        .cert-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+
+        .cert-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.93rem;
+            color: #444;
+        }
+
+        .cert-features li .feat-icon {
+            width: 32px;
+            height: 32px;
+            background-color: #003d99;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
+        .cert-back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.88rem;
+            color: #003d99;
+            font-weight: 600;
+            border: 1.5px solid #003d99;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .cert-back-link:hover {
+            background-color: #003d99;
+            color: #ffffff;
+        }
+
+        /* ============================================
+           AUTH CARD
+           ============================================ */
+        .auth-card {
+            background-color: #ffffff;
+            border: 1px solid #d0d8ef;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 61, 153, 0.10);
+            padding: 28px 26px;
+        }
+
+        .auth-card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #003d99;
+            margin-bottom: 4px;
+        }
+
+        .auth-card-subtitle {
+            font-size: 0.83rem;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        /* Message banner */
+        .auth-message {
+            display: none;
+            padding: 9px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin-bottom: 14px;
+            background-color: #fff4e5;
+            border: 1px solid #ffcc80;
+            color: #7a4c00;
+        }
+
+        .auth-message.error {
+            background-color: #fdecea;
+            border-color: #f5c6cb;
+            color: #a42828;
+        }
+
+        .auth-message.success {
+            background-color: #e7f4ea;
+            border-color: #a9d8b0;
+            color: #256029;
+        }
+
+        /* Google button wrapper */
+        #google-btn-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 4px;
+        }
+
+        /* Setup notice */
+        .setup-notice {
+            background: #fff8e1;
+            border: 1.5px solid #ffe082;
+            border-radius: 6px;
+            padding: 14px 16px;
+            font-size: 0.82rem;
+            color: #5d4037;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .setup-notice strong { color: #003d99; }
+        .setup-notice code {
+            background: #f5f5f5;
+            padding: 1px 5px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+        }
+        .setup-notice ol { margin: 8px 0 0 18px; }
+        .setup-notice ol li { margin-bottom: 4px; }
+
+        /* Divider */
+        .auth-divider {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 16px 0;
+            color: #999;
+            font-size: 0.8rem;
+        }
+
+        .auth-divider::before,
+        .auth-divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background-color: #e0e0e0;
+        }
+
+        /* Section heading inside card */
+        .auth-section-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: #003d99;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            padding-bottom: 4px;
+            border-bottom: 1.5px solid #e8eef9;
+        }
+
+        /* Form rows */
+        .auth-row {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-bottom: 12px;
+        }
+
+        .auth-row label {
+            font-size: 0.83rem;
+            color: #444;
+            font-weight: 600;
+        }
+
+        .auth-input {
+            padding: 10px 11px;
+            border: 1.5px solid #c8d4ed;
+            border-radius: 4px;
+            font-size: 0.93rem;
+            color: #333;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            background-color: #fafbff;
+        }
+
+        .auth-input:focus {
+            outline: none;
+            border-color: #003d99;
+            box-shadow: 0 0 0 3px rgba(0, 61, 153, 0.10);
+            background-color: #fff;
+        }
+
+        /* Phone row with inline button */
+        .phone-row {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 8px;
+            align-items: end;
+        }
+
+        .phone-row .auth-input { width: 100%; }
+
+        /* Buttons */
+        .auth-btn {
+            padding: 10px 14px;
+            background-color: #003d99;
+            color: #ffffff;
+            border: 1.5px solid #002d77;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            width: 100%;
+            transition: background 0.2s;
+        }
+
+        .auth-btn:hover { background-color: #002d77; }
+
+        .auth-btn.secondary {
+            background-color: #ffffff;
+            color: #003d99;
+            border: 1.5px solid #003d99;
+        }
+
+        .auth-btn.secondary:hover {
+            background-color: #e8eef9;
+        }
+
+        .auth-btn:disabled {
+            background-color: #e8e8e8;
+            color: #999;
+            border-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .auth-btn-inline {
+            padding: 10px 14px;
+            background-color: #003d99;
+            color: #fff;
+            border: 1.5px solid #002d77;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .auth-btn-inline:hover { background-color: #002d77; }
+        .auth-btn-inline:disabled { background-color: #ccc; border-color: #bbb; cursor: not-allowed; }
+
+        /* Email action buttons row */
+        .auth-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 4px;
+        }
+
+        /* Status bar */
+        .auth-status {
+            margin-top: 16px;
+            font-size: 0.82rem;
+            color: #666;
+            background-color: #f5f7fc;
+            border: 1px solid #dce4f5;
+            border-radius: 4px;
+            padding: 8px 12px;
+        }
+
+        .auth-status button {
+            background: none;
+            border: none;
+            color: #003d99;
+            text-decoration: underline;
+            padding: 0;
+            font-size: 0.82rem;
+            font-weight: 600;
+        }
+
+        /* reCAPTCHA container */
+        #recaptcha-container {
+            margin: 8px 0;
+            min-height: 30px;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .cert-footer {
+            background-color: #002d77;
+            color: #ccd6f6;
+            text-align: center;
+            padding: 16px 20px;
+            font-size: 0.82rem;
+        }
+
+        .cert-footer a { color: #ff9933; }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 800px) {
+            .cert-page-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .cert-info-panel h1 { font-size: 1.5rem; }
+
+            .auth-actions { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .main-header { padding: 14px 16px; gap: 12px; }
+            .header-text .header-text-en { font-size: 1.1rem; }
+            .logo-placeholder { width: 52px; height: 52px; }
+            .auth-card { padding: 20px 16px; }
+            .phone-row { grid-template-columns: 1fr; }
+        }
+
+        /* Accessibility */
+        :focus { outline: 3px solid #ff9933; outline-offset: 2px; }
+        .skip-link {
+            position: absolute; top: -40px; left: 0;
+            background-color: #003d99; color: #fff;
+            padding: 8px; text-decoration: none; z-index: 100;
+        }
+        .skip-link:focus { top: 0; }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- HEADER -->
+    <header class="main-header">
+        <img src="iisdr-logo.png" alt="IISDR Logo" class="logo-placeholder">
+        <div class="header-text">
+            <p class="header-text-hi">भारतीय कौशल विकास एवं अनुसंधान संस्थान</p>
+            <p class="header-text-kn">ಇಂಡಿಯನ್ ಇನ್ಸ್ಟಿಟ್ಯೂಟ್ ಆಫ್ ಸ್ಕಿಲ್ ಡೆವಲಪ್ಮೆಂಟ್ ಅಂಡ್ ರಿಸರ್ಚ್</p>
+            <p class="header-text-en">INDIAN INSTITUTE OF SKILL DEVELOPMENT AND RESEARCH</p>
+        </div>
+    </header>
+
+    <!-- MAIN NAVIGATION BAR -->
+    <nav class="nav-bar" role="navigation" aria-label="Main navigation">
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="iisdr_about_us.html">About Us</a></li>
+            <li><a href="iisdr_programs.html">Programs</a></li>
+            <li class="nav-dropdown">
+                <a href="#">MoU Partner</a>
+                <div class="dropdown-menu">
+                    <a href="#">Infosys Limited</a>
+                    <a href="#">TCS (Tata Consultancy Services)</a>
+                    <a href="#">MSNIM - Manel Srinivasa Nayak Institute</a>
+                    <a href="#">Department of Hospital Administration</a>
+                    <a href="#">Utkarsh Charitable &amp; Welfare Trust</a>
+                </div>
+            </li>
+            <li><a href="iisdr_information_bulletins.html">Information Bulletins</a></li>
+            <li class="nav-dropdown">
+                <a href="#">E-Journal</a>
+                <div class="dropdown-menu">
+                    <a href="iisdr_ejournal_about_thrive.html">About THRIVE</a>
+                    <a href="iisdr_journal_particulars.html">Journal Particulars</a>
+                    <a href="iisdr_editorial_board.html">Editorial Board</a>
+                    <a href="iisdr_author_guidelines.html">Author Guidelines</a>
+                    <a href="iisdr_ejournal.html">E-Journal</a>
+                    <a href="iisdr_disclaimer.html">Disclaimer</a>
+                    <a href="iisdr_ejournal_contact_us.html">Contact Us</a>
+                </div>
+            </li>
+            <li><a href="iisdr_certification.html" class="active">Certification Programs</a></li>
+            <li><a href="index.html#contact">Contact Us</a></li>
+        </ul>
+        <div class="nav-search">
+            <input type="text" placeholder="Search IISDR..." aria-label="Search website">
+            <button aria-label="Submit search">🔍</button>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <div class="cert-page-wrapper" id="main-content">
+        <div class="cert-page-inner">
+
+            <!-- LEFT: INFO PANEL -->
+            <div class="cert-info-panel">
+                <span class="cert-info-badge">Secure Access</span>
+                <h1>Certification Program <span>Login</span></h1>
+                <p>
+                    Access IISDR certification programs using your Google account.
+                    Sign in securely with one click — no separate password needed.
+                </p>
+                <ul class="cert-features">
+                    <li>
+                        <div class="feat-icon">G</div>
+                        <span>Sign in instantly with your Google account</span>
+                    </li>
+                    <li>
+                        <div class="feat-icon">🔒</div>
+                        <span>Secured and encrypted via Google OAuth 2.0</span>
+                    </li>
+                    <li>
+                        <div class="feat-icon">✅</div>
+                        <span>No separate password required — use your existing Google account</span>
+                    </li>
+                </ul>
+                <a href="index.html" class="cert-back-link">← Back to Homepage</a>
+            </div>
+
+            <!-- RIGHT: AUTH CARD -->
+            <div class="auth-card" role="main">
+                <div class="auth-card-title">Sign In to Certification Portal</div>
+                <div class="auth-card-subtitle">Use your Google account to access IISDR certification programs</div>
+
+                <!-- Status message -->
+                <div id="auth-message" class="auth-message" role="status" aria-live="polite"></div>
+
+                <!-- Setup notice (hidden once Client ID is set) -->
+                <div id="setup-notice" class="setup-notice">
+                    <strong>&#9888; One-time setup required:</strong><br>
+                    To activate Google Sign-In, replace <code>YOUR_GOOGLE_CLIENT_ID</code> in this file with your real Client ID.
+                    <ol>
+                        <li>Go to <strong>console.cloud.google.com</strong></li>
+                        <li>Create a project &rarr; APIs &amp; Services &rarr; Credentials</li>
+                        <li>Create <strong>OAuth 2.0 Client ID</strong> (Web application)</li>
+                        <li>Add your site URL to <em>Authorised JavaScript origins</em></li>
+                        <li>Copy the Client ID and paste it in the <code>GOOGLE_CLIENT_ID</code> constant below</li>
+                    </ol>
+                </div>
+
+                <!-- Google Sign-In button (rendered by GSI) -->
+                <div id="google-btn-wrapper"></div>
+
+                <!-- Signed-in user profile card (hidden by default) -->
+                <div id="user-profile" style="display:none; text-align:center; padding:16px 0;">
+                    <img id="user-avatar" src="" alt="" width="64" height="64"
+                         style="border-radius:50%; border:3px solid #003d99; margin-bottom:10px;">
+                    <div id="user-name" style="font-weight:700; font-size:1.05rem; color:#003d99;"></div>
+                    <div id="user-email" style="font-size:0.85rem; color:#777; margin-bottom:14px;"></div>
+                    <button id="auth-signout"
+                            style="background:#fff; color:#d32f2f; border:1.5px solid #d32f2f;
+                                   padding:8px 22px; border-radius:4px; font-size:0.88rem;
+                                   font-weight:600; cursor:pointer;">
+                        Sign Out
+                    </button>
+                </div>
+
+                <!-- Auth status bar -->
+                <div class="auth-status">
+                    Signed in as: <span id="auth-user">Not signed in</span>
+                    &nbsp;|&nbsp;
+                    <button id="auth-signout" type="button">Sign out</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="cert-footer">
+        &copy; 2026 Utkarsh Charitable and Welfare Trust.
+        All rights reserved. &mdash; <a href="index.html">Back to IISDR Homepage</a>
+    </footer>
+
+    <!-- Google Identity Services -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script>
+        // ============================================
+        // STEP: Paste your Google OAuth Client ID here
+        // Get it from: console.cloud.google.com
+        //   → APIs & Services → Credentials → Create OAuth 2.0 Client ID
+        // ============================================
+        const GOOGLE_CLIENT_ID = '1049690915686-0453dfgdgs08ktv56r0g2orika5hem25.apps.googleusercontent.com';
+
+        const isConfigured = GOOGLE_CLIENT_ID !== 'YOUR_GOOGLE_CLIENT_ID';
+
+        // ── Helpers ─────────────────────────────────
+        function setAuthMessage(message, type = '') {
+            const el = document.getElementById('auth-message');
+            if (!el) return;
+            if (!message) { el.style.display = 'none'; el.textContent = ''; el.className = 'auth-message'; return; }
+            el.style.display = 'block';
+            el.textContent = message;
+            el.className = 'auth-message' + (type ? ' ' + type : '');
+        }
+
+        // Decode Google JWT credential
+        function parseJwt(token) {
+            try {
+                return JSON.parse(atob(token.split('.')[1].replace(/-/g, '+').replace(/_/g, '/')));
+            } catch(e) { return {}; }
+        }
+
+        function showUser(payload) {
+            const profile  = document.getElementById('user-profile');
+            const btnWrap  = document.getElementById('google-btn-wrapper');
+            const notice   = document.getElementById('setup-notice');
+            const statusEl = document.getElementById('auth-user');
+
+            document.getElementById('user-avatar').src = payload.picture || '';
+            document.getElementById('user-name').textContent  = payload.name  || 'Google User';
+            document.getElementById('user-email').textContent = payload.email || '';
+            statusEl.textContent = payload.name || payload.email || 'Google User';
+
+            if (profile)  profile.style.display  = 'block';
+            if (btnWrap)  btnWrap.style.display   = 'none';
+            if (notice)   notice.style.display    = 'none';
+            setAuthMessage('Signed in successfully with Google.', 'success');
+
+            // Persist session
+            sessionStorage.setItem('gsi_user', JSON.stringify(payload));
+        }
+
+        function signOut() {
+            sessionStorage.removeItem('gsi_user');
+            const profile  = document.getElementById('user-profile');
+            const btnWrap  = document.getElementById('google-btn-wrapper');
+            const statusEl = document.getElementById('auth-user');
+            if (profile) profile.style.display = 'none';
+            if (btnWrap) btnWrap.style.display  = 'flex';
+            statusEl.textContent = 'Not signed in';
+            setAuthMessage('Signed out.', 'success');
+            if (window.google && google.accounts && google.accounts.id) {
+                google.accounts.id.disableAutoSelect();
+            }
+        }
+
+        // ── Main init ───────────────────────────────
+        window.addEventListener('load', function () {
+            // Restore session if exists
+            const saved = sessionStorage.getItem('gsi_user');
+            if (saved) { showUser(JSON.parse(saved)); }
+
+            // Sign out button
+            const signoutBtn = document.getElementById('auth-signout');
+            if (signoutBtn) signoutBtn.addEventListener('click', signOut);
+
+            if (!isConfigured) {
+                // Show setup notice, keep button wrapper visible but don't render GSI button
+                return;
+            }
+
+            // Hide setup notice
+            const notice = document.getElementById('setup-notice');
+            if (notice) notice.style.display = 'none';
+
+            // Wait for GSI to load then initialize
+            function initGSI() {
+                if (!window.google || !google.accounts || !google.accounts.id) {
+                    setTimeout(initGSI, 200);
+                    return;
+                }
+
+                google.accounts.id.initialize({
+                    client_id: GOOGLE_CLIENT_ID,
+                    callback: function(response) {
+                        const payload = parseJwt(response.credential);
+                        showUser(payload);
+                    },
+                    auto_select: false,
+                    cancel_on_tap_outside: true
+                });
+
+                // Render the official Google button
+                google.accounts.id.renderButton(
+                    document.getElementById('google-btn-wrapper'),
+                    {
+                        theme: 'outline',
+                        size: 'large',
+                        width: 360,
+                        text: 'signin_with',
+                        shape: 'rectangular',
+                        logo_alignment: 'center'
+                    }
+                );
+
+                // Also show One Tap prompt
+                google.accounts.id.prompt();
+            }
+
+            initGSI();
+        });
+    </script>
+</body>
+</html>
