@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="IISDR Certification Program Authentication - Sign in or create an account to access IISDR certification programs.">
-    <meta name="keywords" content="IISDR, certification, login, sign in, OTP, phone verification, email">
-    <title>Certification Program Login – IISDR</title>
+    <meta name="description" content="IISDR Certification Programme - Enquire about industry-recognized skill development certification programs offered by the Indian Institute of Skill Development and Research.">
+    <meta name="keywords" content="IISDR, certification, skill development, enquiry, programs, training">
+    <title>Certification Programme – IISDR</title>
     <style>
         /* ============================================
            GLOBAL RESET & BASE
@@ -59,22 +59,9 @@
         /* ============================================
            MAIN NAVIGATION BAR
            ============================================ */
-        .nav-bar {
-            background-color: #003d99;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0;
-            border-bottom: 3px solid #ff9933;
-        }
+        
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            flex: 1;
-        }
+        
 
         .nav-links li {
             border-right: 1px solid #002d77;
@@ -194,339 +181,329 @@
         }
 
         /* ============================================
-           PAGE WRAPPER
+           ENQUIRY HERO SECTION
            ============================================ */
-        .cert-page-wrapper {
-            min-height: calc(100vh - 160px);
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            padding: 48px 20px 60px;
-            background: linear-gradient(135deg, #e8eef9 0%, #f0f4fc 60%, #e8f0fe 100%);
+        .cert-hero {
+            background: linear-gradient(135deg, #003d99 0%, #002d77 50%, #003d99 100%);
+            padding: 50px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .cert-hero::before {
+            content: "";
+            position: absolute;
+            top: -60px; right: -60px;
+            width: 220px; height: 220px;
+            background: radial-gradient(circle, rgba(255,153,51,0.12) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .cert-hero::after {
+            content: "";
+            position: absolute;
+            bottom: 20px; right: 30px;
+            width: 90px; height: 90px;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.12) 1px, transparent 1px);
+            background-size: 8px 8px;
         }
 
-        .cert-page-inner {
+        .cert-hero-container {
+            max-width: 1100px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr 420px;
+            grid-template-columns: 1.1fr 1fr;
             gap: 40px;
-            max-width: 1000px;
-            width: 100%;
-            align-items: start;
+            align-items: center;
+            position: relative;
+            z-index: 1;
         }
 
-        /* ============================================
-           LEFT INFO PANEL
-           ============================================ */
-        .cert-info-panel {
-            padding-top: 8px;
+        .cert-hero-left { color: #ffffff; }
+        .cert-hero-img {
+            width: 92%;
+            max-width: 440px;
+            border-radius: 14px;
+            box-shadow: 8px 8px 30px rgba(0,0,0,0.4);
+            transform: rotate(-3deg);
+            transition: transform 0.4s ease;
+            margin-bottom: 28px;
+            border: 3px solid rgba(255,153,51,0.3);
         }
+        .cert-hero-img:hover { transform: rotate(0deg) scale(1.02); }
 
-        .cert-info-badge {
-            display: inline-block;
+        .cert-hero-left h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            line-height: 1.3;
+            color: #ffffff;
+        }
+        .cert-hero-left .cert-batch {
+            font-size: 1.05rem;
+            color: #ff9933;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .cert-hero-left p {
+            font-size: 0.95rem;
+            color: #ccd6f6;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+        .cert-hero-features {
+            list-style: none;
+            margin-top: 16px;
+        }
+        .cert-hero-features li {
+            padding: 6px 0;
+            font-size: 0.9rem;
+            color: #e0e8ff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .cert-hero-features li::before {
+            content: "✓";
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px; height: 22px;
             background-color: #ff9933;
             color: #fff;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            padding: 4px 12px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            margin-bottom: 16px;
-        }
-
-        .cert-info-panel h1 {
-            font-size: 2rem;
-            color: #003d99;
-            font-weight: 700;
-            line-height: 1.25;
-            margin-bottom: 14px;
-        }
-
-        .cert-info-panel h1 span {
-            color: #ff9933;
-        }
-
-        .cert-info-panel p {
-            color: #555;
-            font-size: 0.96rem;
-            line-height: 1.75;
-            margin-bottom: 22px;
-        }
-
-        .cert-features {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-bottom: 28px;
-        }
-
-        .cert-features li {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.93rem;
-            color: #444;
-        }
-
-        .cert-features li .feat-icon {
-            width: 32px;
-            height: 32px;
-            background-color: #003d99;
-            color: #fff;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.85rem;
+            font-size: 0.7rem;
+            font-weight: 700;
             flex-shrink: 0;
         }
 
-        .cert-back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.88rem;
-            color: #003d99;
-            font-weight: 600;
-            border: 1.5px solid #003d99;
-            padding: 8px 16px;
-            border-radius: 4px;
-            transition: background 0.2s, color 0.2s;
-        }
-
-        .cert-back-link:hover {
-            background-color: #003d99;
-            color: #ffffff;
-        }
-
         /* ============================================
-           AUTH CARD
+           ENQUIRY FORM CARD
            ============================================ */
-        .auth-card {
-            background-color: #ffffff;
-            border: 1px solid #d0d8ef;
+        .cert-enquiry-card {
+            background: #ffffff;
             border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0, 61, 153, 0.10);
-            padding: 28px 26px;
+            padding: 30px 28px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            border-top: 4px solid #ff9933;
         }
-
-        .auth-card-title {
-            font-size: 1.1rem;
+        .cert-enquiry-card-title {
+            font-size: 1.15rem;
             font-weight: 700;
             color: #003d99;
             margin-bottom: 4px;
         }
-
-        .auth-card-subtitle {
-            font-size: 0.83rem;
+        .cert-enquiry-card-subtitle {
+            font-size: 0.82rem;
             color: #777;
             margin-bottom: 20px;
-        }
-
-        /* Message banner */
-        .auth-message {
-            display: none;
-            padding: 9px 12px;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            margin-bottom: 14px;
-            background-color: #fff4e5;
-            border: 1px solid #ffcc80;
-            color: #7a4c00;
-        }
-
-        .auth-message.error {
-            background-color: #fdecea;
-            border-color: #f5c6cb;
-            color: #a42828;
-        }
-
-        .auth-message.success {
-            background-color: #e7f4ea;
-            border-color: #a9d8b0;
-            color: #256029;
-        }
-
-        /* Google button wrapper */
-        #google-btn-wrapper {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 4px;
-        }
-
-        /* Setup notice */
-        .setup-notice {
-            background: #fff8e1;
-            border: 1.5px solid #ffe082;
-            border-radius: 6px;
-            padding: 14px 16px;
-            font-size: 0.82rem;
-            color: #5d4037;
-            line-height: 1.7;
-            margin-bottom: 16px;
-        }
-
-        .setup-notice strong { color: #003d99; }
-        .setup-notice code {
-            background: #f5f5f5;
-            padding: 1px 5px;
-            border-radius: 3px;
-            font-size: 0.8rem;
-        }
-        .setup-notice ol { margin: 8px 0 0 18px; }
-        .setup-notice ol li { margin-bottom: 4px; }
-
-        /* Divider */
-        .auth-divider {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin: 16px 0;
-            color: #999;
-            font-size: 0.8rem;
-        }
-
-        .auth-divider::before,
-        .auth-divider::after {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background-color: #e0e0e0;
-        }
-
-        /* Section heading inside card */
-        .auth-section-label {
-            font-size: 0.78rem;
-            font-weight: 700;
-            color: #003d99;
-            letter-spacing: 0.8px;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            padding-bottom: 4px;
+            padding-bottom: 14px;
             border-bottom: 1.5px solid #e8eef9;
         }
-
-        /* Form rows */
-        .auth-row {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            margin-bottom: 12px;
-        }
-
-        .auth-row label {
-            font-size: 0.83rem;
-            color: #444;
-            font-weight: 600;
-        }
-
-        .auth-input {
-            padding: 10px 11px;
-            border: 1.5px solid #c8d4ed;
+        .cert-enquiry-card input,
+        .cert-enquiry-card select {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1.5px solid #d0d8e8;
             border-radius: 4px;
             font-size: 0.93rem;
             color: #333;
+            margin-bottom: 14px;
             transition: border-color 0.2s, box-shadow 0.2s;
-            background-color: #fafbff;
+            background: #fafbff;
+            font-family: Arial, sans-serif;
         }
-
-        .auth-input:focus {
+        .cert-enquiry-card input:focus,
+        .cert-enquiry-card select:focus {
             outline: none;
             border-color: #003d99;
-            box-shadow: 0 0 0 3px rgba(0, 61, 153, 0.10);
-            background-color: #fff;
+            box-shadow: 0 0 0 3px rgba(0,61,153,0.08);
+            background: #fff;
         }
 
-        /* Phone row with inline button */
-        .phone-row {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 8px;
-            align-items: end;
+        .captcha-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
         }
-
-        .phone-row .auth-input { width: 100%; }
-
-        /* Buttons */
-        .auth-btn {
-            padding: 10px 14px;
-            background-color: #003d99;
-            color: #ffffff;
-            border: 1.5px solid #002d77;
+        .captcha-row input {
+            flex: 1;
+            margin-bottom: 0;
+            border-color: #e74c3c;
+            color: #e74c3c;
+        }
+        .captcha-row input::placeholder { color: #e74c3c; }
+        .captcha-refresh {
+            background: none;
+            border: 1.5px solid #d0d8e8;
             border-radius: 4px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            width: 100%;
+            padding: 8px 10px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            color: #003d99;
             transition: background 0.2s;
         }
-
-        .auth-btn:hover { background-color: #002d77; }
-
-        .auth-btn.secondary {
-            background-color: #ffffff;
+        .captcha-refresh:hover { background: #f0f4fc; }
+        .captcha-display {
+            background: #f5f5f5;
+            border: 1.5px solid #d0d8e8;
+            border-radius: 4px;
+            padding: 8px 14px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: 4px;
             color: #003d99;
-            border: 1.5px solid #003d99;
+            font-family: 'Courier New', monospace;
+            user-select: none;
+            min-width: 80px;
+            text-align: center;
         }
 
-        .auth-btn.secondary:hover {
-            background-color: #e8eef9;
+        .enquiry-submit-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: #003d99;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .enquiry-submit-btn:hover { background-color: #002d77; }
+
+        .enquiry-disclaimer {
+            margin-top: 12px;
+            font-size: 0.72rem;
+            color: #888;
+            line-height: 1.5;
+        }
+        .enquiry-disclaimer strong { color: #333; }
+
+        .enquiry-msg {
+            display: none;
+            padding: 10px 14px;
+            border-radius: 4px;
+            font-size: 0.88rem;
+            margin-bottom: 14px;
         }
 
-        .auth-btn:disabled {
-            background-color: #e8e8e8;
-            color: #999;
-            border-color: #ccc;
+        .enquiry-submit-btn:disabled {
+            background-color: #8899bb;
             cursor: not-allowed;
         }
-
-        .auth-btn-inline {
-            padding: 10px 14px;
-            background-color: #003d99;
-            color: #fff;
-            border: 1.5px solid #002d77;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            white-space: nowrap;
+        .enquiry-submit-btn .btn-spinner {
+            display: inline-block;
+            width: 16px; height: 16px;
+            border: 2.5px solid rgba(255,255,255,0.3);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+            vertical-align: middle;
+            margin-right: 8px;
         }
+        @keyframes spin { to { transform: rotate(360deg); } }
 
-        .auth-btn-inline:hover { background-color: #002d77; }
-        .auth-btn-inline:disabled { background-color: #ccc; border-color: #bbb; cursor: not-allowed; }
-
-        /* Email action buttons row */
-        .auth-actions {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-top: 4px;
+        /* ============================================
+           PROGRAM CARDS SECTION
+           ============================================ */
+        .programs-section {
+            background-color: #f0f4fc;
+            padding: 50px 20px;
         }
-
-        /* Status bar */
-        .auth-status {
-            margin-top: 16px;
-            font-size: 0.82rem;
-            color: #666;
-            background-color: #f5f7fc;
-            border: 1px solid #dce4f5;
-            border-radius: 4px;
-            padding: 8px 12px;
-        }
-
-        .auth-status button {
-            background: none;
-            border: none;
+        .programs-section-title {
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: 700;
             color: #003d99;
-            text-decoration: underline;
-            padding: 0;
-            font-size: 0.82rem;
-            font-weight: 600;
+            margin-bottom: 8px;
         }
-
-        /* reCAPTCHA container */
-        #recaptcha-container {
-            margin: 8px 0;
-            min-height: 30px;
+        .programs-section-subtitle {
+            text-align: center;
+            font-size: 0.92rem;
+            color: #666;
+            margin-bottom: 36px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .programs-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+        }
+        .prog-card {
+            background: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-bottom: 4px solid transparent;
+        }
+        .prog-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(0,61,153,0.15);
+            border-bottom-color: #ff9933;
+        }
+        .prog-card-img {
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+        }
+        .prog-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .prog-card:hover .prog-card-img img {
+            transform: scale(1.08);
+        }
+        .prog-card-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #ff9933;
+            color: #fff;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+        }
+        .prog-card-body {
+            padding: 20px;
+        }
+        .prog-card-body h3 {
+            font-size: 1.05rem;
+            color: #003d99;
+            font-weight: 700;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        .prog-card-body p {
+            font-size: 0.85rem;
+            color: #555;
+            line-height: 1.65;
+            margin-bottom: 14px;
+        }
+        .prog-card-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .prog-card-tags span {
+            font-size: 0.7rem;
+            padding: 3px 10px;
+            border-radius: 12px;
+            background: #e8eef9;
+            color: #003d99;
+            font-weight: 600;
         }
 
         /* ============================================
@@ -545,22 +522,25 @@
         /* ============================================
            RESPONSIVE
            ============================================ */
-        @media (max-width: 800px) {
-            .cert-page-inner {
+        @media (max-width: 900px) {
+            .cert-hero-container {
                 grid-template-columns: 1fr;
             }
-
-            .cert-info-panel h1 { font-size: 1.5rem; }
-
-            .auth-actions { grid-template-columns: 1fr; }
+            .cert-hero-left { text-align: center; }
+            .cert-hero-img {
+                margin: 0 auto 24px;
+                display: block;
+                width: 70%;
+            }
+            .cert-hero-features { display: inline-block; text-align: left; }
         }
 
         @media (max-width: 480px) {
             .main-header { padding: 14px 16px; gap: 12px; }
             .header-text .header-text-en { font-size: 1.1rem; }
             .logo-placeholder { width: 52px; height: 52px; }
-            .auth-card { padding: 20px 16px; }
-            .phone-row { grid-template-columns: 1fr; }
+            .cert-enquiry-card { padding: 20px 16px; }
+            .cert-hero-left h1 { font-size: 1.5rem; }
         }
 
         /* Accessibility */
@@ -571,6 +551,702 @@
             padding: 8px; text-decoration: none; z-index: 100;
         }
         .skip-link:focus { top: 0; }
+            /* ============================================
+           MODERN FOOTER STYLES
+           ============================================ */
+        .footer {
+            background-color: #00215e;
+            color: #ffffff;
+            padding: 80px 20px 40px;
+            margin-top: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto 60px;
+        }
+
+        .footer-section h3 {
+            color: #ff9933;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background-color: #ff9933;
+            border-radius: 2px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a:hover {
+            color: #ff9933;
+            transform: translateX(5px);
+            text-decoration: none;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 18px;
+            color: #e0e0e0;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .footer-contact-icon {
+            color: #ff9933;
+            font-weight: bold;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom-info {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .visitor-badge {
+            background: rgba(255, 153, 51, 0.15);
+            color: #ff9933;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 153, 51, 0.3);
+            font-weight: 600;
+        }
+            /* ============================================
+           MODERN FOOTER STYLES
+           ============================================ */
+        .footer {
+            background-color: #00215e;
+            color: #ffffff;
+            padding: 80px 20px 40px;
+            margin-top: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto 60px;
+        }
+
+        .footer-section h3 {
+            color: #ff9933;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background-color: #ff9933;
+            border-radius: 2px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a:hover {
+            color: #ff9933;
+            transform: translateX(5px);
+            text-decoration: none;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 18px;
+            color: #e0e0e0;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .footer-contact-icon {
+            color: #ff9933;
+            font-weight: bold;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom-info {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .visitor-badge {
+            background: rgba(255, 153, 51, 0.15);
+            color: #ff9933;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 153, 51, 0.3);
+            font-weight: 600;
+        }
+            /* ============================================
+           MODERN FOOTER STYLES
+           ============================================ */
+        .footer {
+            background-color: #00215e;
+            color: #ffffff;
+            padding: 80px 20px 40px;
+            margin-top: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto 60px;
+        }
+
+        .footer-section h3 {
+            color: #ff9933;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background-color: #ff9933;
+            border-radius: 2px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a:hover {
+            color: #ff9933;
+            transform: translateX(5px);
+            text-decoration: none;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 18px;
+            color: #e0e0e0;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .footer-contact-icon {
+            color: #ff9933;
+            font-weight: bold;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom-info {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .visitor-badge {
+            background: rgba(255, 153, 51, 0.15);
+            color: #ff9933;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 153, 51, 0.3);
+            font-weight: 600;
+        }
+            /* ============================================
+           MODERN FOOTER STYLES
+           ============================================ */
+        .footer {
+            background-color: #00215e;
+            color: #ffffff;
+            padding: 80px 20px 40px;
+            margin-top: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto 60px;
+        }
+
+        .footer-section h3 {
+            color: #ff9933;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background-color: #ff9933;
+            border-radius: 2px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a:hover {
+            color: #ff9933;
+            transform: translateX(5px);
+            text-decoration: none;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 18px;
+            color: #e0e0e0;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .footer-contact-icon {
+            color: #ff9933;
+            font-weight: bold;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom-info {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .visitor-badge {
+            background: rgba(255, 153, 51, 0.15);
+            color: #ff9933;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 153, 51, 0.3);
+            font-weight: 600;
+        }
+    
+        /* ============================================
+           MAIN NAVIGATION BAR (STANDARD)
+           ============================================ */
+        
+
+        
+
+        .nav-links li {
+            border-right: 1px solid #002d77 !important;
+            position: relative !important;
+        }
+
+        .nav-links li:last-child {
+            border-right: none !important;
+        }
+
+        .nav-links a {
+            display: block !important;
+            padding: 15px 18px !important;
+            color: #ffffff !important;
+            font-weight: 600 !important;
+            font-size: 0.95rem !important;
+            text-decoration: none !important;
+            border-bottom: 3px solid transparent !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background-color: #002d77 !important;
+            color: #ff9933 !important;
+            border-bottom-color: #ff9933 !important;
+            text-decoration: none !important;
+        }
+
+        /* Dropdown Styles */
+        .nav-dropdown {
+            position: relative !important;
+        }
+
+        .nav-dropdown > a {
+            display: flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+        }
+
+        .nav-dropdown > a::after {
+            content: "▼" !important;
+            font-size: 0.7rem !important;
+            margin-left: 4px !important;
+        }
+
+        .dropdown-menu {
+            display: none !important;
+            position: absolute !important;
+            top: 100% !important;
+            left: 0 !important;
+            background-color: #ffffff !important;
+            min-width: 250px !important;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2) !important;
+            z-index: 1000 !important;
+            border: 1px solid #cccccc !important;
+            padding: 0 !important;
+        }
+
+        .dropdown-menu a {
+            display: block !important;
+            padding: 12px 18px !important;
+            color: #003d99 !important;
+            text-decoration: none !important;
+            border-bottom: 1px solid #e8e8e8 !important;
+            transition: all 0.3s ease !important;
+            font-weight: normal !important;
+            font-size: 0.9rem !important;
+            text-align: left !important;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f5f5f5 !important;
+            color: #ff9933 !important;
+            padding-left: 22px !important;
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block !important;
+        }
+
+        .nav-search {
+            padding: 12px 15px !important;
+            display: flex !important;
+            gap: 8px !important;
+            align-items: center !important;
+            border-left: 1px solid #002d77 !important;
+        }
+
+        .nav-search input {
+            padding: 6px 10px !important;
+            border: 1px solid #cccccc !important;
+            border-radius: 2px !important;
+            font-size: 0.9rem !important;
+            width: 180px !important;
+        }
+
+        .nav-search button {
+            background-color: #ff9933 !important;
+            color: #ffffff !important;
+            border: 1px solid #ff9933 !important;
+            padding: 6px 12px !important;
+            font-weight: bold !important;
+            font-size: 0.85rem !important;
+            cursor: pointer !important;
+        }
+
+        .nav-search button:hover {
+            background-color: #e68a1f !important;
+        }
+
+    
+        /* ============================================
+           MAIN NAVIGATION BAR (STANDARD)
+           ============================================ */
+        .nav-bar {
+            background-color: #003d99 !important;
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            padding: 0 !important;
+            border-bottom: 3px solid #ff9933 !important;
+            width: 100% !important;
+            position: relative !important;
+            z-index: 1000 !important;
+        }
+
+        .nav-links {
+            display: flex !important;
+            list-style: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            flex: 1 !important;
+        }
+
+        .nav-links li {
+            border-right: 1px solid #002d77 !important;
+            position: relative !important;
+        }
+
+        .nav-links li:last-child {
+            border-right: none !important;
+        }
+
+        .nav-links a {
+            display: block !important;
+            padding: 15px 18px !important;
+            color: #ffffff !important;
+            font-weight: 600 !important;
+            font-size: 0.95rem !important;
+            text-decoration: none !important;
+            border-bottom: 3px solid transparent !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background-color: #002d77 !important;
+            color: #ff9933 !important;
+            border-bottom-color: #ff9933 !important;
+            text-decoration: none !important;
+        }
+
+        /* Dropdown Styles */
+        .nav-dropdown {
+            position: relative !important;
+        }
+
+        .nav-dropdown > a {
+            display: flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+        }
+
+        .nav-dropdown > a::after {
+            content: "▼" !important;
+            font-size: 0.7rem !important;
+            margin-left: 4px !important;
+        }
+
+        .dropdown-menu {
+            display: none !important;
+            position: absolute !important;
+            top: 100% !important;
+            left: 0 !important;
+            background-color: #ffffff !important;
+            min-width: 250px !important;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2) !important;
+            z-index: 1000 !important;
+            border: 1px solid #cccccc !important;
+            padding: 0 !important;
+        }
+
+        .dropdown-menu a {
+            display: block !important;
+            padding: 12px 18px !important;
+            color: #003d99 !important;
+            text-decoration: none !important;
+            border-bottom: 1px solid #e8e8e8 !important;
+            transition: all 0.3s ease !important;
+            font-weight: normal !important;
+            font-size: 0.9rem !important;
+            text-align: left !important;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f5f5f5 !important;
+            color: #ff9933 !important;
+            padding-left: 22px !important;
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block !important;
+        }
+
+        .nav-search {
+            padding: 12px 15px !important;
+            display: flex !important;
+            gap: 8px !important;
+            align-items: center !important;
+            border-left: 1px solid #002d77 !important;
+        }
+
+        .nav-search input {
+            padding: 6px 10px !important;
+            border: 1px solid #cccccc !important;
+            border-radius: 2px !important;
+            font-size: 0.9rem !important;
+            width: 180px !important;
+        }
+
+        .nav-search button {
+            background-color: #ff9933 !important;
+            color: #ffffff !important;
+            border: 1px solid #ff9933 !important;
+            padding: 6px 12px !important;
+            font-weight: bold !important;
+            font-size: 0.85rem !important;
+            cursor: pointer !important;
+        }
+
+        .nav-search button:hover {
+            background-color: #e68a1f !important;
+        }
+
     </style>
 </head>
 <body>
@@ -587,24 +1263,26 @@
     </header>
 
     <!-- MAIN NAVIGATION BAR -->
-    <nav class="nav-bar" role="navigation" aria-label="Main navigation">
+                <nav class="nav-bar" role="navigation" aria-label="Main navigation">
         <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="iisdr_about_us.html">About Us</a></li>
-            <li><a href="iisdr_programs.html">Programs</a></li>
+            <li><a href="index.html" class="nav-link-home">Home</a></li>
+            <li><a href="iisdr_about_us.html" class="nav-link-about">About Us</a></li>
+            <li><a href="iisdr_programs.html" class="nav-link-programs">Programs</a></li>
             <li class="nav-dropdown">
-                <a href="#">MoU Partner</a>
+                <a href="#" class="nav-link-mou">MoU Partner</a>
                 <div class="dropdown-menu">
-                    <a href="#">Infosys Limited</a>
-                    <a href="#">TCS (Tata Consultancy Services)</a>
-                    <a href="#">MSNIM - Manel Srinivasa Nayak Institute</a>
-                    <a href="#">Department of Hospital Administration</a>
-                    <a href="#">Utkarsh Charitable &amp; Welfare Trust</a>
+                    <a href="https://inclusiv.in/" target="_blank">Inclusiv</a>
+                    <a href="https://www.sswroshni.in/eng/" target="_blank">School of Social Work, Roshni Nilaya (SSW)</a>
+                    <a href="https://sdmcbm.ac.in/" target="_blank">SDM College of Business Management PG Centre</a>
+                    <a href="https://www.hsscindia.in/index.html" target="_blank">Hydrocarbon Sector Skill Council (HSCC India)</a>
+                    <a href="https://www.fathermuller.edu.in/allied-health-sciences/department-of-hospital-administration.php" target="_blank">Father Muller College of Allied Health Sciences</a>
+                    <a href="https://msnim.edu.in/" target="_blank">Manel Srinivas Nayak Institute of Management (MSNIM)</a>
+                    <a href="https://sjec.ac.in/" target="_blank">St Joseph Engineering College (SJEC)</a>
                 </div>
             </li>
-            <li><a href="iisdr_information_bulletins.html">Information Bulletins</a></li>
+            <li><a href="iisdr_information_bulletins.html" class="nav-link-bulletins">Information Bulletins</a></li>
             <li class="nav-dropdown">
-                <a href="#">E-Journal</a>
+                <a href="#" class="nav-link-ejournal">E-Journal</a>
                 <div class="dropdown-menu">
                     <a href="iisdr_ejournal_about_thrive.html">About THRIVE</a>
                     <a href="iisdr_journal_particulars.html">Journal Particulars</a>
@@ -612,11 +1290,12 @@
                     <a href="iisdr_author_guidelines.html">Author Guidelines</a>
                     <a href="iisdr_ejournal.html">E-Journal</a>
                     <a href="iisdr_disclaimer.html">Disclaimer</a>
+                    <a href="iisdr_call_for_papers.html">Call for Papers</a>
                     <a href="iisdr_ejournal_contact_us.html">Contact Us</a>
                 </div>
             </li>
-            <li><a href="iisdr_certification.html" class="active">Certification Programs</a></li>
-            <li><a href="index.html#contact">Contact Us</a></li>
+            <li><a href="iisdr_certification.html" class="nav-link-certification active">Certification Programs</a></li>
+            <li><a href="iisdr_ejournal_contact_us.html" class="nav-link-contact">Contact Us</a></li>
         </ul>
         <div class="nav-search">
             <input type="text" placeholder="Search IISDR..." aria-label="Search website">
@@ -625,207 +1304,339 @@
     </nav>
 
     <!-- MAIN CONTENT -->
-    <div class="cert-page-wrapper" id="main-content">
-        <div class="cert-page-inner">
-
-            <!-- LEFT: INFO PANEL -->
-            <div class="cert-info-panel">
-                <span class="cert-info-badge">Secure Access</span>
-                <h1>Certification Program <span>Login</span></h1>
-                <p>
-                    Access IISDR certification programs using your Google account.
-                    Sign in securely with one click — no separate password needed.
-                </p>
-                <ul class="cert-features">
-                    <li>
-                        <div class="feat-icon">G</div>
-                        <span>Sign in instantly with your Google account</span>
-                    </li>
-                    <li>
-                        <div class="feat-icon">🔒</div>
-                        <span>Secured and encrypted via Google OAuth 2.0</span>
-                    </li>
-                    <li>
-                        <div class="feat-icon">✅</div>
-                        <span>No separate password required — use your existing Google account</span>
-                    </li>
+    <section class="cert-hero" id="main-content" aria-label="Certification Programme Enquiry">
+        <div class="cert-hero-container">
+            <div class="cert-hero-left">
+                <img src="images/iisdr-campus.png" alt="IISDR Campus" class="cert-hero-img">
+                <h1>Certification Programme</h1>
+                <div class="cert-batch">(Batch 2026)</div>
+                <p>Acquire industry-recognized certification and advance your career with IISDR's skill development programs backed by expert faculty and MoU partners.</p>
+                <ul class="cert-hero-features">
+                    <li>Industry-recognized certification</li>
+                    <li>Expert-led training modules</li>
+                    <li>Flexible learning options</li>
+                    <li>Placement assistance support</li>
+                    <li>MoU partner collaboration</li>
                 </ul>
-                <a href="index.html" class="cert-back-link">← Back to Homepage</a>
             </div>
-
-            <!-- RIGHT: AUTH CARD -->
-            <div class="auth-card" role="main">
-                <div class="auth-card-title">Sign In to Certification Portal</div>
-                <div class="auth-card-subtitle">Use your Google account to access IISDR certification programs</div>
-
-                <!-- Status message -->
-                <div id="auth-message" class="auth-message" role="status" aria-live="polite"></div>
-
-                <!-- Setup notice (hidden once Client ID is set) -->
-                <div id="setup-notice" class="setup-notice">
-                    <strong>&#9888; One-time setup required:</strong><br>
-                    To activate Google Sign-In, replace <code>YOUR_GOOGLE_CLIENT_ID</code> in this file with your real Client ID.
-                    <ol>
-                        <li>Go to <strong>console.cloud.google.com</strong></li>
-                        <li>Create a project &rarr; APIs &amp; Services &rarr; Credentials</li>
-                        <li>Create <strong>OAuth 2.0 Client ID</strong> (Web application)</li>
-                        <li>Add your site URL to <em>Authorised JavaScript origins</em></li>
-                        <li>Copy the Client ID and paste it in the <code>GOOGLE_CLIENT_ID</code> constant below</li>
-                    </ol>
+            <div class="cert-enquiry-card">
+                <div class="cert-enquiry-card-title">Enquire Now</div>
+                <div class="cert-enquiry-card-subtitle">Fill in the details below and our team will get back to you shortly</div>
+                <div id="enquiry-msg" class="enquiry-msg"></div>
+                <input type="text" id="enq-name" placeholder="Full Name*" required>
+                <input type="tel" id="enq-phone" placeholder="Phone No*" required>
+                <input type="email" id="enq-email" placeholder="Email ID*" required>
+                <input type="text" id="enq-city" placeholder="City*" required>
+                <select id="enq-experience">
+                    <option value="" disabled selected>Work Experience in Years:*</option>
+                    <option value="0-1">0 – 1 Year</option>
+                    <option value="1-3">1 – 3 Years</option>
+                    <option value="3-5">3 – 5 Years</option>
+                    <option value="5-10">5 – 10 Years</option>
+                    <option value="10+">10+ Years</option>
+                </select>
+                <div class="captcha-row">
+                    <input type="text" id="enq-captcha" placeholder="Captcha code">
+                    <button class="captcha-refresh" type="button" onclick="generateCaptcha()" aria-label="Refresh captcha">⟳</button>
+                    <span class="captcha-display" id="captcha-text"></span>
                 </div>
-
-                <!-- Google Sign-In button (rendered by GSI) -->
-                <div id="google-btn-wrapper"></div>
-
-                <!-- Signed-in user profile card (hidden by default) -->
-                <div id="user-profile" style="display:none; text-align:center; padding:16px 0;">
-                    <img id="user-avatar" src="" alt="" width="64" height="64"
-                         style="border-radius:50%; border:3px solid #003d99; margin-bottom:10px;">
-                    <div id="user-name" style="font-weight:700; font-size:1.05rem; color:#003d99;"></div>
-                    <div id="user-email" style="font-size:0.85rem; color:#777; margin-bottom:14px;"></div>
-                    <button id="auth-signout"
-                            style="background:#fff; color:#d32f2f; border:1.5px solid #d32f2f;
-                                   padding:8px 22px; border-radius:4px; font-size:0.88rem;
-                                   font-weight:600; cursor:pointer;">
-                        Sign Out
-                    </button>
-                </div>
-
-                <!-- Auth status bar -->
-                <div class="auth-status">
-                    Signed in as: <span id="auth-user">Not signed in</span>
-                    &nbsp;|&nbsp;
-                    <button id="auth-signout" type="button">Sign out</button>
-                </div>
+                <button class="enquiry-submit-btn" type="button" onclick="submitEnquiry()">ENQUIRE NOW</button>
+                <p class="enquiry-disclaimer"><strong>Disclaimer:</strong> By submitting this form, I hereby authorise IISDR and its representatives to contact me via call / SMS / email communication.</p>
             </div>
-
         </div>
-    </div>
+    </section>
+
+    <!-- ============================================
+         CERTIFICATION PROGRAMS
+         ============================================ -->
+    <section class="programs-section" aria-label="Certification Programs">
+        <h2 class="programs-section-title">Our Certification Programmes</h2>
+        <p class="programs-section-subtitle">Industry-recognized programs designed to build competence, enhance employability, and foster professional excellence.</p>
+
+        <div class="programs-grid">
+            <!-- Card 1: Certification Program on New Labour Code -->
+            <div class="prog-card">
+                <div class="prog-card-img">
+                    <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="400" height="300" fill="#003d99"/>
+                        <rect width="400" height="300" fill="url(#grad1)" opacity="0.9"/>
+                        <defs>
+                            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#003d99;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#0055cc;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect x="110" y="58" width="120" height="150" rx="10" fill="#ffffff" opacity="0.95"/>
+                        <rect x="140" y="48" width="60" height="22" rx="8" fill="#d8e6ff"/>
+                        <line x1="128" y1="94" x2="210" y2="94" stroke="#2c5aa0" stroke-width="4"/>
+                        <line x1="128" y1="116" x2="210" y2="116" stroke="#2c5aa0" stroke-width="4"/>
+                        <line x1="128" y1="138" x2="194" y2="138" stroke="#2c5aa0" stroke-width="4"/>
+                        <rect x="250" y="132" width="76" height="16" rx="3" fill="#8b5a2b"/>
+                        <rect x="246" y="118" width="24" height="44" rx="5" fill="#c79052"/>
+                        <circle cx="260" cy="172" r="22" fill="#d7a26a"/>
+                        <rect x="252" y="176" width="16" height="16" rx="3" fill="#c79052"/>
+                        <text x="200" y="240" font-size="24" font-weight="bold" text-anchor="middle" fill="white" font-family="Arial">Labour Code</text>
+                    </svg>
+                    <span class="prog-card-badge">8 Weeks</span>
+                </div>
+                <div class="prog-card-body">
+                    <h3>Certification Program on New Labour Code</h3>
+                    <p>Master India's new Labour Code (2020) including wages, social security, and industrial relations. Designed for HR professionals, legal consultants, and organizational managers to ensure compliance and implementation.</p>
+                    <div class="prog-card-tags">
+                        <span>Labour Law</span>
+                        <span>Compliance</span>
+                        <span>HR</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: ToT on POSH -->
+            <div class="prog-card">
+                <div class="prog-card-img">
+                    <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="400" height="300" fill="#e74c3c"/>
+                        <rect width="400" height="300" fill="url(#grad2)" opacity="0.9"/>
+                        <defs>
+                            <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#e74c3c;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#c0392b;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M200 62 L270 90 L270 136 C270 176 240 204 200 216 C160 204 130 176 130 136 L130 90 Z" fill="#ffffff" opacity="0.95"/>
+                        <circle cx="180" cy="118" r="13" fill="#d65a4a"/>
+                        <circle cx="220" cy="118" r="13" fill="#d65a4a"/>
+                        <rect x="166" y="133" width="28" height="28" rx="12" fill="#d65a4a"/>
+                        <rect x="206" y="133" width="28" height="28" rx="12" fill="#d65a4a"/>
+                        <line x1="160" y1="180" x2="240" y2="180" stroke="#d65a4a" stroke-width="5"/>
+                        <text x="200" y="240" font-size="24" font-weight="bold" text-anchor="middle" fill="white" font-family="Arial">POSH Training</text>
+                    </svg>
+                    <span class="prog-card-badge">6 Weeks</span>
+                </div>
+                <div class="prog-card-body">
+                    <h3>Train the Trainer (ToT) on Prevention of Sexual Harassment (POSH)</h3>
+                    <p>Equip trainers to conduct POSH awareness programs in organizations. Learn POSH Act 2013, complaint mechanisms, and sensitivity training to create safe and respectful workplaces.</p>
+                    <div class="prog-card-tags">
+                        <span>POSH Act</span>
+                        <span>Training</span>
+                        <span>Workplace Safety</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Executive Certification Program on Strategic Human Resources Management -->
+            <div class="prog-card">
+                <div class="prog-card-img">
+                    <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="400" height="300" fill="#2980b9"/>
+                        <rect width="400" height="300" fill="url(#grad3)" opacity="0.9"/>
+                        <defs>
+                            <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#2980b9;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#1f618d;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <circle cx="200" cy="130" r="52" fill="none" stroke="#ffffff" stroke-width="10" opacity="0.95"/>
+                        <circle cx="200" cy="130" r="33" fill="none" stroke="#bfe6ff" stroke-width="8"/>
+                        <circle cx="200" cy="130" r="15" fill="#ffffff"/>
+                        <line x1="95" y1="86" x2="168" y2="113" stroke="#ffffff" stroke-width="7"/>
+                        <polygon points="166,100 185,120 158,126" fill="#ffffff"/>
+                        <rect x="266" y="96" width="18" height="68" rx="4" fill="#bfe6ff"/>
+                        <rect x="290" y="82" width="18" height="82" rx="4" fill="#d9f1ff"/>
+                        <rect x="314" y="110" width="18" height="54" rx="4" fill="#ffffff"/>
+                        <text x="200" y="240" font-size="22" font-weight="bold" text-anchor="middle" fill="white" font-family="Arial">Strategic HRM</text>
+                    </svg>
+                    <span class="prog-card-badge">12 Weeks</span>
+                </div>
+                <div class="prog-card-body">
+                    <h3>Executive Certification Program on Strategic Human Resources Management</h3>
+                    <p>Develop strategic HR capabilities including workforce planning, organizational development, talent management, and business alignment. Ideal for HR leaders and business executives.</p>
+                    <div class="prog-card-tags">
+                        <span>HR Strategy</span>
+                        <span>Executive</span>
+                        <span>Management</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: Executive Certification Program on Co-operative Management -->
+            <div class="prog-card">
+                <div class="prog-card-img">
+                    <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="400" height="300" fill="#27ae60"/>
+                        <rect width="400" height="300" fill="url(#grad4)" opacity="0.9"/>
+                        <defs>
+                            <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#27ae60;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#1e8449;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <circle cx="140" cy="122" r="36" fill="#ffffff" opacity="0.95"/>
+                        <circle cx="200" cy="90" r="36" fill="#d6f5e2"/>
+                        <circle cx="260" cy="122" r="36" fill="#ffffff" opacity="0.95"/>
+                        <path d="M165 138 Q200 168 235 138" fill="none" stroke="#1e8449" stroke-width="8"/>
+                        <path d="M120 164 Q155 190 190 164" fill="none" stroke="#1e8449" stroke-width="8"/>
+                        <path d="M210 164 Q245 190 280 164" fill="none" stroke="#1e8449" stroke-width="8"/>
+                        <text x="200" y="240" font-size="22" font-weight="bold" text-anchor="middle" fill="white" font-family="Arial">Co-op Management</text>
+                    </svg>
+                    <span class="prog-card-badge">10 Weeks</span>
+                </div>
+                <div class="prog-card-body">
+                    <h3>Executive Certification Program on Co-operative Management</h3>
+                    <p>Understand cooperative structures, governance models, and regulatory frameworks. Learn organizational management, financial administration, and member engagement for cooperative societies.</p>
+                    <div class="prog-card-tags">
+                        <span>Co-operatives</span>
+                        <span>Governance</span>
+                        <span>Executive</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5: Executive Certification Program on HR Analytics and AI in HR -->
+            <div class="prog-card">
+                <div class="prog-card-img">
+                    <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="400" height="300" fill="#8e44ad"/>
+                        <rect width="400" height="300" fill="url(#grad5)" opacity="0.9"/>
+                        <defs>
+                            <linearGradient id="grad5" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#8e44ad;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#6c3483;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect x="88" y="160" width="30" height="44" rx="4" fill="#ffffff"/>
+                        <rect x="126" y="140" width="30" height="64" rx="4" fill="#d9b3ea"/>
+                        <rect x="164" y="118" width="30" height="86" rx="4" fill="#ffffff"/>
+                        <rect x="202" y="132" width="30" height="72" rx="4" fill="#d9b3ea"/>
+                        <circle cx="274" cy="100" r="30" fill="none" stroke="#ffffff" stroke-width="6"/>
+                        <circle cx="274" cy="100" r="8" fill="#ffffff"/>
+                        <line x1="244" y1="100" x2="224" y2="100" stroke="#ffffff" stroke-width="5"/>
+                        <line x1="304" y1="100" x2="324" y2="100" stroke="#ffffff" stroke-width="5"/>
+                        <line x1="274" y1="70" x2="274" y2="50" stroke="#ffffff" stroke-width="5"/>
+                        <line x1="252" y1="78" x2="238" y2="64" stroke="#ffffff" stroke-width="5"/>
+                        <line x1="296" y1="78" x2="310" y2="64" stroke="#ffffff" stroke-width="5"/>
+                        <text x="200" y="240" font-size="20" font-weight="bold" text-anchor="middle" fill="white" font-family="Arial">HR Analytics & AI</text>
+                    </svg>
+                    <span class="prog-card-badge">14 Weeks</span>
+                </div>
+                <div class="prog-card-body">
+                    <h3>Executive Certification Program on HR Analytics and AI in HR</h3>
+                    <p>Master data-driven HR with analytics, predictive modeling, and AI applications. Learn workforce analytics, machine learning in recruitment, and performance prediction for modern HR functions.</p>
+                    <div class="prog-card-tags">
+                        <span>HR Analytics</span>
+                        <span>AI/ML</span>
+                        <span>Data Science</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- FOOTER -->
-    <footer class="cert-footer">
-        &copy; 2026 Utkarsh Charitable and Welfare Trust.
-        All rights reserved. &mdash; <a href="index.html">Back to IISDR Homepage</a>
+                                            <footer class="footer">
+        <div class="footer-content">
+            <!-- Section 1: Contact Information -->
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <div class="footer-contact-item">
+                    <span class="footer-contact-icon">📍</span>
+                    <span>IISDR Mangalore</span>
+                </div>
+                <div class="footer-contact-item">
+                    <span class="footer-contact-icon">📞</span>
+                    <span><a href="tel:+917259215554">+91 7259215554</a></span>
+                </div>
+                <div class="footer-contact-item">
+                    <span class="footer-contact-icon">✉️</span>
+                    <span><a href="mailto:ddiisdr@gmail.com">ddiisdr@gmail.com</a></span>
+                </div>
+            </div>
+
+            <!-- Section 2: Quick Navigation -->
+            <div class="footer-section">
+                <h3>Quick Navigation</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="iisdr_about_us.html">About Us</a></li>
+                    <li><a href="iisdr_programs.html">Programs</a></li>
+                    <li><a href="iisdr_activities.html">Activities</a></li>
+                    <li><a href="iisdr_certification.html">Certification</a></li>
+                    <li><a href="iisdr_ejournal.html">E-Journal</a></li>
+                </ul>
+            </div>
+
+            <!-- Section 3: Important Links -->
+            <div class="footer-section">
+                <h3>Important Links</h3>
+                <ul>
+                    <li><a href="iisdr_disclaimer.html">Privacy Policy</a></li>
+                    <li><a href="iisdr_disclaimer.html">Terms of Use</a></li>
+                    <li><a href="iisdr_disclaimer.html">Copyright Policy</a></li>
+                    <li><a href="iisdr_disclaimer.html">Disclaimer</a></li>
+                    <li><a href="iisdr_ejournal_contact_us.html">Grievance Redressal</a></li>
+                    <li><a href="iisdr_information_bulletins.html">Right to Information (RTI)</a></li>
+                </ul>
+            </div>
+
+            <!-- Section 4: Support & Policies -->
+            <div class="footer-section">
+                <h3>Support & Policies</h3>
+                <ul>
+                    <li><a href="index.html#website-policies">Website Policies</a></li>
+                    <li><a href="index.html#help">Help & FAQs</a></li>
+                    <li><a href="index.html#accessibility">Accessibility Statement</a></li>
+                    <li><a href="index.html#sitemap">Sitemap</a></li>
+                    <li><a href="index.html#feedback">Send Feedback</a></li>
+                    <li><a href="index.html#report-issue">Report an Issue</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div>© 2026 IISDR. All rights reserved.</div>
+            <div class="footer-bottom-info">
+                <span>Designed by <strong>Utkarsh Engineers</strong></span>
+                <span>Last Updated: <span style="color: #e0e0e0;">25 April 2026</span></span>
+                <span>Visitor Count: <span id="visitor-counter" class="visitor-badge">0</span></span>
+            </div>
+        </div>
     </footer>
 
-    <!-- Google Identity Services -->
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <!-- EmailJS SDK -->
+    
+    
+    
+    
+    
+    
+    
     <script>
         // ============================================
-        // STEP: Paste your Google OAuth Client ID here
-        // Get it from: console.cloud.google.com
-        //   → APIs & Services → Credentials → Create OAuth 2.0 Client ID
+        // VISITOR COUNTER (Dynamic Simulation)
         // ============================================
-        const GOOGLE_CLIENT_ID = '1049690915686-0453dfgdgs08ktv56r0g2orika5hem25.apps.googleusercontent.com';
-
-        const isConfigured = GOOGLE_CLIENT_ID !== 'YOUR_GOOGLE_CLIENT_ID';
-
-        // ── Helpers ─────────────────────────────────
-        function setAuthMessage(message, type = '') {
-            const el = document.getElementById('auth-message');
-            if (!el) return;
-            if (!message) { el.style.display = 'none'; el.textContent = ''; el.className = 'auth-message'; return; }
-            el.style.display = 'block';
-            el.textContent = message;
-            el.className = 'auth-message' + (type ? ' ' + type : '');
-        }
-
-        // Decode Google JWT credential
-        function parseJwt(token) {
-            try {
-                return JSON.parse(atob(token.split('.')[1].replace(/-/g, '+').replace(/_/g, '/')));
-            } catch(e) { return {}; }
-        }
-
-        function showUser(payload) {
-            const profile  = document.getElementById('user-profile');
-            const btnWrap  = document.getElementById('google-btn-wrapper');
-            const notice   = document.getElementById('setup-notice');
-            const statusEl = document.getElementById('auth-user');
-
-            document.getElementById('user-avatar').src = payload.picture || '';
-            document.getElementById('user-name').textContent  = payload.name  || 'Google User';
-            document.getElementById('user-email').textContent = payload.email || '';
-            statusEl.textContent = payload.name || payload.email || 'Google User';
-
-            if (profile)  profile.style.display  = 'block';
-            if (btnWrap)  btnWrap.style.display   = 'none';
-            if (notice)   notice.style.display    = 'none';
-            setAuthMessage('Signed in successfully with Google.', 'success');
-
-            // Persist session
-            sessionStorage.setItem('gsi_user', JSON.stringify(payload));
-        }
-
-        function signOut() {
-            sessionStorage.removeItem('gsi_user');
-            const profile  = document.getElementById('user-profile');
-            const btnWrap  = document.getElementById('google-btn-wrapper');
-            const statusEl = document.getElementById('auth-user');
-            if (profile) profile.style.display = 'none';
-            if (btnWrap) btnWrap.style.display  = 'flex';
-            statusEl.textContent = 'Not signed in';
-            setAuthMessage('Signed out.', 'success');
-            if (window.google && google.accounts && google.accounts.id) {
-                google.accounts.id.disableAutoSelect();
+        function initializeVisitorCounter() {
+            const COUNTER_KEY = 'iisdr_final_visitor_count'; 
+            const START_COUNT = 0;
+            let visitorCount = localStorage.getItem(COUNTER_KEY);
+            if (visitorCount === null) {
+                visitorCount = START_COUNT;
+            } else {
+                visitorCount = parseInt(visitorCount) + 1;
             }
-        }
-
-        // ── Main init ───────────────────────────────
-        window.addEventListener('load', function () {
-            // Restore session if exists
-            const saved = sessionStorage.getItem('gsi_user');
-            if (saved) { showUser(JSON.parse(saved)); }
-
-            // Sign out button
-            const signoutBtn = document.getElementById('auth-signout');
-            if (signoutBtn) signoutBtn.addEventListener('click', signOut);
-
-            if (!isConfigured) {
-                // Show setup notice, keep button wrapper visible but don't render GSI button
-                return;
-            }
-
-            // Hide setup notice
-            const notice = document.getElementById('setup-notice');
-            if (notice) notice.style.display = 'none';
-
-            // Wait for GSI to load then initialize
-            function initGSI() {
-                if (!window.google || !google.accounts || !google.accounts.id) {
-                    setTimeout(initGSI, 200);
-                    return;
+            function updateDisplay(count) {
+                const el = document.getElementById('visitor-counter');
+                if (el) {
+                    el.textContent = count.toLocaleString('en-IN');
                 }
-
-                google.accounts.id.initialize({
-                    client_id: GOOGLE_CLIENT_ID,
-                    callback: function(response) {
-                        const payload = parseJwt(response.credential);
-                        showUser(payload);
-                    },
-                    auto_select: false,
-                    cancel_on_tap_outside: true
-                });
-
-                // Render the official Google button
-                google.accounts.id.renderButton(
-                    document.getElementById('google-btn-wrapper'),
-                    {
-                        theme: 'outline',
-                        size: 'large',
-                        width: 360,
-                        text: 'signin_with',
-                        shape: 'rectangular',
-                        logo_alignment: 'center'
-                    }
-                );
-
-                // Also show One Tap prompt
-                google.accounts.id.prompt();
+                localStorage.setItem(COUNTER_KEY, count);
             }
-
-            initGSI();
-        });
+            updateDisplay(visitorCount);
+            setInterval(() => {
+                visitorCount++;
+                updateDisplay(visitorCount);
+            }, Math.floor(Math.random() * (60000 - 30000 + 1)) + 30000);
+        }
+        window.addEventListener('load', initializeVisitorCounter);
     </script>
 </body>
 </html>

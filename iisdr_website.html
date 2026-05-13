@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Indian Institute of Skill Development and Research (IISDR) - An initiative of Utkarsh Charitable and Welfare Trust">
+    <meta name="description"
+        content="Indian Institute of Skill Development and Research (IISDR) - An initiative of Utkarsh Charitable and Welfare Trust">
     <meta name="keywords" content="IISDR, skill development, research, UCWT, India, training, certification">
     <title>IISDR - Indian Institute of Skill Development and Research</title>
     <style>
@@ -103,8 +105,8 @@
         }
 
         .logo-placeholder {
-            width: 80px;
-            height: 80px;
+            width: 65px;
+            height: 65px;
             object-fit: contain;
             flex-shrink: 0;
         }
@@ -123,15 +125,15 @@
         }
 
         .header-text .header-text-hi {
-            font-size: 1.15rem;
+            font-size: 0.95rem;
         }
 
         .header-text .header-text-kn {
-            font-size: 1.05rem;
+            font-size: 0.85rem;
         }
 
         .header-text .header-text-en {
-            font-size: 1.7rem;
+            font-size: 1.35rem;
             font-weight: 700;
             letter-spacing: 0.4px;
         }
@@ -160,22 +162,9 @@
         /* ============================================
            MAIN NAVIGATION BAR
            ============================================ */
-        .nav-bar {
-            background-color: #003d99;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0;
-            border-bottom: 3px solid #ff9933;
-        }
+        
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            flex: 1;
-        }
+        
 
         .nav-links li {
             border-right: 1px solid #002d77;
@@ -210,13 +199,13 @@
             position: relative;
         }
 
-        .nav-dropdown > a {
+        .nav-dropdown>a {
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .nav-dropdown > a::after {
+        .nav-dropdown>a::after {
             content: "▼";
             font-size: 0.7rem;
             margin-left: 4px;
@@ -258,7 +247,7 @@
             display: block;
         }
 
-        .nav-dropdown > a.active {
+        .nav-dropdown>a.active {
             background-color: #002d77;
             color: #ff9933;
             border-bottom-color: #ff9933;
@@ -335,6 +324,7 @@
             0% {
                 transform: translateX(100%);
             }
+
             100% {
                 transform: translateX(-100%);
             }
@@ -386,16 +376,25 @@
         }
 
         .carousel-slide.slide-1 {
-            background: linear-gradient(135deg, #003d99 0%, #002d77 100%);
+            background: url('images/hero_slide_1.png') no-repeat center center;
+            background-size: cover;
         }
 
         .carousel-slide.slide-2 {
-            background: linear-gradient(135deg, #ff9933 0%, #e68a1f 100%);
+            background: url('images/hero_slide_2.png') no-repeat center center;
+            background-size: cover;
         }
 
         .carousel-slide.slide-3 {
-            background: linear-gradient(135deg, #138808 0%, #0a5005 100%);
+            background: url('images/hero_slide_3.png') no-repeat center center;
+            background-size: cover;
         }
+
+        .carousel-slide.slide-4 {
+            background: url('images/hero_slide_4.png') no-repeat center center;
+            background-size: cover;
+        }
+
 
         .carousel-controls {
             position: absolute;
@@ -428,18 +427,31 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background-color: rgba(0, 61, 153, 0.7);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             color: #ffffff;
-            border: none;
-            padding: 12px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             z-index: 10;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            padding-bottom: 4px;
+            /* Center text alignment */
         }
 
         .carousel-arrow:hover {
-            background-color: rgba(0, 61, 153, 0.95);
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.6);
         }
 
         .carousel-arrow.prev {
@@ -460,41 +472,49 @@
             overflow: hidden;
         }
 
-        .carousel-slides {
+        .poster-carousel .carousel-slides {
             position: relative;
             width: 100%;
             height: 100%;
         }
 
-        .carousel-slide {
+        .poster-carousel .carousel-slide {
             width: 100%;
             height: 100%;
             position: absolute;
             opacity: 0;
             transition: opacity 0.8s ease-in-out;
             animation: rotateSlides 24s infinite;
+            background: none;
+            /* Override any hero backgrounds just in case */
         }
 
-        .carousel-slide:nth-child(1) {
+        .poster-carousel .carousel-slide:nth-child(1) {
             animation-delay: 0s;
         }
 
-        .carousel-slide:nth-child(2) {
+        .poster-carousel .carousel-slide:nth-child(2) {
             animation-delay: -8s;
         }
 
-        .carousel-slide:nth-child(3) {
+        .poster-carousel .carousel-slide:nth-child(3) {
             animation-delay: -16s;
         }
 
         @keyframes rotateSlides {
-            0%, 100% {
+
+            0%,
+            100% {
                 opacity: 0;
             }
-            5%, 30% {
+
+            5%,
+            30% {
                 opacity: 1;
             }
-            35%, 100% {
+
+            35%,
+            100% {
                 opacity: 0;
             }
         }
@@ -626,156 +646,104 @@
             color: #777777;
         }
 
-        /* CERTIFICATION AUTH SECTION */
-        .cert-auth-section {
-            background-color: #f8f9fb;
-            border-top: 2px solid #003d99;
-            padding: 30px 20px;
-            margin-top: 20px;
+        /* PARTNER LOGO CAROUSEL - MODERNIZED */
+        .partner-carousel-section {
+            background-color: #eef3f8;
+            /* Soft blue-gray background to make white cards pop */
+            padding: 35px 0;
+            border-top: 1px solid #dce4ed;
+            border-bottom: 1px solid #dce4ed;
+            position: relative;
         }
 
-        .cert-auth-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1.1fr 1fr;
-            gap: 24px;
-            align-items: start;
-        }
-
-        .cert-auth-title {
-            font-size: 1.3rem;
+        .partner-carousel-section h3 {
+            text-align: center;
+            font-size: 1.1rem;
             color: #003d99;
-            font-weight: bold;
-            border-bottom: 2px solid #ff9933;
-            padding-bottom: 8px;
-            display: inline-block;
-        }
-
-        .cert-auth-desc {
-            margin-top: 12px;
-            font-size: 0.95rem;
-            line-height: 1.7;
-            color: #555555;
-        }
-
-        .cert-auth-list {
-            margin-top: 12px;
-            padding-left: 20px;
-            color: #555555;
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-
-        .auth-card {
-            background-color: #ffffff;
-            border: 1px solid #cccccc;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
-            padding: 20px;
-        }
-
-        .auth-message {
-            display: none;
-            padding: 8px 10px;
-            border-radius: 3px;
-            font-size: 0.85rem;
-            margin-bottom: 12px;
-            background-color: #fff4e5;
-            border: 1px solid #ffcc80;
-            color: #7a4c00;
-        }
-
-        .auth-message.error {
-            background-color: #fdecea;
-            border-color: #f5c6cb;
-            color: #a42828;
-        }
-
-        .auth-message.success {
-            background-color: #e7f4ea;
-            border-color: #a9d8b0;
-            color: #256029;
-        }
-
-        .auth-btn {
-            width: 100%;
-            padding: 10px 12px;
-            background-color: #003d99;
-            color: #ffffff;
-            border: 1px solid #002d77;
-            border-radius: 3px;
-            font-size: 0.95rem;
-            font-weight: 600;
-        }
-
-        .auth-btn.secondary {
-            background-color: #ffffff;
-            color: #003d99;
-            border: 1px solid #003d99;
-        }
-
-        .auth-btn:disabled {
-            background-color: #e8e8e8;
-            color: #999999;
-            border-color: #cccccc;
-            cursor: not-allowed;
-        }
-
-        .auth-divider {
+            /* Website main blue */
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin: 16px 0;
-            color: #777777;
-            font-size: 0.85rem;
+            justify-content: center;
         }
 
-        .auth-divider::before,
-        .auth-divider::after {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background-color: #e0e0e0;
+        .partner-carousel-section h3::before,
+        .partner-carousel-section h3::after {
+            content: '';
+            height: 2px;
+            width: 50px;
+            background-color: #ff9933;
+            /* Website orange */
+            margin: 0 15px;
         }
 
-        .auth-row {
-            display: grid;
-            gap: 8px;
-            margin-bottom: 12px;
+        .partner-carousel-wrapper {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            /* Gradient mask for smooth fade in/out on edges */
+            -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+            mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
         }
 
-        .auth-row label {
-            font-size: 0.85rem;
-            color: #333333;
-            font-weight: 600;
+        .partner-carousel-track {
+            display: flex;
+            width: max-content;
+            animation: partnerScroll 35s linear infinite;
+            padding: 10px 0;
         }
 
-        .auth-input {
-            padding: 10px;
-            border: 1px solid #cccccc;
-            border-radius: 3px;
-            font-size: 0.95rem;
+        .partner-carousel-track:hover {
+            animation-play-state: paused;
         }
 
-        .auth-actions {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
+        .partner-logo-item {
+            flex-shrink: 0;
+            width: 190px;
+            height: 90px;
+            margin: 0 20px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            /* Stronger shadow for visibility */
+            border: 1px solid #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            /* Removed grayscale and opacity so logos are fully visible in color by default */
         }
 
-        .auth-status {
-            margin-top: 12px;
-            font-size: 0.85rem;
-            color: #555555;
+        .partner-logo-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 61, 153, 0.2);
+            /* Deep blue shadow on hover */
+            border-color: #cce0ff;
         }
 
-        .auth-status button {
-            background: none;
-            border: none;
-            color: #003d99;
-            text-decoration: underline;
-            padding: 0;
-            font-size: 0.85rem;
+        .partner-logo-item img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+        }
+
+        .partner-logo-item:hover img {
+            transform: scale(1.05);
+        }
+
+        @keyframes partnerScroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
         }
 
         /* RIGHT COLUMN - UPDATES & ACTIVITIES */
@@ -868,10 +836,14 @@
         }
 
         @keyframes blink {
-            0%, 50% {
+
+            0%,
+            50% {
                 opacity: 1;
             }
-            51%, 100% {
+
+            51%,
+            100% {
                 opacity: 0.5;
             }
         }
@@ -960,73 +932,104 @@
         .bulletin-download a:hover {
             background-color: #ff9933;
         }
+
         /* ============================================
            SOCIAL MEDIA SECTION
            ============================================ */
         .social-media-section {
-            background-color: #003d99;
-            padding: 30px 20px;
+            background: linear-gradient(135deg, #002d77 0%, #0047b3 100%);
+            /* Modern gradient background */
+            padding: 40px 20px;
             margin-bottom: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Subtle background pattern/overlay for modern look */
+        .social-media-section::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 153, 51, 0.15) 0%, transparent 60%);
+            border-radius: 50%;
+            z-index: 0;
         }
 
         .social-media-container {
-            max-width: 1200px;
+            max-width: 96%;
+            /* Utilize almost all available screen width */
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
         .social-media-header {
             display: flex;
             align-items: center;
             gap: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             color: #ffffff;
         }
 
         .social-media-icon {
-            font-size: 2rem;
+            font-size: 2.2rem;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
         }
 
         .social-media-header h2 {
-            font-size: 1.8rem;
-            font-weight: bold;
+            font-size: 2rem;
+            font-weight: 800;
             color: #ffffff;
             margin: 0;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         .social-media-cards {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+            gap: 25px;
+            /* Slightly wider gap for breathing room since cards are wider */
         }
 
         .social-card {
             background-color: #ffffff;
-            border: 1px solid #cccccc;
-            border-radius: 4px;
+            border: none;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            display: flex;
+            flex-direction: column;
+            height: 380px;
+            /* Fixed height to enforce scrolling */
         }
 
         .social-card:hover {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 61, 153, 0.15);
+            transform: translateY(-5px);
         }
 
         .social-card-header {
-            background-color: #f5f5f5;
-            padding: 12px;
-            border-bottom: 1px solid #e0e0e0;
+            background: linear-gradient(to right, #f8f9fb, #ffffff);
+            padding: 16px 20px;
+            border-bottom: 1px solid #eef2f6;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .social-card-header h3 {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             color: #003d99;
-            font-weight: bold;
+            font-weight: 700;
             margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .social-follow-btn,
@@ -1034,95 +1037,109 @@
             background-color: #003d99;
             color: #ffffff;
             border: none;
-            padding: 6px 12px;
-            border-radius: 3px;
-            font-size: 0.8rem;
-            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
             cursor: pointer;
             text-decoration: none;
+            transition: background 0.3s, transform 0.2s;
         }
 
         .social-follow-btn:hover,
         .social-view-btn:hover {
-            background-color: #002d77;
+            background-color: #ff9933;
+            transform: scale(1.05);
         }
 
         .social-card-content {
-            padding: 12px;
-            min-height: auto;
-            max-height: 280px;
+            padding: 16px;
+            flex-grow: 1;
             overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #ccd6e0 transparent;
+        }
+
+        /* Custom Modern Scrollbar */
+        .social-card-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .social-card-content::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .social-card-content::-webkit-scrollbar-thumb {
+            background-color: #ccd6e0;
+            border-radius: 10px;
+        }
+
+        .social-card-content::-webkit-scrollbar-thumb:hover {
+            background-color: #003d99;
         }
 
         .social-post {
             display: flex;
-            gap: 10px;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f0f2f5;
+        }
+
+        .social-post:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
         }
 
         .post-avatar {
-            font-size: 2rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #e8eef5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
             flex-shrink: 0;
         }
 
         .post-text {
-            flex: 1;
-            font-size: 0.85rem;
-            color: #333333;
-            line-height: 1.4;
+            font-size: 0.9rem;
+            color: #4a5568;
+            line-height: 1.5;
         }
 
         .post-text strong {
-            color: #003d99;
+            color: #2d3748;
+            font-size: 0.95rem;
         }
 
         .post-date {
-            color: #999999;
+            color: #a0aec0;
             font-size: 0.8rem;
         }
 
         .post-text p {
             margin: 8px 0;
-            color: #555555;
         }
 
         .show-more {
             color: #003d99;
-            font-weight: bold;
             text-decoration: none;
+            font-weight: 600;
             font-size: 0.85rem;
         }
 
         .show-more:hover {
+            text-decoration: underline;
             color: #ff9933;
         }
 
         .post-tags {
-            color: #003d99;
-            font-size: 0.8rem;
+            color: #3182ce;
+            font-size: 0.85rem;
             margin-top: 8px;
-        }
-
-        .facebook-post {
-            flex-direction: column;
-        }
-
-        .facebook-post .post-avatar {
-            display: inline-block;
-            margin-right: 8px;
-        }
-
-        .youtube-placeholder {
-            background-color: #2d2d2d;
-            color: #ffffff;
-            padding: 40px 20px;
-            text-align: center;
-            border-radius: 3px;
-            font-size: 1rem;
-        }
-
-        .video-unavailable {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
         }
 
         .instagram-content {
@@ -1171,48 +1188,46 @@
             }
         }
 
+        /* ============================================
+           MODERN FOOTER STYLES
+           ============================================ */
+        /* ============================================
+           MODERN FOOTER STYLES
+           ============================================ */
         .footer {
-            background-color: #f9f9f9;
-            color: #333333;
-            padding: 40px 20px;
-            margin-top: 40px;
-            border-top: 1px solid #e0e0e0;
+            background-color: #00215e;
+            color: #ffffff;
+            padding: 80px 20px 40px;
+            margin-top: 0;
+            font-family: Arial, sans-serif;
         }
 
         .footer-content {
             display: grid;
-            grid-template-columns: 1.5fr 1.2fr 1.2fr;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-            margin-bottom: 30px;
-            padding-bottom: 30px;
-            border-bottom: 2px solid #e0e0e0;
-        }
-
-        .footer-section {
-            border-right: none;
-            padding-right: 0;
-        }
-
-        .footer-section:last-child {
-            border-right: none;
-            padding-right: 0;
+            max-width: 1400px;
+            margin: 0 auto 60px;
         }
 
         .footer-section h3 {
             color: #ff9933;
-            font-size: 1.05rem;
-            font-weight: bold;
-            margin-bottom: 15px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
         }
 
-        .footer-section p,
-        .footer-section li {
-            font-size: 0.9rem;
-            line-height: 1.7;
-            margin-bottom: 8px;
-            color: #333333;
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background-color: #ff9933;
+            border-radius: 2px;
         }
 
         .footer-section ul {
@@ -1220,51 +1235,81 @@
             padding: 0;
         }
 
+        .footer-section li {
+            margin-bottom: 12px;
+        }
+
         .footer-section a {
-            color: #5ba3d0;
+            color: #e0e0e0;
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 0.95rem;
         }
 
         .footer-section a:hover {
             color: #ff9933;
-            text-decoration: underline;
+            transform: translateX(5px);
+            text-decoration: none;
         }
 
         .footer-contact-item {
-            margin-bottom: 15px;
-            font-size: 0.9rem;
-            color: #333333;
-            line-height: 1.7;
+            display: flex;
+            gap: 12px;
+            margin-bottom: 18px;
+            color: #e0e0e0;
+            line-height: 1.6;
+            font-size: 0.95rem;
         }
 
-        .footer-contact-item strong {
-            color: #333333;
+        .footer-contact-icon {
+            color: #ff9933;
+            font-weight: bold;
         }
 
         .footer-bottom {
-            border-top: none;
-            padding-top: 0;
-            text-align: center;
-            font-size: 0.85rem;
-            color: #666666;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            color: #b0b0b0;
+            font-size: 0.9rem;
         }
 
         .footer-bottom-info {
             display: flex;
-            justify-content: space-around;
+            gap: 30px;
             align-items: center;
-            gap: 15px;
             flex-wrap: wrap;
         }
 
         .footer-bottom-info span {
-            flex: 1;
-            text-align: center;
-            min-width: 200px;
-            padding: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .visitor-badge {
+            background: rgba(255, 153, 51, 0.15);
+            color: #ff9933;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 153, 51, 0.3);
+            font-weight: 600;
+        }
+
+        .visitor-badge {
+            background: rgba(255, 153, 51, 0.15);
+            color: #ff9933;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 153, 51, 0.3);
+            font-weight: 600;
         }
 
         /* ============================================
@@ -1279,9 +1324,6 @@
                 grid-template-columns: 1fr;
             }
 
-            .cert-auth-container {
-                grid-template-columns: 1fr;
-            }
 
             .footer-content {
                 grid-template-columns: 1fr 1fr;
@@ -1317,9 +1359,7 @@
                 justify-content: center;
             }
 
-            .nav-links {
-                flex-wrap: wrap;
-            }
+            
 
             .nav-links a {
                 padding: 12px 12px;
@@ -1420,8 +1460,705 @@
             white-space: nowrap;
             border-width: 0;
         }
+            /* ============================================
+           MODERN FOOTER STYLES
+           ============================================ */
+        .footer {
+            background-color: #00215e;
+            color: #ffffff;
+            padding: 80px 20px 40px;
+            margin-top: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto 60px;
+        }
+
+        .footer-section h3 {
+            color: #ff9933;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background-color: #ff9933;
+            border-radius: 2px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a:hover {
+            color: #ff9933;
+            transform: translateX(5px);
+            text-decoration: none;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 18px;
+            color: #e0e0e0;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .footer-contact-icon {
+            color: #ff9933;
+            font-weight: bold;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom-info {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .visitor-badge {
+            background: rgba(255, 153, 51, 0.15);
+            color: #ff9933;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 153, 51, 0.3);
+            font-weight: 600;
+        }
+            /* ============================================
+           MODERN FOOTER STYLES
+           ============================================ */
+        .footer {
+            background-color: #00215e;
+            color: #ffffff;
+            padding: 80px 20px 40px;
+            margin-top: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto 60px;
+        }
+
+        .footer-section h3 {
+            color: #ff9933;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background-color: #ff9933;
+            border-radius: 2px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a:hover {
+            color: #ff9933;
+            transform: translateX(5px);
+            text-decoration: none;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 18px;
+            color: #e0e0e0;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .footer-contact-icon {
+            color: #ff9933;
+            font-weight: bold;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom-info {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .visitor-badge {
+            background: rgba(255, 153, 51, 0.15);
+            color: #ff9933;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 153, 51, 0.3);
+            font-weight: 600;
+        }
+            /* ============================================
+           MODERN FOOTER STYLES
+           ============================================ */
+        .footer {
+            background-color: #00215e;
+            color: #ffffff;
+            padding: 80px 20px 40px;
+            margin-top: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto 60px;
+        }
+
+        .footer-section h3 {
+            color: #ff9933;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background-color: #ff9933;
+            border-radius: 2px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a:hover {
+            color: #ff9933;
+            transform: translateX(5px);
+            text-decoration: none;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 18px;
+            color: #e0e0e0;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .footer-contact-icon {
+            color: #ff9933;
+            font-weight: bold;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom-info {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .visitor-badge {
+            background: rgba(255, 153, 51, 0.15);
+            color: #ff9933;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 153, 51, 0.3);
+            font-weight: 600;
+        }
+            /* ============================================
+           MODERN FOOTER STYLES
+           ============================================ */
+        .footer {
+            background-color: #00215e;
+            color: #ffffff;
+            padding: 80px 20px 40px;
+            margin-top: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto 60px;
+        }
+
+        .footer-section h3 {
+            color: #ff9933;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background-color: #ff9933;
+            border-radius: 2px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a:hover {
+            color: #ff9933;
+            transform: translateX(5px);
+            text-decoration: none;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 18px;
+            color: #e0e0e0;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .footer-contact-icon {
+            color: #ff9933;
+            font-weight: bold;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom-info {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .visitor-badge {
+            background: rgba(255, 153, 51, 0.15);
+            color: #ff9933;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 153, 51, 0.3);
+            font-weight: 600;
+        }
+    
+        /* ============================================
+           MAIN NAVIGATION BAR (STANDARD)
+           ============================================ */
+        
+
+        
+
+        .nav-links li {
+            border-right: 1px solid #002d77 !important;
+            position: relative !important;
+        }
+
+        .nav-links li:last-child {
+            border-right: none !important;
+        }
+
+        .nav-links a {
+            display: block !important;
+            padding: 15px 18px !important;
+            color: #ffffff !important;
+            font-weight: 600 !important;
+            font-size: 0.95rem !important;
+            text-decoration: none !important;
+            border-bottom: 3px solid transparent !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background-color: #002d77 !important;
+            color: #ff9933 !important;
+            border-bottom-color: #ff9933 !important;
+            text-decoration: none !important;
+        }
+
+        /* Dropdown Styles */
+        .nav-dropdown {
+            position: relative !important;
+        }
+
+        .nav-dropdown > a {
+            display: flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+        }
+
+        .nav-dropdown > a::after {
+            content: "▼" !important;
+            font-size: 0.7rem !important;
+            margin-left: 4px !important;
+        }
+
+        .dropdown-menu {
+            display: none !important;
+            position: absolute !important;
+            top: 100% !important;
+            left: 0 !important;
+            background-color: #ffffff !important;
+            min-width: 250px !important;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2) !important;
+            z-index: 1000 !important;
+            border: 1px solid #cccccc !important;
+            padding: 0 !important;
+        }
+
+        .dropdown-menu a {
+            display: block !important;
+            padding: 12px 18px !important;
+            color: #003d99 !important;
+            text-decoration: none !important;
+            border-bottom: 1px solid #e8e8e8 !important;
+            transition: all 0.3s ease !important;
+            font-weight: normal !important;
+            font-size: 0.9rem !important;
+            text-align: left !important;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f5f5f5 !important;
+            color: #ff9933 !important;
+            padding-left: 22px !important;
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block !important;
+        }
+
+        .nav-search {
+            padding: 12px 15px !important;
+            display: flex !important;
+            gap: 8px !important;
+            align-items: center !important;
+            border-left: 1px solid #002d77 !important;
+        }
+
+        .nav-search input {
+            padding: 6px 10px !important;
+            border: 1px solid #cccccc !important;
+            border-radius: 2px !important;
+            font-size: 0.9rem !important;
+            width: 180px !important;
+        }
+
+        .nav-search button {
+            background-color: #ff9933 !important;
+            color: #ffffff !important;
+            border: 1px solid #ff9933 !important;
+            padding: 6px 12px !important;
+            font-weight: bold !important;
+            font-size: 0.85rem !important;
+            cursor: pointer !important;
+        }
+
+        .nav-search button:hover {
+            background-color: #e68a1f !important;
+        }
+
+    
+        /* ============================================
+           MAIN NAVIGATION BAR (STANDARD)
+           ============================================ */
+        .nav-bar {
+            background-color: #003d99 !important;
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            padding: 0 !important;
+            border-bottom: 3px solid #ff9933 !important;
+            width: 100% !important;
+            position: relative !important;
+            z-index: 1000 !important;
+        }
+
+        .nav-links {
+            display: flex !important;
+            list-style: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            flex: 1 !important;
+        }
+
+        .nav-links li {
+            border-right: 1px solid #002d77 !important;
+            position: relative !important;
+        }
+
+        .nav-links li:last-child {
+            border-right: none !important;
+        }
+
+        .nav-links a {
+            display: block !important;
+            padding: 15px 18px !important;
+            color: #ffffff !important;
+            font-weight: 600 !important;
+            font-size: 0.95rem !important;
+            text-decoration: none !important;
+            border-bottom: 3px solid transparent !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background-color: #002d77 !important;
+            color: #ff9933 !important;
+            border-bottom-color: #ff9933 !important;
+            text-decoration: none !important;
+        }
+
+        /* Dropdown Styles */
+        .nav-dropdown {
+            position: relative !important;
+        }
+
+        .nav-dropdown > a {
+            display: flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+        }
+
+        .nav-dropdown > a::after {
+            content: "▼" !important;
+            font-size: 0.7rem !important;
+            margin-left: 4px !important;
+        }
+
+        .dropdown-menu {
+            display: none !important;
+            position: absolute !important;
+            top: 100% !important;
+            left: 0 !important;
+            background-color: #ffffff !important;
+            min-width: 250px !important;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2) !important;
+            z-index: 1000 !important;
+            border: 1px solid #cccccc !important;
+            padding: 0 !important;
+        }
+
+        .dropdown-menu a {
+            display: block !important;
+            padding: 12px 18px !important;
+            color: #003d99 !important;
+            text-decoration: none !important;
+            border-bottom: 1px solid #e8e8e8 !important;
+            transition: all 0.3s ease !important;
+            font-weight: normal !important;
+            font-size: 0.9rem !important;
+            text-align: left !important;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f5f5f5 !important;
+            color: #ff9933 !important;
+            padding-left: 22px !important;
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block !important;
+        }
+
+        .nav-search {
+            padding: 12px 15px !important;
+            display: flex !important;
+            gap: 8px !important;
+            align-items: center !important;
+            border-left: 1px solid #002d77 !important;
+        }
+
+        .nav-search input {
+            padding: 6px 10px !important;
+            border: 1px solid #cccccc !important;
+            border-radius: 2px !important;
+            font-size: 0.9rem !important;
+            width: 180px !important;
+        }
+
+        .nav-search button {
+            background-color: #ff9933 !important;
+            color: #ffffff !important;
+            border: 1px solid #ff9933 !important;
+            padding: 6px 12px !important;
+            font-weight: bold !important;
+            font-size: 0.85rem !important;
+            cursor: pointer !important;
+        }
+
+        .nav-search button:hover {
+            background-color: #e68a1f !important;
+        }
+
     </style>
 </head>
+
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
@@ -1444,24 +2181,26 @@
     <!-- ============================================
          MAIN NAVIGATION BAR
          ============================================ -->
-    <nav class="nav-bar" role="navigation" aria-label="Main navigation">
+                <nav class="nav-bar" role="navigation" aria-label="Main navigation">
         <ul class="nav-links">
-            <li><a href="#home" class="active">Home</a></li>
-            <li><a href="iisdr_about_us.html">About Us</a></li>
-            <li><a href="iisdr_programs.html">Programs</a></li>
+            <li><a href="index.html" class="nav-link-home">Home</a></li>
+            <li><a href="iisdr_about_us.html" class="nav-link-about">About Us</a></li>
+            <li><a href="iisdr_programs.html" class="nav-link-programs">Programs</a></li>
             <li class="nav-dropdown">
-                <a href="#">MoU Partner</a>
+                <a href="#" class="nav-link-mou">MoU Partner</a>
                 <div class="dropdown-menu">
-                    <a href="#">Infosys Limited</a>
-                    <a href="#">TCS (Tata Consultancy Services)</a>
-                    <a href="#">MSNIM - Manel Srinivasa Nayak Institute</a>
-                    <a href="#">Department of Hospital Administration</a>
-                    <a href="#">Utkarsh Charitable & Welfare Trust</a>
+                    <a href="https://inclusiv.in/" target="_blank">Inclusiv</a>
+                    <a href="https://www.sswroshni.in/eng/" target="_blank">School of Social Work, Roshni Nilaya (SSW)</a>
+                    <a href="https://sdmcbm.ac.in/" target="_blank">SDM College of Business Management PG Centre</a>
+                    <a href="https://www.hsscindia.in/index.html" target="_blank">Hydrocarbon Sector Skill Council (HSCC India)</a>
+                    <a href="https://www.fathermuller.edu.in/allied-health-sciences/department-of-hospital-administration.php" target="_blank">Father Muller College of Allied Health Sciences</a>
+                    <a href="https://msnim.edu.in/" target="_blank">Manel Srinivas Nayak Institute of Management (MSNIM)</a>
+                    <a href="https://sjec.ac.in/" target="_blank">St Joseph Engineering College (SJEC)</a>
                 </div>
             </li>
-            <li><a href="iisdr_information_bulletins.html">Information Bulletins</a></li>
+            <li><a href="iisdr_information_bulletins.html" class="nav-link-bulletins">Information Bulletins</a></li>
             <li class="nav-dropdown">
-                <a href="#">E-Journal</a>
+                <a href="#" class="nav-link-ejournal">E-Journal</a>
                 <div class="dropdown-menu">
                     <a href="iisdr_ejournal_about_thrive.html">About THRIVE</a>
                     <a href="iisdr_journal_particulars.html">Journal Particulars</a>
@@ -1469,11 +2208,12 @@
                     <a href="iisdr_author_guidelines.html">Author Guidelines</a>
                     <a href="iisdr_ejournal.html">E-Journal</a>
                     <a href="iisdr_disclaimer.html">Disclaimer</a>
+                    <a href="iisdr_call_for_papers.html">Call for Papers</a>
                     <a href="iisdr_ejournal_contact_us.html">Contact Us</a>
                 </div>
             </li>
-            <li><a href="#certification">Certification Programs</a></li>
-            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="iisdr_certification.html" class="nav-link-certification">Certification Programs</a></li>
+            <li><a href="iisdr_ejournal_contact_us.html" class="nav-link-contact">Contact Us</a></li>
         </ul>
         <div class="nav-search">
             <input type="text" placeholder="Search IISDR..." aria-label="Search website">
@@ -1488,7 +2228,8 @@
         <div class="ticker-badge">Alert</div>
         <div class="ticker-content">
             <div class="ticker-text">
-                Admissions open for 2026 Certification Programs || New MoU signed with Industry Partners || Read the latest E-Journal volume.
+                Admissions open for 2026 Certification Programs || New MoU signed with Industry Partners || Read the
+                latest E-Journal volume.
             </div>
         </div>
     </div>
@@ -1499,13 +2240,13 @@
     <section class="hero-section" aria-label="Featured content carousel">
         <div class="carousel-container">
             <div class="carousel-slide active slide-1">
-                Campus & Innovation Centers
             </div>
             <div class="carousel-slide slide-2">
-                Industry Partnerships & MoU Collaborations
             </div>
             <div class="carousel-slide slide-3">
-                Skill Development & Research Excellence
+            </div>
+            <div class="carousel-slide slide-4">
+                Leadership Connect 2026
             </div>
         </div>
         <button class="carousel-arrow prev" onclick="previousSlide()" aria-label="Previous slide">‹</button>
@@ -1514,6 +2255,53 @@
             <button class="carousel-dot active" onclick="goToSlide(0)" aria-label="Go to slide 1"></button>
             <button class="carousel-dot" onclick="goToSlide(1)" aria-label="Go to slide 2"></button>
             <button class="carousel-dot" onclick="goToSlide(2)" aria-label="Go to slide 3"></button>
+            <button class="carousel-dot" onclick="goToSlide(3)" aria-label="Go to slide 4"></button>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MoU PARTNER LOGO CAROUSEL
+         ============================================ -->
+    <section class="partner-carousel-section" aria-label="MoU Partners">
+        <h3>Our MoU Partners</h3>
+        <div class="partner-carousel-wrapper">
+            <div class="partner-carousel-track">
+                <!-- 7 Official Partners -->
+                <a href="https://inclusiv.in/" target="_blank" class="partner-logo-item" title="Inclusiv"><img
+                        src="images/partners/inclusiv.png" alt="Inclusiv"></a>
+                <a href="https://www.sswroshni.in/eng/" target="_blank" class="partner-logo-item"
+                    title="SSW Roshni Nilaya"><img src="images/partners/ssw.png" alt="SSW Roshni Nilaya"></a>
+                <a href="https://sdmcbm.ac.in/" target="_blank" class="partner-logo-item"
+                    title="SDM College of Business Management"><img src="images/partners/sdm.png"
+                        alt="SDM PG Centre"></a>
+                <a href="https://www.hsscindia.in/index.html" target="_blank" class="partner-logo-item"
+                    title="HSSC India"><img src="images/partners/hscc.png" alt="HSSC India"></a>
+                <a href="https://www.fathermuller.edu.in/allied-health-sciences/department-of-hospital-administration.php"
+                    target="_blank" class="partner-logo-item" title="Father Muller College"><img
+                        src="images/partners/fathermuller.png" alt="Father Muller College"></a>
+                <a href="https://msnim.edu.in/" target="_blank" class="partner-logo-item"
+                    title="Besant Institutions"><img src="images/partners/msnim.png" alt="Besant Institutions"></a>
+                <a href="https://sjec.ac.in/" target="_blank" class="partner-logo-item" title="SJEC"><img
+                        src="images/partners/sjec.png" alt="St Joseph Engineering College"></a>
+
+                <!-- Duplicated for seamless loop -->
+                <a href="https://inclusiv.in/" target="_blank" class="partner-logo-item" title="Inclusiv"><img
+                        src="images/partners/inclusiv.png" alt="Inclusiv"></a>
+                <a href="https://www.sswroshni.in/eng/" target="_blank" class="partner-logo-item"
+                    title="SSW Roshni Nilaya"><img src="images/partners/ssw.png" alt="SSW Roshni Nilaya"></a>
+                <a href="https://sdmcbm.ac.in/" target="_blank" class="partner-logo-item"
+                    title="SDM College of Business Management"><img src="images/partners/sdm.png"
+                        alt="SDM PG Centre"></a>
+                <a href="https://www.hsscindia.in/index.html" target="_blank" class="partner-logo-item"
+                    title="HSSC India"><img src="images/partners/hscc.png" alt="HSSC India"></a>
+                <a href="https://www.fathermuller.edu.in/allied-health-sciences/department-of-hospital-administration.php"
+                    target="_blank" class="partner-logo-item" title="Father Muller College"><img
+                        src="images/partners/fathermuller.png" alt="Father Muller College"></a>
+                <a href="https://msnim.edu.in/" target="_blank" class="partner-logo-item"
+                    title="Besant Institutions"><img src="images/partners/msnim.png" alt="Besant Institutions"></a>
+                <a href="https://sjec.ac.in/" target="_blank" class="partner-logo-item" title="SJEC"><img
+                        src="images/partners/sjec.png" alt="St Joseph Engineering College"></a>
+            </div>
         </div>
     </section>
 
@@ -1526,15 +2314,18 @@
             <div class="poster-carousel">
                 <div class="carousel-slides">
                     <div class="carousel-slide">
-                        <img src="images/poster-sjec-mou.png" alt="St Joseph Engineering College MoU Signing" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="images/poster-sjec-mou.png" alt="St Joseph Engineering College MoU Signing"
+                            style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="carousel-slide">
-                        <div class="poster-placeholder" style="background: linear-gradient(135deg, #fff59d 0%, #fffde7 100%); display: flex; align-items: center; justify-content: center; color: #666; font-weight: bold; text-align: center; padding: 20px;">
+                        <div class="poster-placeholder"
+                            style="background: linear-gradient(135deg, #fff59d 0%, #fffde7 100%); display: flex; align-items: center; justify-content: center; color: #666; font-weight: bold; text-align: center; padding: 20px;">
                             IISDR Leadership Program
                         </div>
                     </div>
                     <div class="carousel-slide">
-                        <div class="poster-placeholder" style="background: linear-gradient(135deg, #ffee58 0%, #fffbee 100%); display: flex; align-items: center; justify-content: center; color: #666; font-weight: bold; text-align: center; padding: 20px;">
+                        <div class="poster-placeholder"
+                            style="background: linear-gradient(135deg, #ffee58 0%, #fffbee 100%); display: flex; align-items: center; justify-content: center; color: #666; font-weight: bold; text-align: center; padding: 20px;">
                             Skill Development Initiative
                         </div>
                     </div>
@@ -1547,9 +2338,12 @@
             <div class="about-summary">
                 <h2 class="section-title">About IISDR</h2>
                 <p>
-                    The Indian Institute of Skill Development and Research (IISDR) is a premier institution established by the Utkarsh Charitable and Welfare Trust (UCWT). 
-                    We are dedicated to advancing skill development and innovative research in alignment with India's vision for human capital excellence. 
-                    Our programs are designed to meet industry demands while fostering academic rigor and social responsibility.
+                    The Indian Institute of Skill Development and Research (IISDR) is a premier institution established
+                    by the Utkarsh Charitable and Welfare Trust (UCWT).
+                    We are dedicated to advancing skill development and innovative research in alignment with India's
+                    vision for human capital excellence.
+                    Our programs are designed to meet industry demands while fostering academic rigor and social
+                    responsibility.
                 </p>
             </div>
 
@@ -1580,7 +2374,8 @@
         <div class="content-column">
             <div class="updates-section">
                 <div class="tab-header">
-                    <button class="active" onclick="switchTab(0, event)" aria-selected="true">Information Bulletins</button>
+                    <button class="active" onclick="switchTab(0, event)" aria-selected="true">Information
+                        Bulletins</button>
                     <button onclick="switchTab(1, event)" aria-selected="false">E-Journal</button>
                 </div>
 
@@ -1638,91 +2433,30 @@
                 </div>
 
                 <div class="tab-content">
-                    <div class="update-item">
-                        <a href="#">Vol. 12, Issue 2: Advanced Skill Assessment Methodologies <span class="new-badge">NEW</span></a>
-                        <div class="update-date">Apr 2026</div>
-                    </div>
-                    <div class="update-item">
-                        <a href="#">Vol. 12, Issue 1: Digital Transformation in Vocational Education</a>
-                        <div class="update-date">Mar 2026</div>
-                    </div>
-                    <div class="update-item">
-                        <a href="#">Vol. 11, Issue 4: Industry 4.0 Skills Mapping</a>
-                        <div class="update-date">Dec 2025</div>
-                    </div>
-                    <div class="update-item">
-                        <a href="#">Vol. 11, Issue 3: Research on Skill Gaps in India</a>
-                        <div class="update-date">Sep 2025</div>
-                    </div>
-                    <div class="update-item">
-                        <a href="#">Archive: Browse all journals</a>
-                        <div class="update-date">Complete collection</div>
+                    <div style="padding: 20px 0;">
+                        <h3 style="color: #003d99; font-size: 1.2rem; margin-bottom: 20px; font-weight: 700;">THRIVE Volumes & Issues</h3>
+                        <div style="display: grid; grid-template-columns: 1fr; gap: 15px;">
+                            <div style="background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); border: 2px solid #e8eef5; border-radius: 8px; padding: 20px; transition: all 0.3s ease;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: #003d99; margin-bottom: 8px;">Volume 1 | Issue 2</div>
+                                <div style="font-size: 0.9rem; color: #666; margin-bottom: 12px;">📅 July to December 2025</div>
+                                <a href="iisdr_ejournal.html" style="display: inline-block; color: #ff9933; font-weight: 600; padding: 8px 15px; background: linear-gradient(135deg, rgba(255, 153, 51, 0.1), rgba(255, 187, 85, 0.1)); border: 2px solid #ff9933; border-radius: 6px; text-decoration: none; transition: all 0.3s ease;">View Details →</a>
+                            </div>
+                            <div style="background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); border: 2px solid #e8eef5; border-radius: 8px; padding: 20px; transition: all 0.3s ease;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: #003d99; margin-bottom: 8px;">Volume 1 | Issue 1</div>
+                                <div style="font-size: 0.9rem; color: #666; margin-bottom: 12px;">📅 January to June 2025</div>
+                                <a href="iisdr_ejournal.html" style="display: inline-block; color: #ff9933; font-weight: 600; padding: 8px 15px; background: linear-gradient(135deg, rgba(255, 153, 51, 0.1), rgba(255, 187, 85, 0.1)); border: 2px solid #ff9933; border-radius: 6px; text-decoration: none; transition: all 0.3s ease;">View Details →</a>
+                            </div>
+                        </div>
+                        <div style="margin-top: 20px;">
+                            <a href="iisdr_ejournal.html" style="color: #003d99; font-weight: 600; text-decoration: none; display: inline-block;">→ View Complete E-Journal</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- ============================================
-         CERTIFICATION PROGRAM AUTHENTICATION
-         ============================================ -->
-    <section id="certification" class="cert-auth-section" aria-label="Certification Program Authentication">
-        <div class="cert-auth-container">
-            <div>
-                <h2 class="cert-auth-title">Certification Program Authentication</h2>
-                <p class="cert-auth-desc">
-                    Access IISDR certification programs using secure sign-in. Applicants may use Google authentication,
-                    phone-based OTP verification, or email and password.
-                </p>
-                <ul class="cert-auth-list">
-                    <li>Google Sign-In for quick access.</li>
-                    <li>Phone number verification with OTP.</li>
-                    <li>Email sign-up and sign-in for applicants.</li>
-                </ul>
-            </div>
-            <div class="auth-card">
-                <div id="auth-message" class="auth-message" role="status" aria-live="polite"></div>
-                <button id="google-signin" class="auth-btn" type="button">Continue with Google</button>
 
-                <div class="auth-divider">OR</div>
-
-                <div class="auth-row">
-                    <label for="phone-number">Phone number</label>
-                    <input id="phone-number" class="auth-input" type="tel" placeholder="+91 9876543210" autocomplete="tel">
-                    <div id="recaptcha-container"></div>
-                    <button id="phone-send-otp" class="auth-btn secondary" type="button">Send OTP</button>
-                </div>
-
-                <div class="auth-row">
-                    <label for="phone-otp">Enter OTP</label>
-                    <input id="phone-otp" class="auth-input" type="text" placeholder="Enter 6-digit OTP" inputmode="numeric" autocomplete="one-time-code">
-                    <button id="phone-verify-otp" class="auth-btn secondary" type="button">Verify OTP</button>
-                </div>
-
-                <div class="auth-divider">OR</div>
-
-                <div class="auth-row">
-                    <label for="email-id">Email address</label>
-                    <input id="email-id" class="auth-input" type="email" placeholder="name@example.com" autocomplete="email">
-                </div>
-
-                <div class="auth-row">
-                    <label for="email-password">Password</label>
-                    <input id="email-password" class="auth-input" type="password" placeholder="Enter password" autocomplete="current-password">
-                </div>
-
-                <div class="auth-actions">
-                    <button id="email-signup" class="auth-btn secondary" type="button">Create Account</button>
-                    <button id="email-signin" class="auth-btn" type="button">Sign In</button>
-                </div>
-
-                <div class="auth-status">
-                    Signed in as: <span id="auth-user">Not signed in</span>
-                    <button id="auth-signout" type="button">Sign out</button>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- ============================================
          SOCIAL MEDIA SECTION
@@ -1739,17 +2473,14 @@
                 <div class="social-card">
                     <div class="social-card-header">
                         <h3>LinkedIn</h3>
-                        <a href="https://linkedin.com/company/iisdr" target="_blank" class="social-follow-btn">Follow</a>
+                        <a href="https://www.linkedin.com/in/indian-institute-of-skill-development-and-research-iisdr-b13083395/"
+                            target="_blank" class="social-follow-btn">Follow</a>
                     </div>
-                    <div class="social-card-content">
-                        <div class="social-post">
-                            <div class="post-avatar">🏛️</div>
-                            <div class="post-text">
-                                <strong>IISDR - Indian Institute of Skill Development and Research</strong> · <span class="post-date">2 hours ago</span><br>
-                                <p>IISDR Leadership Connect 2026 brings together industry experts, academic leaders, and skill development practitioners to discuss the future of vocational education in India. Register now!</p>
-                                <a href="#" class="show-more">Show more</a>
-                            </div>
-                        </div>
+                    <div class="social-card-content" style="padding: 0; overflow: hidden; background: #fff;">
+                        <!-- Official Latest LinkedIn Post Embed -->
+                        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7454368806761668608"
+                            height="100%" width="100%" frameborder="0" allowfullscreen="" title="Embedded post"
+                            style="border-radius: 0 0 12px 12px; height: 380px;"></iframe>
                     </div>
                 </div>
 
@@ -1759,12 +2490,38 @@
                         <h3>Facebook</h3>
                     </div>
                     <div class="social-card-content">
+                        <!-- Post 1 -->
                         <div class="social-post facebook-post">
                             <div class="post-avatar">🏛️</div>
                             <div class="post-text">
-                                <strong>IISDR - Indian Institute</strong> · <span class="post-date">about a week ago</span><br>
-                                <p>Join us for our upcoming webinar on "Digital Skills for Industry 4.0" featuring renowned experts in technology and skill development. Certificates of participation will be provided.</p>
+                                <strong>IISDR - Indian Institute</strong> · <span class="post-date">about a week
+                                    ago</span><br>
+                                <p>Join us for our upcoming webinar on "Digital Skills for Industry 4.0" featuring
+                                    renowned experts in technology and skill development. Certificates of participation
+                                    will be provided.</p>
                                 <div class="post-tags">#IISDR #SkillDevelopment #DigitalSkills</div>
+                            </div>
+                        </div>
+                        <!-- Post 2 -->
+                        <div class="social-post facebook-post">
+                            <div class="post-avatar">🏛️</div>
+                            <div class="post-text">
+                                <strong>IISDR - Indian Institute</strong> · <span class="post-date">2 weeks
+                                    ago</span><br>
+                                <p>Our recent community outreach program at Surathkal successfully trained over 50 rural
+                                    youth in basic computer operations. Proud of our volunteers!</p>
+                                <a href="#" class="show-more">See Photos</a>
+                            </div>
+                        </div>
+                        <!-- Post 3 -->
+                        <div class="social-post facebook-post">
+                            <div class="post-avatar">🏛️</div>
+                            <div class="post-text">
+                                <strong>IISDR - Indian Institute</strong> · <span class="post-date">3 weeks
+                                    ago</span><br>
+                                <p>Admissions are now open for the upcoming semester. Visit our website to explore
+                                    various certification and diploma programs designed to boost your career.</p>
+                                <div class="post-tags">#AdmissionsOpen #CareerBoost</div>
                             </div>
                         </div>
                     </div>
@@ -1774,17 +2531,43 @@
                 <div class="social-card">
                     <div class="social-card-header">
                         <h3>Instagram</h3>
-                        <a href="https://instagram.com/iisdr_official" target="_blank" class="social-view-btn">View profile</a>
+                        <a href="https://instagram.com/iisdr_official" target="_blank" class="social-view-btn">View
+                            profile</a>
                     </div>
                     <div class="social-card-content instagram-content">
-                        <div class="instagram-feed">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 250'%3E%3Crect fill='%23f0f0f0' width='300' height='250'/%3E%3Ctext x='50%' y='50%' text-anchor='middle' dy='.3em' font-family='Arial' font-size='16' fill='%23999'%3E📸 Gallery%3C/text%3E%3C/svg%3E" alt="IISDR Instagram" style="width: 100%; border-radius: 4px;">
-                            <div style="margin-top: 10px; font-size: 0.9rem;">
-                                <strong>iisdr_official</strong><br>
-                                <span style="color: #999;">48 followers</span><br>
-                                <a href="https://instagram.com/iisdr_official" target="_blank" style="color: #003d99; display: inline-block; margin-top: 8px;">View more on Instagram</a>
+                        <div
+                            style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #f0f2f5;">
+                            <div class="post-avatar"
+                                style="width: 50px; height: 50px; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white;">
+                                IIS</div>
+                            <div>
+                                <strong style="font-size: 1rem;">iisdr_official</strong><br>
+                                <span style="color: #666; font-size: 0.85rem;">Indian Institute of Skill Dev.</span>
                             </div>
                         </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                            <div
+                                style="aspect-ratio: 1; background-color: #e8eef5; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+                                🎓</div>
+                            <div
+                                style="aspect-ratio: 1; background-color: #e8eef5; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+                                🤝</div>
+                            <div
+                                style="aspect-ratio: 1; background-color: #e8eef5; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+                                📚</div>
+                            <div
+                                style="aspect-ratio: 1; background-color: #e8eef5; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+                                🏫</div>
+                            <div
+                                style="aspect-ratio: 1; background-color: #e8eef5; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+                                💻</div>
+                            <div
+                                style="aspect-ratio: 1; background-color: #e8eef5; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+                                🏆</div>
+                        </div>
+                        <a href="https://instagram.com/iisdr_official" target="_blank"
+                            style="display: block; text-align: center; margin-top: 15px; color: #003d99; font-weight: 600; text-decoration: none; font-size: 0.9rem;">View
+                            more on Instagram</a>
                     </div>
                 </div>
 
@@ -1794,11 +2577,56 @@
                         <h3>YouTube</h3>
                     </div>
                     <div class="social-card-content">
-                        <div class="youtube-placeholder">
-                            <div class="video-unavailable">
-                                ⏸️ Video unavailable
+                        <div style="margin-bottom: 15px;">
+                            <div
+                                style="width: 100%; aspect-ratio: 16/9; background-color: #222; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white;">
+                                <div style="font-size: 2rem; color: #ff0000; margin-bottom: 5px;">▶</div>
+                                <span style="font-size: 0.85rem; font-weight: 600;">Campus Tour 2026</span>
                             </div>
-                            <p style="font-size: 0.8rem; margin-top: 10px;">Playback on other websites has been disabled<br><a href="https://youtube.com/@iisdr" target="_blank" style="color: #003d99;">Watch on YouTube</a></p>
+                            <h4 style="font-size: 0.95rem; color: #333; margin: 10px 0 5px 0;">Experience IISDR Campus
+                                Life</h4>
+                            <span style="color: #666; font-size: 0.8rem;">1.2K views • 1 month ago</span>
+                        </div>
+                        <div style="border-top: 1px solid #f0f2f5; padding-top: 15px;">
+                            <h4
+                                style="font-size: 0.9rem; color: #555; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">
+                                Recent Videos</h4>
+
+                            <div style="display: flex; gap: 10px; margin-bottom: 12px;">
+                                <div
+                                    style="width: 90px; height: 50px; background-color: #e8eef5; border-radius: 4px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 0.8rem;">
+                                    ▶</div>
+                                <div>
+                                    <div
+                                        style="font-size: 0.85rem; font-weight: 600; color: #333; line-height: 1.2; margin-bottom: 4px;">
+                                        Webinar: Future of AI in Education</div>
+                                    <div style="font-size: 0.75rem; color: #666;">850 views • 2 weeks ago</div>
+                                </div>
+                            </div>
+
+                            <div style="display: flex; gap: 10px; margin-bottom: 12px;">
+                                <div
+                                    style="width: 90px; height: 50px; background-color: #e8eef5; border-radius: 4px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 0.8rem;">
+                                    ▶</div>
+                                <div>
+                                    <div
+                                        style="font-size: 0.85rem; font-weight: 600; color: #333; line-height: 1.2; margin-bottom: 4px;">
+                                        Student Testimonials 2025</div>
+                                    <div style="font-size: 0.75rem; color: #666;">2.1K views • 3 months ago</div>
+                                </div>
+                            </div>
+
+                            <div style="display: flex; gap: 10px;">
+                                <div
+                                    style="width: 90px; height: 50px; background-color: #e8eef5; border-radius: 4px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 0.8rem;">
+                                    ▶</div>
+                                <div>
+                                    <div
+                                        style="font-size: 0.85rem; font-weight: 600; color: #333; line-height: 1.2; margin-bottom: 4px;">
+                                        How to Apply: Step by Step</div>
+                                    <div style="font-size: 0.75rem; color: #666;">5K views • 5 months ago</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1809,69 +2637,72 @@
     <!-- ============================================
          FOOTER
          ============================================ -->
-    <footer class="footer">
+                    <footer class="footer">
         <div class="footer-content">
             <!-- Section 1: Contact Information -->
             <div class="footer-section">
                 <h3>Contact Us</h3>
                 <div class="footer-contact-item">
-                    <strong>IISDR Headquarters:</strong><br>
-                    123 Education Park, Tech Valley<br>
-                    New Delhi - 110001, India<br>
-                    <strong>Phone:</strong> +91-11-XXXX-XXXX<br>
-                    <strong>Email:</strong> <a href="mailto:info@iisdr.org">info@iisdr.org</a>
+                    <span class="footer-contact-icon">📍</span>
+                    <span>IISDR Mangalore</span>
                 </div>
                 <div class="footer-contact-item">
-                    <strong>Utkarsh Charitable & Welfare Trust:</strong><br>
-                    Heritage Building, Community Square<br>
-                    Mumbai - 400001, India<br>
-                    <strong>Phone:</strong> +91-22-XXXX-XXXX<br>
-                    <strong>Email:</strong> <a href="mailto:support@ucwt.org">support@ucwt.org</a>
+                    <span class="footer-contact-icon">📞</span>
+                    <span><a href="tel:+917259215554">+91 7259215554</a></span>
+                </div>
+                <div class="footer-contact-item">
+                    <span class="footer-contact-icon">✉️</span>
+                    <span><a href="mailto:ddiisdr@gmail.com">ddiisdr@gmail.com</a></span>
                 </div>
             </div>
 
-            <!-- Section 2: Important Links -->
+            <!-- Section 2: Quick Navigation -->
             <div class="footer-section">
-                <h3>Important Links</h3>
+                <h3>Quick Navigation</h3>
                 <ul>
-                    <li><a href="#privacy">Privacy Policy</a></li>
-                    <li><a href="#terms">Terms of Use</a></li>
-                    <li><a href="#copyright">Copyright Policy</a></li>
-                    <li><a href="#disclaimer">Disclaimer</a></li>
-                    <li><a href="#grievance">Grievance Redressal</a></li>
-                    <li><a href="#rti">Right to Information (RTI)</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="iisdr_about_us.html">About Us</a></li>
+                    <li><a href="iisdr_programs.html">Programs</a></li>
+                    <li><a href="iisdr_activities.html">Activities</a></li>
+                    <li><a href="iisdr_certification.html">Certification</a></li>
+                    <li><a href="iisdr_ejournal.html">E-Journal</a></li>
                 </ul>
             </div>
 
-            <!-- Section 3: Support & Policies -->
+            <!-- Section 3: Important Links -->
+            <div class="footer-section">
+                <h3>Important Links</h3>
+                <ul>
+                    <li><a href="iisdr_disclaimer.html">Privacy Policy</a></li>
+                    <li><a href="iisdr_disclaimer.html">Terms of Use</a></li>
+                    <li><a href="iisdr_disclaimer.html">Copyright Policy</a></li>
+                    <li><a href="iisdr_disclaimer.html">Disclaimer</a></li>
+                    <li><a href="iisdr_ejournal_contact_us.html">Grievance Redressal</a></li>
+                    <li><a href="iisdr_information_bulletins.html">Right to Information (RTI)</a></li>
+                </ul>
+            </div>
+
+            <!-- Section 4: Support & Policies -->
             <div class="footer-section">
                 <h3>Support & Policies</h3>
                 <ul>
-                    <li><a href="#website-policies">Website Policies</a></li>
-                    <li><a href="#help">Help & FAQs</a></li>
-                    <li><a href="#accessibility">Accessibility Statement</a></li>
-                    <li><a href="#sitemap">Sitemap</a></li>
-                    <li><a href="#feedback">Send Feedback</a></li>
-                    <li><a href="#report-issue">Report an Issue</a></li>
+                    <li><a href="index.html#website-policies">Website Policies</a></li>
+                    <li><a href="index.html#help">Help & FAQs</a></li>
+                    <li><a href="index.html#accessibility">Accessibility Statement</a></li>
+                    <li><a href="index.html#sitemap">Sitemap</a></li>
+                    <li><a href="index.html#feedback">Send Feedback</a></li>
+                    <li><a href="index.html#report-issue">Report an Issue</a></li>
                 </ul>
             </div>
         </div>
 
         <!-- Footer Bottom -->
         <div class="footer-bottom">
+            <div>© 2026 IISDR. All rights reserved.</div>
             <div class="footer-bottom-info">
-                <span>
-                    Designed and Developed by <strong>Utkarsh Digital Solutions</strong>
-                </span>
-                <span>
-                    © 2026 Utkarsh Charitable and Welfare Trust. All rights reserved.
-                </span>
-                <span>
-                    Last Updated: <span id="last-updated">25 April 2026 | 12:30 PM IST</span>
-                </span>
-                <span>
-                    Visitor Count: <span id="visitor-counter">1,234,567</span>
-                </span>
+                <span>Designed by <strong>Utkarsh Engineers</strong></span>
+                <span>Last Updated: <span style="color: #e0e0e0;">25 April 2026</span></span>
+                <span>Visitor Count: <span id="visitor-counter" class="visitor-badge">0</span></span>
             </div>
         </div>
     </footer>
@@ -1879,377 +2710,71 @@
     <!-- ============================================
          JAVASCRIPT FOR INTERACTIVITY
          ============================================ -->
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+
+
+
+
+    
+    
+    
+    
     <script>
         // ============================================
-        // TEXT SIZE CONTROLS
-        // ============================================
-        function changeTextSize(size) {
-            const html = document.documentElement;
-            const buttons = {
-                'sm': document.getElementById('text-smaller'),
-                'normal': document.getElementById('text-normal'),
-                'lg': document.getElementById('text-larger')
-            };
-
-            // Remove active class from all buttons
-            Object.values(buttons).forEach(btn => btn.classList.remove('active'));
-
-            // Add active class to selected button
-            buttons[size].classList.add('active');
-
-            // Apply text size
-            html.classList.remove('text-sm', 'text-lg');
-            if (size === 'sm') html.classList.add('text-sm');
-            if (size === 'lg') html.classList.add('text-lg');
-
-            // Save preference
-            localStorage.setItem('textSize', size);
-        }
-
-        // ============================================
-        // CONTRAST CONTROLS
-        // ============================================
-        function toggleContrast(mode) {
-            const body = document.body;
-            const buttons = {
-                'normal': document.getElementById('contrast-normal'),
-                'high': document.getElementById('contrast-high')
-            };
-
-            // Remove active class from all buttons
-            Object.values(buttons).forEach(btn => btn.classList.remove('active'));
-
-            // Add active class to selected button
-            buttons[mode].classList.add('active');
-
-            // Apply contrast mode
-            body.classList.toggle('high-contrast', mode === 'high');
-
-            // Save preference
-            localStorage.setItem('contrastMode', mode);
-        }
-
-        // ============================================
-        // LANGUAGE TOGGLE
-        // ============================================
-        function changeLanguage(lang) {
-            const buttons = {
-                'en': document.getElementById('lang-en'),
-                'hi': document.getElementById('lang-hi')
-            };
-
-            // Remove active class from all buttons
-            Object.values(buttons).forEach(btn => btn.classList.remove('active'));
-
-            // Add active class to selected button
-            buttons[lang].classList.add('active');
-
-            // Save preference
-            localStorage.setItem('language', lang);
-
-            // In a real application, this would trigger content translation
-            alert(`Language switched to ${lang === 'en' ? 'English' : 'हिन्दी'}`);
-        }
-
-        function toggleScreenReaderMode() {
-            alert('Screen Reader Access mode enabled. Use keyboard navigation with Tab, Enter, and arrow keys.');
-        }
-
-        // ============================================
-        // CAROUSEL CONTROLS
-        // ============================================
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.carousel-slide');
-        const dots = document.querySelectorAll('.carousel-dot');
-
-        function showSlide(n) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            dots.forEach(dot => dot.classList.remove('active'));
-
-            slides[n].classList.add('active');
-            dots[n].classList.add('active');
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }
-
-        function previousSlide() {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            showSlide(currentSlide);
-        }
-
-        function goToSlide(n) {
-            currentSlide = n;
-            showSlide(currentSlide);
-        }
-
-        // Auto-advance carousel every 6 seconds
-        setInterval(nextSlide, 6000);
-
-        // ============================================
-        // TAB SWITCHING
+        // TAB SWITCHING FUNCTION
         // ============================================
         function switchTab(tabIndex, event) {
-            const tabButtons = event.target.parentElement.querySelectorAll('button');
-            const tabContents = event.target.parentElement.nextElementSibling;
-            const allTabs = tabContents.parentElement.querySelectorAll('.tab-content');
-
-            // Update button states
-            tabButtons.forEach((btn, index) => {
-                btn.classList.toggle('active', index === tabIndex);
-                btn.setAttribute('aria-selected', index === tabIndex);
+            event.preventDefault();
+            
+            const tabButtons = document.querySelectorAll('.tab-header button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            // Remove active class from all buttons and contents
+            tabButtons.forEach(btn => {
+                btn.classList.remove('active');
+                btn.setAttribute('aria-selected', 'false');
             });
-
-            // Update content visibility
-            allTabs.forEach((tab, index) => {
-                tab.classList.toggle('active', index === tabIndex);
+            tabContents.forEach(content => {
+                content.classList.remove('active');
             });
+            
+            // Add active class to selected button and content
+            if (tabButtons[tabIndex]) {
+                tabButtons[tabIndex].classList.add('active');
+                tabButtons[tabIndex].setAttribute('aria-selected', 'true');
+            }
+            if (tabContents[tabIndex]) {
+                tabContents[tabIndex].classList.add('active');
+            }
         }
 
         // ============================================
-        // RESTORE USER PREFERENCES
-        // ============================================
-        function restoreUserPreferences() {
-            const textSize = localStorage.getItem('textSize') || 'normal';
-            const contrastMode = localStorage.getItem('contrastMode') || 'normal';
-            const language = localStorage.getItem('language') || 'en';
-
-            changeTextSize(textSize);
-            toggleContrast(contrastMode);
-            // Language can be applied when needed
-        }
-
-        // Call on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            restoreUserPreferences();
-            initCertificationAuth();
-        });
-
-        // ============================================
-        // KEYBOARD NAVIGATION
-        // ============================================
-        document.addEventListener('keydown', function(e) {
-            // Left arrow to previous slide
-            if (e.key === 'ArrowLeft' && document.activeElement.closest('.hero-section')) {
-                previousSlide();
-            }
-            // Right arrow to next slide
-            if (e.key === 'ArrowRight' && document.activeElement.closest('.hero-section')) {
-                nextSlide();
-            }
-        });
-
-        // ============================================
-        // VISITOR COUNTER
+        // VISITOR COUNTER (Dynamic Simulation)
         // ============================================
         function initializeVisitorCounter() {
-            let visitorCount = localStorage.getItem('visitorCount');
-            if (!visitorCount) {
-                visitorCount = Math.floor(Math.random() * 5000000) + 1000000;
+            const COUNTER_KEY = 'iisdr_final_visitor_count'; 
+            const START_COUNT = 0;
+            let visitorCount = localStorage.getItem(COUNTER_KEY);
+            if (visitorCount === null) {
+                visitorCount = START_COUNT;
             } else {
                 visitorCount = parseInt(visitorCount) + 1;
             }
-            localStorage.setItem('visitorCount', visitorCount);
-            document.getElementById('visitor-counter').textContent = visitorCount.toLocaleString('en-IN');
-        }
-
-        // ============================================
-        // CERTIFICATION AUTHENTICATION
-        // ============================================
-        const firebaseConfig = {
-            apiKey: "REPLACE_WITH_API_KEY",
-            authDomain: "REPLACE_WITH_AUTH_DOMAIN",
-            projectId: "REPLACE_WITH_PROJECT_ID",
-            appId: "REPLACE_WITH_APP_ID",
-            messagingSenderId: "REPLACE_WITH_SENDER_ID",
-            storageBucket: "REPLACE_WITH_STORAGE_BUCKET"
-        };
-
-        function isFirebaseConfigured() {
-            return Object.values(firebaseConfig).every(value => value && !String(value).includes("REPLACE_WITH"));
-        }
-
-        function setAuthMessage(message, type = "") {
-            const messageEl = document.getElementById('auth-message');
-            if (!messageEl) return;
-            if (!message) {
-                messageEl.style.display = "none";
-                messageEl.textContent = "";
-                messageEl.className = "auth-message";
-                return;
+            function updateDisplay(count) {
+                const el = document.getElementById('visitor-counter');
+                if (el) {
+                    el.textContent = count.toLocaleString('en-IN');
+                }
+                localStorage.setItem(COUNTER_KEY, count);
             }
-            messageEl.style.display = "block";
-            messageEl.textContent = message;
-            messageEl.className = `auth-message${type ? ` ${type}` : ""}`;
+            updateDisplay(visitorCount);
+            setInterval(() => {
+                visitorCount++;
+                updateDisplay(visitorCount);
+            }, Math.floor(Math.random() * (60000 - 30000 + 1)) + 30000);
         }
-
-        function setAuthDisabled(disabled) {
-            const controls = document.querySelectorAll('#certification button, #certification input');
-            controls.forEach(control => {
-                control.disabled = disabled;
-            });
-        }
-
-        function initCertificationAuth() {
-            const authSection = document.getElementById('certification');
-            if (!authSection) return;
-
-            if (!window.firebase || !firebase.apps) {
-                setAuthMessage("Firebase SDK failed to load.", "error");
-                setAuthDisabled(true);
-                return;
-            }
-
-            if (!isFirebaseConfigured()) {
-                setAuthMessage("Authentication is not configured. Replace the Firebase config values.", "error");
-                setAuthDisabled(true);
-                return;
-            }
-
-            if (!firebase.apps.length) {
-                firebase.initializeApp(firebaseConfig);
-            }
-
-            const auth = firebase.auth();
-            const googleButton = document.getElementById('google-signin');
-            const phoneSendButton = document.getElementById('phone-send-otp');
-            const phoneVerifyButton = document.getElementById('phone-verify-otp');
-            const emailSignupButton = document.getElementById('email-signup');
-            const emailSigninButton = document.getElementById('email-signin');
-            const signoutButton = document.getElementById('auth-signout');
-            const userLabel = document.getElementById('auth-user');
-
-            let phoneConfirmation = null;
-            const recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
-                size: 'normal'
-            });
-
-            recaptchaVerifier.render().catch(error => {
-                setAuthMessage(`Unable to load reCAPTCHA: ${error.message}`, "error");
-            });
-
-            googleButton.addEventListener('click', () => {
-                const provider = new firebase.auth.GoogleAuthProvider();
-                setAuthMessage("Opening Google sign-in...", "");
-                auth.signInWithPopup(provider)
-                    .then(() => setAuthMessage("Signed in with Google.", "success"))
-                    .catch(error => setAuthMessage(error.message, "error"));
-            });
-
-            phoneSendButton.addEventListener('click', () => {
-                const phoneNumber = document.getElementById('phone-number').value.trim();
-                if (!phoneNumber) {
-                    setAuthMessage("Enter a phone number with country code.", "error");
-                    return;
-                }
-                auth.signInWithPhoneNumber(phoneNumber, recaptchaVerifier)
-                    .then(confirmationResult => {
-                        phoneConfirmation = confirmationResult;
-                        setAuthMessage("OTP sent. Please check your phone.", "success");
-                    })
-                    .catch(error => setAuthMessage(error.message, "error"));
-            });
-
-            phoneVerifyButton.addEventListener('click', () => {
-                const otp = document.getElementById('phone-otp').value.trim();
-                if (!phoneConfirmation) {
-                    setAuthMessage("Please request an OTP first.", "error");
-                    return;
-                }
-                if (!otp) {
-                    setAuthMessage("Enter the OTP to continue.", "error");
-                    return;
-                }
-                phoneConfirmation.confirm(otp)
-                    .then(() => setAuthMessage("Phone verified and signed in.", "success"))
-                    .catch(error => setAuthMessage(error.message, "error"));
-            });
-
-            emailSignupButton.addEventListener('click', () => {
-                const email = document.getElementById('email-id').value.trim();
-                const password = document.getElementById('email-password').value.trim();
-                if (!email || !password) {
-                    setAuthMessage("Enter email and password to create an account.", "error");
-                    return;
-                }
-                auth.createUserWithEmailAndPassword(email, password)
-                    .then(() => setAuthMessage("Account created and signed in.", "success"))
-                    .catch(error => setAuthMessage(error.message, "error"));
-            });
-
-            emailSigninButton.addEventListener('click', () => {
-                const email = document.getElementById('email-id').value.trim();
-                const password = document.getElementById('email-password').value.trim();
-                if (!email || !password) {
-                    setAuthMessage("Enter email and password to sign in.", "error");
-                    return;
-                }
-                auth.signInWithEmailAndPassword(email, password)
-                    .then(() => setAuthMessage("Signed in successfully.", "success"))
-                    .catch(error => setAuthMessage(error.message, "error"));
-            });
-
-            signoutButton.addEventListener('click', () => {
-                auth.signOut()
-                    .then(() => setAuthMessage("Signed out.", "success"))
-                    .catch(error => setAuthMessage(error.message, "error"));
-            });
-
-            auth.onAuthStateChanged(user => {
-                if (user) {
-                    userLabel.textContent = user.email || user.phoneNumber || "Authenticated user";
-                    signoutButton.disabled = false;
-                } else {
-                    userLabel.textContent = "Not signed in";
-                    signoutButton.disabled = true;
-                }
-            });
-        }
-
-        // ============================================
-        // SMOOTH SCROLL FOR NAVIGATION
-        // ============================================
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href !== '#' && document.querySelector(href)) {
-                    e.preventDefault();
-                    document.querySelector(href).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // ============================================
-        // NAVIGATION ACTIVE STATE
-        // ============================================
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('main, section');
-            const navLinks = document.querySelectorAll('.nav-links a');
-
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').slice(1) === current) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
-        // Initialize on load
         window.addEventListener('load', initializeVisitorCounter);
     </script>
+    <script async src="https://www.threads.net/embed.js"></script>
 </body>
+
 </html>

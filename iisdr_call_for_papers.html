@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Author Guidelines - IISDR</title>
+    <title>Call for Papers - IISDR</title>
     <style>
         * {
             margin: 0;
@@ -65,30 +65,6 @@
             font-size: 1.35rem;
             font-weight: 700;
             letter-spacing: 0.4px;
-        }
-
-        .header-right {
-            display: flex;
-            gap: 15px;
-        }
-
-        .logo-box {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .logo-box img {
-            width: 60px;
-            height: 60px;
-            object-fit: contain;
-        }
-
-        .logo-box p {
-            font-size: 11px;
-            color: #666;
         }
 
         /* Navigation */
@@ -175,11 +151,6 @@
             border-bottom: 1px solid #e8e8e8;
             transition: all 0.3s ease;
             font-weight: normal;
-            border-bottom-color: transparent;
-        }
-
-        .dropdown-menu a:last-child {
-            border-bottom: none;
         }
 
         .dropdown-menu a:hover {
@@ -212,18 +183,11 @@
             font-weight: bold;
             font-size: 0.85rem;
             cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        .nav-search button:hover {
-            background-color: #e68a1f;
-            border-color: #e68a1f;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300"><rect fill="%238B7355" width="1200" height="300"/></svg>');
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/hero_slide_1.png');
             background-size: cover;
             background-position: center;
             height: 250px;
@@ -240,308 +204,129 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
-        /* Main Grid */
-        .main-grid {
+        /* Main Content */
+        .main-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
             display: grid;
             grid-template-columns: 1fr 300px;
-            max-width: 1200px;
-            margin: 20px auto;
-            gap: 20px;
-            padding: 0 20px;
+            gap: 30px;
         }
 
-        .content {
-            background-color: #ffffff;
+        .content-card {
+            background: white;
+            padding: 40px;
             border: 1px solid #ddd;
-            padding: 25px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
 
-        .content h2 {
+        .content-card h2 {
             color: #003d99;
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #ff9933;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #ff9933;
             padding-bottom: 10px;
+            display: inline-block;
         }
 
-        .content h3 {
+        .content-card h3 {
             color: #003d99;
-            font-size: 14px;
-            font-weight: bold;
-            margin-top: 18px;
-            margin-bottom: 10px;
+            margin: 25px 0 15px;
         }
 
-        .content p {
-            font-size: 13px;
-            line-height: 1.6;
-            margin-bottom: 12px;
-            color: #333;
+        .content-card p {
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #444;
         }
 
-        .content ul {
+        .content-card ul {
             margin-left: 20px;
-            margin-bottom: 15px;
-            font-size: 13px;
-            line-height: 1.7;
+            margin-bottom: 20px;
         }
 
-        .content ul li {
-            margin-bottom: 8px;
+        .content-card li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+            color: #444;
         }
 
-        .content a {
-            color: #003d99;
-            text-decoration: none;
-        }
-
-        .content a:hover {
-            text-decoration: underline;
-        }
-
-        .instructions-section {
-            margin-bottom: 25px;
-        }
-
-        .bullet-list {
-            margin-left: 25px;
-            margin-bottom: 15px;
-        }
-
-        .bullet-list li {
-            margin-bottom: 6px;
-            font-size: 13px;
-            color: #333;
-            line-height: 1.5;
+        .call-action {
+            background: #f0f7ff;
+            padding: 20px;
+            border-left: 5px solid #003d99;
+            margin: 30px 0;
         }
 
         /* Sidebar */
-        .sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
         .sidebar-widget {
-            background-color: #ffffff;
+            background: white;
+            padding: 20px;
             border: 1px solid #ddd;
-            padding: 15px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            margin-bottom: 25px;
         }
 
         .sidebar-widget h3 {
             color: #003d99;
-            font-size: 14px;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             border-bottom: 2px solid #ff9933;
             padding-bottom: 8px;
-            font-weight: bold;
         }
 
-        .search-box input {
-            width: 100%;
-            padding: 8px 10px;
-            border: 1px solid #ddd;
-            font-size: 12px;
-            margin-bottom: 8px;
-        }
-
-        .search-box button {
-            width: 100%;
-            padding: 8px;
-            background-color: #003d99;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 12px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-
-        .search-box button:hover {
-            background-color: #002d77;
-        }
-
-        .recent-news-item {
-            display: flex;
-            gap: 12px;
-            padding: 12px 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .recent-news-item:last-child {
-            border-bottom: none;
-        }
-
-        .news-image {
-            width: 60px;
-            height: 60px;
-            background-color: #ddd;
-            border: 1px solid #ccc;
-            flex-shrink: 0;
-        }
-
-        .news-content {
-            flex-grow: 1;
-        }
-
-        .news-title {
-            font-size: 12px;
-            font-weight: bold;
-            color: #003d99;
-            margin-bottom: 4px;
-        }
-
-        .news-date {
-            font-size: 11px;
-            color: #999;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .categories-list {
-            list-style: none;
-        }
-
-        .categories-list li {
-            padding: 8px 0;
-            border-bottom: 1px solid #eee;
-            font-size: 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .categories-list li:last-child {
-            border-bottom: none;
-        }
-
-        .categories-list a {
-            color: #003d99;
-            text-decoration: none;
-            flex-grow: 1;
-        }
-
-        .categories-list a:hover {
-            text-decoration: underline;
-        }
-
-        .count-badge {
-            background-color: #138808;
-            color: white;
-            padding: 2px 8px;
-            border-radius: 3px;
-            font-size: 11px;
-            font-weight: bold;
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .tag {
-            background-color: #f0f0f0;
-            border: 1px solid #ddd;
-            color: #003d99;
-            padding: 5px 10px;
-            font-size: 11px;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .tag:hover {
-            background-color: #e8e8e8;
-        }
-
-        /* Footer */
+        /* Footer (using the modern footer styles) */
         .footer {
-            background-color: #003d99;
-            color: white;
-            padding: 30px;
-            margin-top: 40px;
+            background-color: #00215e;
+            color: #ffffff;
+            padding: 80px 20px 40px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            font-size: 12px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto 60px;
         }
 
-        .footer-section h4 {
-            margin-bottom: 12px;
-            font-size: 13px;
-            border-bottom: 2px solid #ff9933;
-            padding-bottom: 8px;
+        .footer-section h3 {
+            color: #ff9933;
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
         }
 
-        .footer-section ul {
-            list-style: none;
-            line-height: 1.8;
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background-color: #ff9933;
         }
 
         .footer-section a {
-            color: #fff;
+            color: #e0e0e0;
             text-decoration: none;
+            transition: all 0.3s;
         }
 
         .footer-section a:hover {
-            text-decoration: underline;
             color: #ff9933;
-        }
-
-        .footer-contact {
-            line-height: 1.8;
+            padding-left: 5px;
         }
 
         .footer-bottom {
-            background-color: #002d77;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            font-size: 11px;
-            margin-top: 20px;
-            grid-column: 1 / -1;
-        }
-
-        .publication-info {
-            background-color: #f9f9f9;
-            padding: 15px;
-            border: 1px solid #ddd;
-            margin-top: 20px;
-            font-size: 13px;
-            line-height: 1.6;
-        }
-
-        .publication-info p {
-            margin-bottom: 8px;
-        }
-
-        @media (max-width: 768px) {
-            .main-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .header {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            
-
-            .search-bar {
-                margin-left: 0;
-                width: 100%;
-                margin-top: 10px;
-            }
-
-            .footer {
-                grid-template-columns: 1fr;
-            }
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            color: #b0b0b0;
+            font-size: 0.9rem;
         }
             /* ============================================
            MODERN FOOTER STYLES
@@ -1242,8 +1027,7 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <div class="header">
+    <header class="header">
         <div class="header-left">
             <img src="iisdr-logo.png" alt="IISDR Logo" class="logo-placeholder">
             <div class="header-text">
@@ -1252,11 +1036,8 @@
                 <p class="header-text-en">INDIAN INSTITUTE OF SKILL DEVELOPMENT AND RESEARCH</p>
             </div>
         </div>
-        <div class="header-right">
-        </div>
-    </div>
+    </header>
 
-    <!-- Navigation -->
                 <nav class="nav-bar" role="navigation" aria-label="Main navigation">
         <ul class="nav-links">
             <li><a href="index.html" class="nav-link-home">Home</a></li>
@@ -1297,150 +1078,923 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <div class="hero">
-        <h1>Author Guidelines</h1>
+        <h1>Call for Papers</h1>
     </div>
 
-    <!-- Main Grid -->
-    <div class="main-grid">
-        <!-- Main Content -->
-        <div class="content">
-            <!-- Instructions Section -->
-            <h2>Instructions to Authors:</h2>
-            <p>The authors are requested to submit the original manuscripts which are not published in any other journal or not under consideration for publication.</p>
-            <p>Prepare your Manuscript for Online Submission as indicated below. These standards are necessary for peer-reviewing.</p>
-            
-            <ul class="bullet-list">
-                <li>Submitted papers should be in English Language.</li>
-                <li>Manuscript should be submitted as a MS word Document.</li>
-                <li>Manuscript should be prepared as per journal guidelines.</li>
-                <li>All papers are subjected to scientific peer review.</li>
-                <li>All papers must be submitted online through <a href="mailto:ddiisdr@gmail.com">ddiisdr@gmail.com</a></li>
-            </ul>
+    <style>
+        /* Extra styles for modern cards */
+        .cfp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-            <!-- Requirements Section -->
-            <div class="instructions-section">
-                <h3>1. Requirements for submission of an article:</h3>
-                <ul class="bullet-list">
-                    <li>The author's name, address, email address, and mobile number should be included in the cover letter for correspondence.</li>
-                    <li>The letter should provide a brief summary of what is previously known and what new information the submitted work has added to the field.</li>
-                    <li>The document's title.</li>
-                    <li>Names and initials of the authors.</li>
-                </ul>
+        .cfp-card {
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #eee;
+            height: 100%;
+            max-width: 420px;
+            margin: 0 auto;
+        }
+
+        .cfp-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 45px rgba(0, 61, 153, 0.15);
+        }
+
+        .cfp-card-header {
+            padding: 25px 30px;
+            color: white;
+            position: relative;
+            text-align: center;
+        }
+
+        .header-viksit {
+            background: linear-gradient(135deg, #003d99 0%, #002d77 100%);
+        }
+
+        .header-labour {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        }
+
+        .cfp-card-header h2 {
+            font-size: 1.3rem;
+            margin-bottom: 0;
+            line-height: 1.4;
+            border-bottom: none;
+            color: #ffffff;
+        }
+
+        .cfp-card-body {
+            padding: 0;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cfp-image-container {
+            width: 100%;
+            height: 550px;
+            overflow: hidden;
+            border-bottom: 1px solid #eee;
+            background: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px;
+        }
+
+        .cfp-image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .cfp-card:hover .cfp-image-container img {
+            transform: scale(1.03);
+        }
+
+        .cfp-content-padding {
+            padding: 25px 30px;
+        }
+
+        .cfp-card-body h3 {
+            font-size: 1.1rem;
+            color: #003d99;
+            margin-bottom: 15px;
+        }
+
+        .cfp-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 25px;
+        }
+
+        .cfp-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: #444;
+            line-height: 1.5;
+        }
+
+        .cfp-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #ff9933;
+            font-weight: bold;
+        }
+
+        .cfp-footer {
+            padding: 20px 30px;
+            background: #f8fbff;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .deadline-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .deadline-date {
+            color: #d9534f;
+            font-weight: 700;
+        }
+
+            /* ============================================
+           MODERN FOOTER STYLES
+           ============================================ */
+        .footer {
+            background-color: #00215e;
+            color: #ffffff;
+            padding: 80px 20px 40px;
+            margin-top: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto 60px;
+        }
+
+        .footer-section h3 {
+            color: #ff9933;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background-color: #ff9933;
+            border-radius: 2px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a:hover {
+            color: #ff9933;
+            transform: translateX(5px);
+            text-decoration: none;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 18px;
+            color: #e0e0e0;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .footer-contact-icon {
+            color: #ff9933;
+            font-weight: bold;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom-info {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .visitor-badge {
+            background: rgba(255, 153, 51, 0.15);
+            color: #ff9933;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 153, 51, 0.3);
+            font-weight: 600;
+        }
+            /* ============================================
+           MODERN FOOTER STYLES
+           ============================================ */
+        .footer {
+            background-color: #00215e;
+            color: #ffffff;
+            padding: 80px 20px 40px;
+            margin-top: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto 60px;
+        }
+
+        .footer-section h3 {
+            color: #ff9933;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background-color: #ff9933;
+            border-radius: 2px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a:hover {
+            color: #ff9933;
+            transform: translateX(5px);
+            text-decoration: none;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 18px;
+            color: #e0e0e0;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .footer-contact-icon {
+            color: #ff9933;
+            font-weight: bold;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom-info {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .visitor-badge {
+            background: rgba(255, 153, 51, 0.15);
+            color: #ff9933;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 153, 51, 0.3);
+            font-weight: 600;
+        }
+            /* ============================================
+           MODERN FOOTER STYLES
+           ============================================ */
+        .footer {
+            background-color: #00215e;
+            color: #ffffff;
+            padding: 80px 20px 40px;
+            margin-top: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto 60px;
+        }
+
+        .footer-section h3 {
+            color: #ff9933;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background-color: #ff9933;
+            border-radius: 2px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a:hover {
+            color: #ff9933;
+            transform: translateX(5px);
+            text-decoration: none;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 18px;
+            color: #e0e0e0;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .footer-contact-icon {
+            color: #ff9933;
+            font-weight: bold;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom-info {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .visitor-badge {
+            background: rgba(255, 153, 51, 0.15);
+            color: #ff9933;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 153, 51, 0.3);
+            font-weight: 600;
+        }
+            /* ============================================
+           MODERN FOOTER STYLES
+           ============================================ */
+        .footer {
+            background-color: #00215e;
+            color: #ffffff;
+            padding: 80px 20px 40px;
+            margin-top: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto 60px;
+        }
+
+        .footer-section h3 {
+            color: #ff9933;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background-color: #ff9933;
+            border-radius: 2px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a:hover {
+            color: #ff9933;
+            transform: translateX(5px);
+            text-decoration: none;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 18px;
+            color: #e0e0e0;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .footer-contact-icon {
+            color: #ff9933;
+            font-weight: bold;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom-info {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .visitor-badge {
+            background: rgba(255, 153, 51, 0.15);
+            color: #ff9933;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 153, 51, 0.3);
+            font-weight: 600;
+        }
+    
+        /* ============================================
+           MAIN NAVIGATION BAR (STANDARD)
+           ============================================ */
+        
+
+        
+
+        .nav-links li {
+            border-right: 1px solid #002d77 !important;
+            position: relative !important;
+        }
+
+        .nav-links li:last-child {
+            border-right: none !important;
+        }
+
+        .nav-links a {
+            display: block !important;
+            padding: 15px 18px !important;
+            color: #ffffff !important;
+            font-weight: 600 !important;
+            font-size: 0.95rem !important;
+            text-decoration: none !important;
+            border-bottom: 3px solid transparent !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background-color: #002d77 !important;
+            color: #ff9933 !important;
+            border-bottom-color: #ff9933 !important;
+            text-decoration: none !important;
+        }
+
+        /* Dropdown Styles */
+        .nav-dropdown {
+            position: relative !important;
+        }
+
+        .nav-dropdown > a {
+            display: flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+        }
+
+        .nav-dropdown > a::after {
+            content: "▼" !important;
+            font-size: 0.7rem !important;
+            margin-left: 4px !important;
+        }
+
+        .dropdown-menu {
+            display: none !important;
+            position: absolute !important;
+            top: 100% !important;
+            left: 0 !important;
+            background-color: #ffffff !important;
+            min-width: 250px !important;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2) !important;
+            z-index: 1000 !important;
+            border: 1px solid #cccccc !important;
+            padding: 0 !important;
+        }
+
+        .dropdown-menu a {
+            display: block !important;
+            padding: 12px 18px !important;
+            color: #003d99 !important;
+            text-decoration: none !important;
+            border-bottom: 1px solid #e8e8e8 !important;
+            transition: all 0.3s ease !important;
+            font-weight: normal !important;
+            font-size: 0.9rem !important;
+            text-align: left !important;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f5f5f5 !important;
+            color: #ff9933 !important;
+            padding-left: 22px !important;
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block !important;
+        }
+
+        .nav-search {
+            padding: 12px 15px !important;
+            display: flex !important;
+            gap: 8px !important;
+            align-items: center !important;
+            border-left: 1px solid #002d77 !important;
+        }
+
+        .nav-search input {
+            padding: 6px 10px !important;
+            border: 1px solid #cccccc !important;
+            border-radius: 2px !important;
+            font-size: 0.9rem !important;
+            width: 180px !important;
+        }
+
+        .nav-search button {
+            background-color: #ff9933 !important;
+            color: #ffffff !important;
+            border: 1px solid #ff9933 !important;
+            padding: 6px 12px !important;
+            font-weight: bold !important;
+            font-size: 0.85rem !important;
+            cursor: pointer !important;
+        }
+
+        .nav-search button:hover {
+            background-color: #e68a1f !important;
+        }
+
+    
+        /* ============================================
+           MAIN NAVIGATION BAR (STANDARD)
+           ============================================ */
+        .nav-bar {
+            background-color: #003d99 !important;
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            padding: 0 !important;
+            border-bottom: 3px solid #ff9933 !important;
+            width: 100% !important;
+            position: relative !important;
+            z-index: 1000 !important;
+        }
+
+        .nav-links {
+            display: flex !important;
+            list-style: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            flex: 1 !important;
+        }
+
+        .nav-links li {
+            border-right: 1px solid #002d77 !important;
+            position: relative !important;
+        }
+
+        .nav-links li:last-child {
+            border-right: none !important;
+        }
+
+        .nav-links a {
+            display: block !important;
+            padding: 15px 18px !important;
+            color: #ffffff !important;
+            font-weight: 600 !important;
+            font-size: 0.95rem !important;
+            text-decoration: none !important;
+            border-bottom: 3px solid transparent !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background-color: #002d77 !important;
+            color: #ff9933 !important;
+            border-bottom-color: #ff9933 !important;
+            text-decoration: none !important;
+        }
+
+        /* Dropdown Styles */
+        .nav-dropdown {
+            position: relative !important;
+        }
+
+        .nav-dropdown > a {
+            display: flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+        }
+
+        .nav-dropdown > a::after {
+            content: "▼" !important;
+            font-size: 0.7rem !important;
+            margin-left: 4px !important;
+        }
+
+        .dropdown-menu {
+            display: none !important;
+            position: absolute !important;
+            top: 100% !important;
+            left: 0 !important;
+            background-color: #ffffff !important;
+            min-width: 250px !important;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2) !important;
+            z-index: 1000 !important;
+            border: 1px solid #cccccc !important;
+            padding: 0 !important;
+        }
+
+        .dropdown-menu a {
+            display: block !important;
+            padding: 12px 18px !important;
+            color: #003d99 !important;
+            text-decoration: none !important;
+            border-bottom: 1px solid #e8e8e8 !important;
+            transition: all 0.3s ease !important;
+            font-weight: normal !important;
+            font-size: 0.9rem !important;
+            text-align: left !important;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f5f5f5 !important;
+            color: #ff9933 !important;
+            padding-left: 22px !important;
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block !important;
+        }
+
+        .nav-search {
+            padding: 12px 15px !important;
+            display: flex !important;
+            gap: 8px !important;
+            align-items: center !important;
+            border-left: 1px solid #002d77 !important;
+        }
+
+        .nav-search input {
+            padding: 6px 10px !important;
+            border: 1px solid #cccccc !important;
+            border-radius: 2px !important;
+            font-size: 0.9rem !important;
+            width: 180px !important;
+        }
+
+        .nav-search button {
+            background-color: #ff9933 !important;
+            color: #ffffff !important;
+            border: 1px solid #ff9933 !important;
+            padding: 6px 12px !important;
+            font-weight: bold !important;
+            font-size: 0.85rem !important;
+            cursor: pointer !important;
+        }
+
+        .nav-search button:hover {
+            background-color: #e68a1f !important;
+        }
+
+    </style>
+
+    <div class="main-container" style="display: block; max-width: 1300px;">
+        <div style="text-align: center; margin-bottom: 50px;">
+            <p style="color: #666; font-size: 1.1rem; max-width: 800px; margin: 0 auto;">
+                IISDR proudly announces the upcoming Issue (January-June 2026) of its peer-reviewed e-journal <strong>THRIVE</strong>. We invite cutting-edge contributions across these two major themes.
+            </p>
+        </div>
+
+        <div class="cfp-grid">
+            <!-- Card 1: Viksit Bharat -->
+            <div class="cfp-card">
+                <div class="cfp-card-header header-viksit">
+                    <h2>Viksit Bharat@2047</h2>
+                </div>
+                <div class="cfp-card-body">
+                    <div class="cfp-image-container">
+                        <img src="images/cfp_viksit_bharat.jpg" alt="Viksit Bharat@2047 Poster">
+                    </div>
+                    <div class="cfp-content-padding">
+                        <p style="margin-bottom: 20px; font-style: italic; color: #666;">
+                            As India advances towards the vision of a Viksit Bharat@2047, HRM stands at the centre of transformation.
+                        </p>
+                        <h3>Focus Areas:</h3>
+                        <ul class="cfp-list">
+                            <li>AI, automation & Industry 4.0/5.0</li>
+                            <li>Workforce transformation & hybrid models</li>
+                            <li>Labour Codes & social security reforms</li>
+                            <li>Leadership & organisational excellence</li>
+                            <li>Employee well-being & humane workplaces</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="cfp-footer">
+                    <div class="deadline-info">
+                        <span>📅 Deadline: <span class="deadline-date">28 Dec 2025</span></span>
+                    </div>
+                </div>
             </div>
 
-            <!-- Abbreviations Section -->
-            <div class="instructions-section">
-                <h3>2. Abbreviations:</h3>
-                <p>When an acronym appears in the text for the first time, it should be defined.</p>
-            </div>
-
-            <!-- Manuscript Preparation Section -->
-            <div class="instructions-section">
-                <h3>3. Manuscript Preparation:</h3>
-                <p>The format of all original research publications should like this:</p>
-
-                <h3 style="margin-top: 15px;">I. Title</h3>
-                <p>The title should be concise and reflect the entire work of the submitted manuscript.</p>
-
-                <h3>II. Abstract</h3>
-                <p>Abstract must consist of the purpose of the work, methods used in the study, key findings and the major conclusions of the research works, not more than 300 words. The abstract should be followed by 3 to 4 keywords.</p>
-
-                <h3>III. Main Text:</h3>
-                <p>Main text will consist of Introduction, Literature review, Methodology, hypothesis, analysis and findings in detail.</p>
-
-                <h3>IV. Conclusion:</h3>
-                <p>Give the major conclusion from the present study. This section may stand alone or be clubbed together with discussion.</p>
-
-                <h3>V. References:</h3>
-                <p>Place the references at the end of the manuscript in American Psychological Association (APA) format.</p>
-            </div>
-
-            <!-- Publication Information -->
-            <div class="publication-info">
-                <h3 style="margin-top: 0;">Publication Information:</h3>
-                <p><strong>THRIVE</strong> is published biannually in January and June every year. All editorial correspondence should address to the editor by email to <a href="mailto:ddiisdr@gmail.com">ddiisdr@gmail.com</a></p>
+            <!-- Card 2: Labour Codes -->
+            <div class="cfp-card">
+                <div class="cfp-card-header header-labour">
+                    <h2>Labour Codes</h2>
+                </div>
+                <div class="cfp-card-body">
+                    <div class="cfp-image-container">
+                        <img src="images/cfp_labour_codes.jpg" alt="Labour Codes Poster">
+                    </div>
+                    <div class="cfp-content-padding">
+                        <p style="margin-bottom: 20px; font-style: italic; color: #666;">
+                            Adapting to India's Labour Codes is essential for building resilient and future-ready workplaces.
+                        </p>
+                        <h3>Suggested Sub-Themes:</h3>
+                        <ul class="cfp-list">
+                            <li>Impact of Labour Codes on HR policies</li>
+                            <li>Future of work in gig economy</li>
+                            <li>Industrial relations transformation</li>
+                            <li>Implications for MSMEs & startups</li>
+                            <li>Organisational sustainability</li>
+                            <li>Global labour reforms</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="cfp-footer">
+                    <div class="deadline-info">
+                        <span>📅 Deadline: <span class="deadline-date">31 May 2026</span></span>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <!-- Search Widget -->
-            <div class="sidebar-widget">
-                <h3>Search</h3>
-                <div class="search-box">
-                    <input type="text" placeholder="Enter keywords...">
-                    <button>Search</button>
-                </div>
-            </div>
-
-            <!-- Recent News Widget -->
-            <div class="sidebar-widget">
-                <h3>Recent news</h3>
-                
-                <div class="recent-news-item">
-                    <div class="news-image"></div>
-                    <div class="news-content">
-                        <div class="news-title">Healthcare</div>
-                        <div class="news-date">📅 March 20, 2024</div>
-                    </div>
-                </div>
-
-                <div class="recent-news-item">
-                    <div class="news-image"></div>
-                    <div class="news-content">
-                        <div class="news-title">Volunteering Clean</div>
-                        <div class="news-date">📅 October 24, 2024</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Categories Widget -->
-            <div class="sidebar-widget">
-                <h3>Categories</h3>
-                <ul class="categories-list">
-                    <li>
-                        <a href="#">Drinking water</a>
-                        <span class="count-badge">20</span>
-                    </li>
-                    <li>
-                        <a href="#">Food Donation</a>
-                        <span class="count-badge">30</span>
-                    </li>
-                    <li>
-                        <a href="#">Children Education</a>
-                        <span class="count-badge">10</span>
-                    </li>
-                    <li>
-                        <a href="#">Poverty Development</a>
-                        <span class="count-badge">15</span>
-                    </li>
-                    <li>
-                        <a href="#">Clothing Donation</a>
-                        <span class="count-badge">20</span>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Tags Widget -->
-            <div class="sidebar-widget">
-                <h3>Tags</h3>
-                <div class="tags">
-                    <a href="#" class="tag">Donation</a>
-                    <a href="#" class="tag">Clothing</a>
-                    <a href="#" class="tag">Food</a>
-                    <a href="#" class="tag">Child</a>
-                    <a href="#" class="tag">Education</a>
-                    <a href="#" class="tag">Poverty</a>
-                    <a href="#" class="tag">Clean Water</a>
-                </div>
-            </div>
-        </div>
     </div>
 
-    <!-- Footer -->
-            <footer class="footer">
+                        <footer class="footer">
         <div class="footer-content">
             <!-- Section 1: Contact Information -->
             <div class="footer-section">
@@ -1509,8 +2063,7 @@
             </div>
         </div>
     </footer>
-    
-    
+
     
     
     

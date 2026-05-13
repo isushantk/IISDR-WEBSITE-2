@@ -96,8 +96,8 @@
         }
 
         .logo-placeholder {
-            width: 80px;
-            height: 80px;
+            width: 65px;
+            height: 65px;
             object-fit: contain;
             flex-shrink: 0;
         }
@@ -116,15 +116,15 @@
         }
 
         .header-text .header-text-hi {
-            font-size: 1.15rem;
+            font-size: 0.95rem;
         }
 
         .header-text .header-text-kn {
-            font-size: 1.05rem;
+            font-size: 0.85rem;
         }
 
         .header-text .header-text-en {
-            font-size: 1.7rem;
+            font-size: 1.35rem;
             font-weight: 700;
             letter-spacing: 0.4px;
         }
@@ -153,22 +153,9 @@
         /* ============================================
            NAVIGATION BAR
            ============================================ */
-        .nav-bar {
-            background-color: #003d99;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0;
-            border-bottom: 3px solid #ff9933;
-        }
+        
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            flex: 1;
-        }
+        
 
         .nav-links li {
             border-right: 1px solid #002d77;
@@ -336,6 +323,96 @@
             color: #555555;
             margin-bottom: 20px;
             text-align: justify;
+        }
+
+        .about-tabs-shell {
+            margin-top: 20px;
+            border: 1px solid #dfe6f1;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #ffffff;
+            box-shadow: 0 6px 18px rgba(0, 61, 153, 0.08);
+        }
+
+        .about-tabs-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 16px;
+            background: linear-gradient(180deg, #f7faff 0%, #ffffff 100%);
+            border-bottom: 1px solid #e6edf7;
+        }
+
+        .about-tab-btn {
+            border: 1px solid #d4dfef;
+            background: #ffffff;
+            color: #003d99;
+            border-radius: 999px;
+            padding: 10px 16px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .about-tab-btn:hover {
+            border-color: #003d99;
+            transform: translateY(-1px);
+        }
+
+        .about-tab-btn.active {
+            background: #003d99;
+            color: #ffffff;
+            border-color: #003d99;
+            box-shadow: 0 6px 14px rgba(0, 61, 153, 0.24);
+        }
+
+        .about-tab-panels {
+            padding: 24px;
+            background: #ffffff;
+        }
+
+        .about-tab-panel {
+            display: none;
+            animation: fadeInPanel 0.2s ease;
+        }
+
+        .about-tab-panel.active {
+            display: block;
+        }
+
+        .about-tab-panel h3 {
+            font-size: 1.25rem;
+            color: #003d99;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #ff9933;
+            padding-bottom: 8px;
+        }
+
+        .about-tab-panel p:last-child {
+            margin-bottom: 0;
+        }
+
+        .about-subheading {
+            margin-top: 18px;
+            color: #138808;
+            font-size: 1.05rem;
+            font-weight: 700;
+        }
+
+        .about-tab-panel .affiliations-grid {
+            margin-top: 8px;
+        }
+
+        @keyframes fadeInPanel {
+            from {
+                opacity: 0;
+                transform: translateY(4px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* ============================================
@@ -542,44 +619,46 @@
         /* ============================================
            FOOTER
            ============================================ */
+                /* ============================================
+           MODERN FOOTER STYLES
+           ============================================ */
+                /* ============================================
+           MODERN FOOTER STYLES
+           ============================================ */
         .footer {
-            background-color: #1a1a1a;
-            color: #cccccc;
-            padding: 30px 20px;
-            margin-top: 30px;
+            background-color: #00215e;
+            color: #ffffff;
+            padding: 80px 20px 40px;
+            margin-top: 0;
+            font-family: Arial, sans-serif;
         }
 
         .footer-content {
             display: grid;
-            grid-template-columns: 1.5fr 1.2fr 1.2fr;
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-            margin-bottom: 20px;
-        }
-
-        .footer-section {
-            border-right: 1px solid #444444;
-            padding-right: 20px;
-        }
-
-        .footer-section:last-child {
-            border-right: none;
-            padding-right: 0;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto 60px;
         }
 
         .footer-section h3 {
             color: #ff9933;
-            font-size: 1rem;
-            font-weight: bold;
-            margin-bottom: 12px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
         }
 
-        .footer-section p,
-        .footer-section li {
-            font-size: 0.9rem;
-            line-height: 1.8;
-            margin-bottom: 6px;
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background-color: #ff9933;
+            border-radius: 2px;
         }
 
         .footer-section ul {
@@ -587,43 +666,81 @@
             padding: 0;
         }
 
+        .footer-section li {
+            margin-bottom: 12px;
+        }
+
         .footer-section a {
-            color: #99ccff;
+            color: #e0e0e0;
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 0.95rem;
         }
 
         .footer-section a:hover {
             color: #ff9933;
-            text-decoration: underline;
+            transform: translateX(5px);
+            text-decoration: none;
         }
 
         .footer-contact-item {
-            margin-bottom: 10px;
-            font-size: 0.9rem;
+            display: flex;
+            gap: 12px;
+            margin-bottom: 18px;
+            color: #e0e0e0;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .footer-contact-icon {
+            color: #ff9933;
+            font-weight: bold;
         }
 
         .footer-bottom {
-            border-top: 1px solid #444444;
-            padding-top: 20px;
-            text-align: center;
-            font-size: 0.85rem;
-            color: #999999;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            color: #b0b0b0;
+            font-size: 0.9rem;
         }
 
         .footer-bottom-info {
             display: flex;
-            justify-content: space-between;
+            gap: 30px;
             align-items: center;
-            gap: 20px;
             flex-wrap: wrap;
         }
 
         .footer-bottom-info span {
-            flex: 1;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .visitor-badge {
+            background: rgba(255, 153, 51, 0.15);
+            color: #ff9933;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 153, 51, 0.3);
+            font-weight: 600;
+        }
+
+        .visitor-badge {
+            background: rgba(255, 153, 51, 0.15);
+            color: #ff9933;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 153, 51, 0.3);
+            font-weight: 600;
         }
 
         /* ============================================
@@ -722,6 +839,835 @@
             white-space: nowrap;
             border-width: 0;
         }
+
+        /* VISION MISSION OBJECTIVES STYLES */
+        .vmo-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .vmo-card {
+            background-color: #ffffff;
+            padding: 25px;
+            border-top: 4px solid #003d99;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            border-radius: 4px;
+        }
+
+        .vmo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .vmo-card:nth-child(2) { border-top-color: #ff9933; }
+        .vmo-card:nth-child(3) { border-top-color: #138808; }
+
+        .vmo-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .vmo-card h3 {
+            font-size: 1.25rem;
+            color: #003d99;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .vmo-card p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 0;
+            text-align: center;
+        }
+
+        /* AFFILIATIONS SECTION */
+        .affiliations-section {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .affiliations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .affiliation-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #f9faff;
+            padding: 12px 15px;
+            border: 1px solid #e0e6ed;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .affiliation-logo {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 1px solid #d9e3f1;
+            padding: 3px;
+        }
+
+        .affiliation-icon {
+            color: #138808;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* UCWT LOGO SECTION */
+        .ucwt-branding {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 40px;
+            padding: 25px;
+            background: linear-gradient(to right, #f0f4ff, #ffffff);
+            border-left: 6px solid #003d99;
+            border-radius: 0 10px 10px 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+
+        .ucwt-logo {
+            width: 120px;
+            height: auto;
+            flex-shrink: 0;
+        }
+
+        .ucwt-text h4 {
+            font-size: 1.2rem;
+            color: #003d99;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .ucwt-text p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+            color: #444;
+            line-height: 1.5;
+            text-align: left;
+        }
+
+        .about-content h3 {
+            font-size: 1.2rem;
+            color: #003d99;
+            margin: 30px 0 15px 0;
+            font-weight: 700;
+        }
+            /* ============================================
+           MODERN FOOTER STYLES
+           ============================================ */
+        .footer {
+            background-color: #00215e;
+            color: #ffffff;
+            padding: 80px 20px 40px;
+            margin-top: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto 60px;
+        }
+
+        .footer-section h3 {
+            color: #ff9933;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background-color: #ff9933;
+            border-radius: 2px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a:hover {
+            color: #ff9933;
+            transform: translateX(5px);
+            text-decoration: none;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 18px;
+            color: #e0e0e0;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .footer-contact-icon {
+            color: #ff9933;
+            font-weight: bold;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom-info {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .visitor-badge {
+            background: rgba(255, 153, 51, 0.15);
+            color: #ff9933;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 153, 51, 0.3);
+            font-weight: 600;
+        }
+            /* ============================================
+           MODERN FOOTER STYLES
+           ============================================ */
+        .footer {
+            background-color: #00215e;
+            color: #ffffff;
+            padding: 80px 20px 40px;
+            margin-top: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto 60px;
+        }
+
+        .footer-section h3 {
+            color: #ff9933;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background-color: #ff9933;
+            border-radius: 2px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a:hover {
+            color: #ff9933;
+            transform: translateX(5px);
+            text-decoration: none;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 18px;
+            color: #e0e0e0;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .footer-contact-icon {
+            color: #ff9933;
+            font-weight: bold;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom-info {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .visitor-badge {
+            background: rgba(255, 153, 51, 0.15);
+            color: #ff9933;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 153, 51, 0.3);
+            font-weight: 600;
+        }
+            /* ============================================
+           MODERN FOOTER STYLES
+           ============================================ */
+        .footer {
+            background-color: #00215e;
+            color: #ffffff;
+            padding: 80px 20px 40px;
+            margin-top: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto 60px;
+        }
+
+        .footer-section h3 {
+            color: #ff9933;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background-color: #ff9933;
+            border-radius: 2px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a:hover {
+            color: #ff9933;
+            transform: translateX(5px);
+            text-decoration: none;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 18px;
+            color: #e0e0e0;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .footer-contact-icon {
+            color: #ff9933;
+            font-weight: bold;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom-info {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .visitor-badge {
+            background: rgba(255, 153, 51, 0.15);
+            color: #ff9933;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 153, 51, 0.3);
+            font-weight: 600;
+        }
+            /* ============================================
+           MODERN FOOTER STYLES
+           ============================================ */
+        .footer {
+            background-color: #00215e;
+            color: #ffffff;
+            padding: 80px 20px 40px;
+            margin-top: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto 60px;
+        }
+
+        .footer-section h3 {
+            color: #ff9933;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background-color: #ff9933;
+            border-radius: 2px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a:hover {
+            color: #ff9933;
+            transform: translateX(5px);
+            text-decoration: none;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 18px;
+            color: #e0e0e0;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .footer-contact-icon {
+            color: #ff9933;
+            font-weight: bold;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom-info {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .visitor-badge {
+            background: rgba(255, 153, 51, 0.15);
+            color: #ff9933;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 153, 51, 0.3);
+            font-weight: 600;
+        }
+    
+        /* ============================================
+           MAIN NAVIGATION BAR (STANDARD)
+           ============================================ */
+        
+
+        
+
+        .nav-links li {
+            border-right: 1px solid #002d77 !important;
+            position: relative !important;
+        }
+
+        .nav-links li:last-child {
+            border-right: none !important;
+        }
+
+        .nav-links a {
+            display: block !important;
+            padding: 15px 18px !important;
+            color: #ffffff !important;
+            font-weight: 600 !important;
+            font-size: 0.95rem !important;
+            text-decoration: none !important;
+            border-bottom: 3px solid transparent !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background-color: #002d77 !important;
+            color: #ff9933 !important;
+            border-bottom-color: #ff9933 !important;
+            text-decoration: none !important;
+        }
+
+        /* Dropdown Styles */
+        .nav-dropdown {
+            position: relative !important;
+        }
+
+        .nav-dropdown > a {
+            display: flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+        }
+
+        .nav-dropdown > a::after {
+            content: "▼" !important;
+            font-size: 0.7rem !important;
+            margin-left: 4px !important;
+        }
+
+        .dropdown-menu {
+            display: none !important;
+            position: absolute !important;
+            top: 100% !important;
+            left: 0 !important;
+            background-color: #ffffff !important;
+            min-width: 250px !important;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2) !important;
+            z-index: 1000 !important;
+            border: 1px solid #cccccc !important;
+            padding: 0 !important;
+        }
+
+        .dropdown-menu a {
+            display: block !important;
+            padding: 12px 18px !important;
+            color: #003d99 !important;
+            text-decoration: none !important;
+            border-bottom: 1px solid #e8e8e8 !important;
+            transition: all 0.3s ease !important;
+            font-weight: normal !important;
+            font-size: 0.9rem !important;
+            text-align: left !important;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f5f5f5 !important;
+            color: #ff9933 !important;
+            padding-left: 22px !important;
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block !important;
+        }
+
+        .nav-search {
+            padding: 12px 15px !important;
+            display: flex !important;
+            gap: 8px !important;
+            align-items: center !important;
+            border-left: 1px solid #002d77 !important;
+        }
+
+        .nav-search input {
+            padding: 6px 10px !important;
+            border: 1px solid #cccccc !important;
+            border-radius: 2px !important;
+            font-size: 0.9rem !important;
+            width: 180px !important;
+        }
+
+        .nav-search button {
+            background-color: #ff9933 !important;
+            color: #ffffff !important;
+            border: 1px solid #ff9933 !important;
+            padding: 6px 12px !important;
+            font-weight: bold !important;
+            font-size: 0.85rem !important;
+            cursor: pointer !important;
+        }
+
+        .nav-search button:hover {
+            background-color: #e68a1f !important;
+        }
+
+    
+        /* ============================================
+           MAIN NAVIGATION BAR (STANDARD)
+           ============================================ */
+        .nav-bar {
+            background-color: #003d99 !important;
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            padding: 0 !important;
+            border-bottom: 3px solid #ff9933 !important;
+            width: 100% !important;
+            position: relative !important;
+            z-index: 1000 !important;
+        }
+
+        .nav-links {
+            display: flex !important;
+            list-style: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            flex: 1 !important;
+        }
+
+        .nav-links li {
+            border-right: 1px solid #002d77 !important;
+            position: relative !important;
+        }
+
+        .nav-links li:last-child {
+            border-right: none !important;
+        }
+
+        .nav-links a {
+            display: block !important;
+            padding: 15px 18px !important;
+            color: #ffffff !important;
+            font-weight: 600 !important;
+            font-size: 0.95rem !important;
+            text-decoration: none !important;
+            border-bottom: 3px solid transparent !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background-color: #002d77 !important;
+            color: #ff9933 !important;
+            border-bottom-color: #ff9933 !important;
+            text-decoration: none !important;
+        }
+
+        /* Dropdown Styles */
+        .nav-dropdown {
+            position: relative !important;
+        }
+
+        .nav-dropdown > a {
+            display: flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+        }
+
+        .nav-dropdown > a::after {
+            content: "▼" !important;
+            font-size: 0.7rem !important;
+            margin-left: 4px !important;
+        }
+
+        .dropdown-menu {
+            display: none !important;
+            position: absolute !important;
+            top: 100% !important;
+            left: 0 !important;
+            background-color: #ffffff !important;
+            min-width: 250px !important;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2) !important;
+            z-index: 1000 !important;
+            border: 1px solid #cccccc !important;
+            padding: 0 !important;
+        }
+
+        .dropdown-menu a {
+            display: block !important;
+            padding: 12px 18px !important;
+            color: #003d99 !important;
+            text-decoration: none !important;
+            border-bottom: 1px solid #e8e8e8 !important;
+            transition: all 0.3s ease !important;
+            font-weight: normal !important;
+            font-size: 0.9rem !important;
+            text-align: left !important;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f5f5f5 !important;
+            color: #ff9933 !important;
+            padding-left: 22px !important;
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block !important;
+        }
+
+        .nav-search {
+            padding: 12px 15px !important;
+            display: flex !important;
+            gap: 8px !important;
+            align-items: center !important;
+            border-left: 1px solid #002d77 !important;
+        }
+
+        .nav-search input {
+            padding: 6px 10px !important;
+            border: 1px solid #cccccc !important;
+            border-radius: 2px !important;
+            font-size: 0.9rem !important;
+            width: 180px !important;
+        }
+
+        .nav-search button {
+            background-color: #ff9933 !important;
+            color: #ffffff !important;
+            border: 1px solid #ff9933 !important;
+            padding: 6px 12px !important;
+            font-weight: bold !important;
+            font-size: 0.85rem !important;
+            cursor: pointer !important;
+        }
+
+        .nav-search button:hover {
+            background-color: #e68a1f !important;
+        }
+
     </style>
 </head>
 <body>
@@ -746,37 +1692,44 @@
     <!-- ============================================
          NAVIGATION
          ============================================ -->
-    <nav class="nav-bar" role="navigation" aria-label="Main navigation">
+                <nav class="nav-bar" role="navigation" aria-label="Main navigation">
         <ul class="nav-links">
-            <li><a href="iisdr_website.html">Home</a></li>
-            <li><a href="#" class="active">About Us</a></li>
-            <li><a href="iisdr_programs.html">Programs</a></li>
+            <li><a href="index.html" class="nav-link-home">Home</a></li>
+            <li><a href="iisdr_about_us.html" class="nav-link-about active">About Us</a></li>
+            <li><a href="iisdr_programs.html" class="nav-link-programs">Programs</a></li>
             <li class="nav-dropdown">
-                <a href="#">MoU Partner</a>
+                <a href="#" class="nav-link-mou">MoU Partner</a>
                 <div class="dropdown-menu">
-                    <a href="#">Infosys Limited</a>
-                    <a href="#">TCS (Tata Consultancy Services)</a>
-                    <a href="#">MSNIM - Manel Srinivasa Nayak Institute</a>
-                    <a href="#">Department of Hospital Administration</a>
-                    <a href="#">Utkarsh Charitable & Welfare Trust</a>
+                    <a href="https://inclusiv.in/" target="_blank">Inclusiv</a>
+                    <a href="https://www.sswroshni.in/eng/" target="_blank">School of Social Work, Roshni Nilaya (SSW)</a>
+                    <a href="https://sdmcbm.ac.in/" target="_blank">SDM College of Business Management PG Centre</a>
+                    <a href="https://www.hsscindia.in/index.html" target="_blank">Hydrocarbon Sector Skill Council (HSCC India)</a>
+                    <a href="https://www.fathermuller.edu.in/allied-health-sciences/department-of-hospital-administration.php" target="_blank">Father Muller College of Allied Health Sciences</a>
+                    <a href="https://msnim.edu.in/" target="_blank">Manel Srinivas Nayak Institute of Management (MSNIM)</a>
+                    <a href="https://sjec.ac.in/" target="_blank">St Joseph Engineering College (SJEC)</a>
                 </div>
             </li>
-            <li><a href="iisdr_activities.html">Activities</a></li>
+            <li><a href="iisdr_information_bulletins.html" class="nav-link-bulletins">Information Bulletins</a></li>
             <li class="nav-dropdown">
-                <a href="#">E-Journal</a>
+                <a href="#" class="nav-link-ejournal">E-Journal</a>
                 <div class="dropdown-menu">
                     <a href="iisdr_ejournal_about_thrive.html">About THRIVE</a>
                     <a href="iisdr_journal_particulars.html">Journal Particulars</a>
                     <a href="iisdr_editorial_board.html">Editorial Board</a>
                     <a href="iisdr_author_guidelines.html">Author Guidelines</a>
-                    <a href="#">E-Journal</a>
+                    <a href="iisdr_ejournal.html">E-Journal</a>
                     <a href="iisdr_disclaimer.html">Disclaimer</a>
+                    <a href="iisdr_call_for_papers.html">Call for Papers</a>
                     <a href="iisdr_ejournal_contact_us.html">Contact Us</a>
                 </div>
             </li>
-            <li><a href="#">Certification</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="iisdr_certification.html" class="nav-link-certification">Certification Programs</a></li>
+            <li><a href="iisdr_ejournal_contact_us.html" class="nav-link-contact">Contact Us</a></li>
         </ul>
+        <div class="nav-search">
+            <input type="text" placeholder="Search IISDR..." aria-label="Search website">
+            <button aria-label="Submit search">🔍</button>
+        </div>
     </nav>
 
     <!-- ============================================
@@ -799,31 +1752,80 @@
     <main id="main-content" class="about-container">
         <!-- LEFT COLUMN: ABOUT CONTENT -->
         <article class="about-content">
-            <h2>About IISDR:</h2>
+            <h2>About IISDR</h2>
 
-            <p>
-                <strong>The Indian Institute of Skill Development and Research (IISDR)</strong> is a dedicated initiative established under the aegis of Utkarsh Charitable and Welfare Trust (UCWT) with the objective of empowering individuals through high-quality skill development, vocational training, and research-driven learning. IISDR is a professional institution was created with a strong belief that skill-based education is the foundation for personal growth, sustainable livelihoods, and national progress.
-            </p>
+            <div class="about-tabs-shell">
+                <div class="about-tabs-nav" role="tablist" aria-label="About IISDR sections">
+                    <button class="about-tab-btn active" data-tab="about-iisdr" role="tab" aria-selected="true">About IISDR</button>
+                    <button class="about-tab-btn" data-tab="vision" role="tab" aria-selected="false">Vision</button>
+                    <button class="about-tab-btn" data-tab="mission" role="tab" aria-selected="false">Mission</button>
+                    <button class="about-tab-btn" data-tab="philosophy" role="tab" aria-selected="false">Our Philosophy</button>
+                    <button class="about-tab-btn" data-tab="affiliations" role="tab" aria-selected="false">Affiliations & Certifications</button>
+                </div>
 
-            <p>
-                At IISDR, we focus on providing industry-relevant, practical, and affordable training programs that cater to learners from diverse backgrounds. Our institute works systematically to bridge the gap between academic knowledge and real-world skill requirements by designing courses that are aligned with the evolving needs of modern industries.
-            </p>
+                <div class="about-tab-panels">
+                    <section class="about-tab-panel active" data-panel="about-iisdr" role="tabpanel">
+                        <h3>About IISDR</h3>
+                        <p>
+                            <strong>The Indian Institute of Skill Development and Research (IISDR)</strong> is a premier professional initiative established to empower individuals through high-quality skill development, vocational training, and research-driven learning. We believe that industry-aligned education is the bedrock of sustainable livelihoods and national progress.
+                        </p>
+                        <h4 class="about-subheading">Our Objectives</h4>
+                        <p>
+                            To bridge the skill gap between academia and industry, empower underprivileged communities, and identify emerging sectoral needs through continuous innovation.
+                        </p>
+                        <p>
+                            Backed by the values of UCWT, we strive to make skill education accessible for all. The Trust's long-standing work in social welfare, education, and community upliftment forms the backbone of IISDR's mission to nurture skilled professionals and responsible individuals.
+                        </p>
+                    </section>
 
-            <p>
-                Backed by the values and commitment of Utkarsh Charitable and Welfare Trust, we strive to make skill education accessible for all—especially for underprivileged and rural communities. The Trust's long-standing work in social welfare, education, women empowerment, and community upliftment forms the backbone of IISDR's mission.
-            </p>
+                    <section class="about-tab-panel" data-panel="vision" role="tabpanel" hidden>
+                        <h3>Vision</h3>
+                        <p>To be a premier global institution in skill development and research, empowering individuals to achieve professional excellence and contribute to a self-reliant nation.</p>
+                    </section>
 
-            <p>
-                <strong>The training methodology at IISDR</strong> emphasizes hands-on learning, project-based activities, workshops, and continuous evaluation, ensuring that each learner gains confidence, competence, and the ability to excel professionally. Through our dedicated team of trainers, updated course materials, and structured support system, we aim to nurture skilled professionals and responsible individuals.
-            </p>
+                    <section class="about-tab-panel" data-panel="mission" role="tabpanel" hidden>
+                        <h3>Mission</h3>
+                        <p>To provide industry-aligned, accessible, and affordable vocational training through innovative methodologies, fostering research-driven learning and community growth.</p>
+                    </section>
 
-            <p>
-                IISDR also focus on research and innovation, working to identify skill gaps and introduce new training modules that can contribute to the nation's skill ecosystem. Our commitment extends beyond training; IISDR actively participates in community outreach programs, awareness campaigns, and livelihood initiatives to make a broader social impact.
-            </p>
+                    <section class="about-tab-panel" data-panel="philosophy" role="tabpanel" hidden>
+                        <h3>Our Philosophy</h3>
+                        <p>
+                            At IISDR, we focus on providing industry-relevant, practical, and affordable training programs that cater to learners from diverse backgrounds. Our institute works systematically to bridge the gap between academic knowledge and real-world skill requirements by designing courses that are aligned with the evolving needs of modern industries.
+                        </p>
+                    </section>
 
-            <p>
-                At IISDR, we believe that every individual deserves an opportunity to learn, grow, and succeed. With the guiding support of Utkarsh Charitable and Welfare Trust, we continue to work toward creating a skilled, empowered, and self-reliant society.
-            </p>
+                    <section class="about-tab-panel" data-panel="affiliations" role="tabpanel" hidden>
+                        <h3>Affiliations & Certifications</h3>
+                        <div class="affiliations-grid">
+                            <div class="affiliation-item">
+                                <img src="iisdr-logo.png" alt="IISDR logo" class="affiliation-logo">
+                                <span>Registered under UCWT</span>
+                            </div>
+                            <div class="affiliation-item">
+                                <img src="iisdr-logo.png" alt="IISDR logo" class="affiliation-logo">
+                                <span>ISO 9001:2015 Certified</span>
+                            </div>
+                            <div class="affiliation-item">
+                                <img src="iisdr-logo.png" alt="IISDR logo" class="affiliation-logo">
+                                <span>MSME Registered Unit</span>
+                            </div>
+                            <div class="affiliation-item">
+                                <img src="iisdr-logo.png" alt="IISDR logo" class="affiliation-logo">
+                                <span>NITI Aayog Darpan Partner</span>
+                            </div>
+                            <div class="affiliation-item">
+                                <img src="iisdr-logo.png" alt="IISDR logo" class="affiliation-logo">
+                                <span>Skill India Mission Aligned</span>
+                            </div>
+                            <div class="affiliation-item">
+                                <img src="images/ucwt-logo.png" alt="UCWT logo" class="affiliation-logo">
+                                <span>Recognized by Leading SSCs</span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
         </article>
 
         <!-- RIGHT COLUMN: SIDEBAR -->
@@ -916,66 +1918,72 @@
     <!-- ============================================
          FOOTER
          ============================================ -->
-    <footer class="footer">
+                                            <footer class="footer">
         <div class="footer-content">
             <!-- Section 1: Contact Information -->
             <div class="footer-section">
                 <h3>Contact Us</h3>
                 <div class="footer-contact-item">
-                    <strong>IISDR Headquarters:</strong><br>
-                    123 Education Park, Tech Valley<br>
-                    New Delhi - 110001, India<br>
-                    <strong>Phone:</strong> +91-11-XXXX-XXXX<br>
-                    <strong>Email:</strong> <a href="mailto:info@iisdr.org">info@iisdr.org</a>
+                    <span class="footer-contact-icon">📍</span>
+                    <span>IISDR Mangalore</span>
                 </div>
                 <div class="footer-contact-item">
-                    <strong>Utkarsh Charitable & Welfare Trust:</strong><br>
-                    Heritage Building, Community Square<br>
-                    Mumbai - 400001, India<br>
-                    <strong>Phone:</strong> +91-22-XXXX-XXXX<br>
-                    <strong>Email:</strong> <a href="mailto:support@ucwt.org">support@ucwt.org</a>
+                    <span class="footer-contact-icon">📞</span>
+                    <span><a href="tel:+917259215554">+91 7259215554</a></span>
+                </div>
+                <div class="footer-contact-item">
+                    <span class="footer-contact-icon">✉️</span>
+                    <span><a href="mailto:ddiisdr@gmail.com">ddiisdr@gmail.com</a></span>
                 </div>
             </div>
 
-            <!-- Section 2: Important Links -->
+            <!-- Section 2: Quick Navigation -->
             <div class="footer-section">
-                <h3>Important Links</h3>
+                <h3>Quick Navigation</h3>
                 <ul>
-                    <li><a href="#privacy">Privacy Policy</a></li>
-                    <li><a href="#terms">Terms of Use</a></li>
-                    <li><a href="#copyright">Copyright Policy</a></li>
-                    <li><a href="#disclaimer">Disclaimer</a></li>
-                    <li><a href="#grievance">Grievance Redressal</a></li>
-                    <li><a href="#rti">Right to Information (RTI)</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="iisdr_about_us.html">About Us</a></li>
+                    <li><a href="iisdr_programs.html">Programs</a></li>
+                    <li><a href="iisdr_activities.html">Activities</a></li>
+                    <li><a href="iisdr_certification.html">Certification</a></li>
+                    <li><a href="iisdr_ejournal.html">E-Journal</a></li>
                 </ul>
             </div>
 
-            <!-- Section 3: Support & Policies -->
+            <!-- Section 3: Important Links -->
+            <div class="footer-section">
+                <h3>Important Links</h3>
+                <ul>
+                    <li><a href="iisdr_disclaimer.html">Privacy Policy</a></li>
+                    <li><a href="iisdr_disclaimer.html">Terms of Use</a></li>
+                    <li><a href="iisdr_disclaimer.html">Copyright Policy</a></li>
+                    <li><a href="iisdr_disclaimer.html">Disclaimer</a></li>
+                    <li><a href="iisdr_ejournal_contact_us.html">Grievance Redressal</a></li>
+                    <li><a href="iisdr_information_bulletins.html">Right to Information (RTI)</a></li>
+                </ul>
+            </div>
+
+            <!-- Section 4: Support & Policies -->
             <div class="footer-section">
                 <h3>Support & Policies</h3>
                 <ul>
-                    <li><a href="#website-policies">Website Policies</a></li>
-                    <li><a href="#help">Help & FAQs</a></li>
-                    <li><a href="#accessibility">Accessibility Statement</a></li>
-                    <li><a href="#sitemap">Sitemap</a></li>
-                    <li><a href="#feedback">Send Feedback</a></li>
-                    <li><a href="#report-issue">Report an Issue</a></li>
+                    <li><a href="index.html#website-policies">Website Policies</a></li>
+                    <li><a href="index.html#help">Help & FAQs</a></li>
+                    <li><a href="index.html#accessibility">Accessibility Statement</a></li>
+                    <li><a href="index.html#sitemap">Sitemap</a></li>
+                    <li><a href="index.html#feedback">Send Feedback</a></li>
+                    <li><a href="index.html#report-issue">Report an Issue</a></li>
                 </ul>
             </div>
         </div>
 
         <!-- Footer Bottom -->
         <div class="footer-bottom">
+            <div>© 2026 IISDR. All rights reserved.</div>
             <div class="footer-bottom-info">
-                <span>
-                    Designed and Developed by <strong>Utkarsh Digital Solutions</strong>
-                </span>
-                <span>
-                    © 2026 Utkarsh Charitable and Welfare Trust. All rights reserved.
-                </span>
-                <span>
-                    Last Updated: <span id="last-updated">25 April 2026</span>
-                </span>
+                <span>Designed by <strong>Utkarsh Engineers</strong></span>
+                <span>Last Updated: <span style="color: #e0e0e0;">25 April 2026</span></span>
+                <span>Visitor Count: <span id="visitor-counter" class="visitor-badge">0</span></span>
             </div>
         </div>
     </footer>
@@ -983,68 +1991,73 @@
     <!-- ============================================
          JAVASCRIPT
          ============================================ -->
+    
+    
+    
+    
+    
+    
+    
     <script>
-        // TEXT SIZE CONTROLS
-        function changeTextSize(size) {
-            const html = document.documentElement;
-            const buttons = {
-                'sm': document.getElementById('text-smaller'),
-                'normal': document.getElementById('text-normal'),
-                'lg': document.getElementById('text-larger')
-            };
+        // ============================================
+        // VISITOR COUNTER (Dynamic Simulation)
+        // ============================================
+        function initializeVisitorCounter() {
+            const COUNTER_KEY = 'iisdr_final_visitor_count'; 
+            const START_COUNT = 0;
+            let visitorCount = localStorage.getItem(COUNTER_KEY);
+            if (visitorCount === null) {
+                visitorCount = START_COUNT;
+            } else {
+                visitorCount = parseInt(visitorCount) + 1;
+            }
+            function updateDisplay(count) {
+                const el = document.getElementById('visitor-counter');
+                if (el) {
+                    el.textContent = count.toLocaleString('en-IN');
+                }
+                localStorage.setItem(COUNTER_KEY, count);
+            }
+            updateDisplay(visitorCount);
+            setInterval(() => {
+                visitorCount++;
+                updateDisplay(visitorCount);
+            }, Math.floor(Math.random() * (60000 - 30000 + 1)) + 30000);
+        }
+        function initializeAboutTabs() {
+            const tabButtons = document.querySelectorAll('.about-tab-btn');
+            const tabPanels = document.querySelectorAll('.about-tab-panel');
+            if (!tabButtons.length || !tabPanels.length) return;
 
-            Object.values(buttons).forEach(btn => btn.classList.remove('active'));
-            buttons[size].classList.add('active');
+            function activateTab(target) {
+                tabButtons.forEach((button) => {
+                    const active = button.dataset.tab === target;
+                    button.classList.toggle('active', active);
+                    button.setAttribute('aria-selected', active ? 'true' : 'false');
+                });
 
-            html.classList.remove('text-sm', 'text-lg');
-            if (size === 'sm') html.classList.add('text-sm');
-            if (size === 'lg') html.classList.add('text-lg');
+                tabPanels.forEach((panel) => {
+                    const active = panel.dataset.panel === target;
+                    panel.classList.toggle('active', active);
+                    if (active) {
+                        panel.removeAttribute('hidden');
+                    } else {
+                        panel.setAttribute('hidden', '');
+                    }
+                });
+            }
 
-            localStorage.setItem('textSize', size);
+            tabButtons.forEach((button) => {
+                button.addEventListener('click', () => activateTab(button.dataset.tab));
+            });
+
+            activateTab('about-iisdr');
         }
 
-        // CONTRAST CONTROLS
-        function toggleContrast(mode) {
-            const body = document.body;
-            const buttons = {
-                'normal': document.getElementById('contrast-normal'),
-                'high': document.getElementById('contrast-high')
-            };
-
-            Object.values(buttons).forEach(btn => btn.classList.remove('active'));
-            buttons[mode].classList.add('active');
-
-            body.classList.toggle('high-contrast', mode === 'high');
-            localStorage.setItem('contrastMode', mode);
-        }
-
-        // LANGUAGE TOGGLE
-        function changeLanguage(lang) {
-            const buttons = {
-                'en': document.getElementById('lang-en'),
-                'hi': document.getElementById('lang-hi')
-            };
-
-            Object.values(buttons).forEach(btn => btn.classList.remove('active'));
-            buttons[lang].classList.add('active');
-
-            localStorage.setItem('language', lang);
-        }
-
-        function toggleScreenReaderMode() {
-            alert('Screen Reader Access mode enabled. Use keyboard navigation with Tab, Enter, and arrow keys.');
-        }
-
-        // RESTORE USER PREFERENCES
-        function restoreUserPreferences() {
-            const textSize = localStorage.getItem('textSize') || 'normal';
-            const contrastMode = localStorage.getItem('contrastMode') || 'normal';
-
-            changeTextSize(textSize);
-            toggleContrast(contrastMode);
-        }
-
-        document.addEventListener('DOMContentLoaded', restoreUserPreferences);
+        window.addEventListener('load', () => {
+            initializeVisitorCounter();
+            initializeAboutTabs();
+        });
     </script>
 </body>
 </html>
