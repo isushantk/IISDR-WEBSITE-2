@@ -3083,6 +3083,55 @@
     
     <script>
         // ============================================
+        // HERO CAROUSEL (AUTO-SLIDE EVERY 4 SECONDS)
+        // ============================================
+        let currentSlide = 0;
+        const totalSlides = 4;
+        let heroAutoSlideInterval = null;
+
+        function goToSlide(index) {
+            const slides = document.querySelectorAll('.carousel-container .carousel-slide');
+            const dots = document.querySelectorAll('.carousel-controls .carousel-dot');
+
+            // Remove active from all slides and dots
+            slides.forEach(s => s.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+
+            // Wrap index
+            currentSlide = ((index % totalSlides) + totalSlides) % totalSlides;
+
+            // Activate current slide and dot
+            if (slides[currentSlide]) slides[currentSlide].classList.add('active');
+            if (dots[currentSlide]) dots[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            goToSlide(currentSlide + 1);
+            resetAutoSlide();
+        }
+
+        function previousSlide() {
+            goToSlide(currentSlide - 1);
+            resetAutoSlide();
+        }
+
+        function startAutoSlide() {
+            heroAutoSlideInterval = setInterval(() => {
+                goToSlide(currentSlide + 1);
+            }, 4000);
+        }
+
+        function resetAutoSlide() {
+            clearInterval(heroAutoSlideInterval);
+            startAutoSlide();
+        }
+
+        // Start auto-slide on page load
+        window.addEventListener('load', () => {
+            startAutoSlide();
+        });
+
+        // ============================================
         // TAB SWITCHING FUNCTION
         // ============================================
         function switchTab(tabIndex, event) {
