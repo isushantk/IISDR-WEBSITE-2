@@ -985,7 +985,7 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 25px;
-            /* Slightly wider gap for breathing room since cards are wider */
+            align-items: stretch;
         }
 
         .social-card {
@@ -997,8 +997,7 @@
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             display: flex;
             flex-direction: column;
-            height: 380px;
-            /* Fixed height to enforce scrolling */
+            height: 450px;
         }
 
         .social-card:hover {
@@ -1046,11 +1045,25 @@
         }
 
         .social-card-content {
-            padding: 16px;
-            flex-grow: 1;
-            overflow-y: auto;
-            scrollbar-width: thin;
-            scrollbar-color: #ccd6e0 transparent;
+            padding: 0;
+            flex: 1;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .social-card-content iframe,
+        .social-card-content img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            flex: 1;
+        }
+
+        .social-card-content blockquote {
+            margin: 0;
+            flex: 1;
+            min-width: 0;
         }
 
         /* Custom Modern Scrollbar */
@@ -2930,17 +2943,17 @@
 
             <div class="social-media-cards">
                 <!-- LinkedIn Card -->
-                <div class="social-card" style="height: auto;">
+                <div class="social-card">
                     <div class="social-card-header">
                         <h3>LinkedIn</h3>
                         <a href="https://www.linkedin.com/in/indian-institute-of-skill-development-and-research-iisdr-b13083395/"
                             target="_blank" class="social-follow-btn">Follow</a>
                     </div>
-                    <div class="social-card-content" style="padding: 0; overflow: hidden; background: #fff;">
+                    <div class="social-card-content">
                         <!-- Official Latest LinkedIn Post Embed -->
                         <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7454368806761668608"
-                            height="100%" width="100%" frameborder="0" allowfullscreen="" title="Embedded post"
-                            style="border-radius: 0 0 12px 12px; height: 380px;"></iframe>
+                            frameborder="0" allowfullscreen="" title="Embedded post"
+                            style="border: none; border-radius: 0 0 12px 12px;"></iframe>
                     </div>
                 </div>
 
@@ -2959,13 +2972,12 @@
                         <a href="https://www.threads.net/@iisdr_official" target="_blank" class="social-follow-btn"
                             style="background-color: #000;">Follow</a>
                     </div>
-                    <div class="social-card-content"
-                        style="padding: 0; overflow: hidden; background: #fff; display: flex; justify-content: center; height: 380px; overflow-y: auto;">
+                    <div class="social-card-content">
                         <!-- Official Latest Threads Post Embed -->
                         <blockquote class="text-post-media"
                             data-text-post-permalink="https://www.threads.com/@iisdr_official/post/DXyVWT9k9Wi?xmt=AQF0eRi9IJsdzYwVCLfI_eZxC1-rzIBHGqNF6H-hZ_FJ4PQwVQH_RFaB3g7JB7dwIzt1DH0&source_surface=35&slof=1"
                             data-text-post-version="0" id="ig-tp-DXyVWT9k9Wi"
-                            style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+                            style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 0; max-width:100%; min-width:0; padding:0; width:100%; height:100%;">
                             <a href="https://www.threads.com/@iisdr_official/post/DXyVWT9k9Wi?xmt=AQF0eRi9IJsdzYwVCLfI_eZxC1-rzIBHGqNF6H-hZ_FJ4PQwVQH_RFaB3g7JB7dwIzt1DH0&source_surface=35&slof=1">View post on Threads</a>
                         </blockquote>
                     </div>
@@ -2982,9 +2994,9 @@
                         </h3>
                         <a href="https://www.instagram.com/p/DXyVMsAk04s/?igsh=OHFmdWpvdHJwYnRm" target="_blank" class="social-follow-btn" style="background-color: #E1306C;">Follow</a>
                     </div>
-                    <div class="social-card-content" style="padding: 0; background: #fff;">
-                        <a href="https://www.instagram.com/p/DXyVMsAk04s/?igsh=OHFmdWpvdHJwYnRm" target="_blank" style="display: block; line-height: 0;">
-                            <img src="images/instagram-latest-post.jpg" alt="IISDR Instagram Post" style="width: 100%; height: auto; display: block;" />
+                    <div class="social-card-content">
+                        <a href="https://www.instagram.com/p/DXyVMsAk04s/?igsh=OHFmdWpvdHJwYnRm" target="_blank" style="display: flex; flex: 1; line-height: 0;">
+                            <img src="images/instagram-latest-post.jpg" alt="IISDR Instagram Post" />
                         </a>
                     </div>
                 </div>
@@ -3000,9 +3012,9 @@
                         </h3>
                         <a href="https://youtu.be/yhMDIAZJReA" target="_blank" class="social-follow-btn" style="background-color: #FF0000;">Subscribe</a>
                     </div>
-                    <div class="social-card-content" style="padding: 0; overflow: hidden; background: #fff;">
+                    <div class="social-card-content">
                         <!-- YouTube Embed -->
-                        <iframe style="border: none; border-radius: 0 0 12px 12px; width: 100%; height: 380px;" src="https://www.youtube.com/embed/yhMDIAZJReA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" title="IISDR Official YouTube Video"></iframe>
+                        <iframe style="border: none; border-radius: 0 0 12px 12px;" src="https://www.youtube.com/embed/yhMDIAZJReA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" title="IISDR Official YouTube Video"></iframe>
                     </div>
                 </div>
             </div>
