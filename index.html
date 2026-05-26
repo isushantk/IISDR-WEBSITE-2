@@ -1052,12 +1052,52 @@
             flex-direction: column;
         }
 
+        .social-card-content.native-post-content {
+            padding: 20px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #ccd6e0 transparent;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background: #ffffff;
+        }
+
+        .social-card-content.native-post-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .social-card-content.native-post-content::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .social-card-content.native-post-content::-webkit-scrollbar-thumb {
+            background-color: #ccd6e0;
+            border-radius: 10px;
+        }
+
         .social-card-content iframe,
+        .social-card-content.has-iframe iframe {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            flex: 1;
+        }
+
         .social-card-content img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             flex: 1;
+        }
+
+        .social-card-content.native-post-content img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            border-radius: 8px;
+            flex: none;
+            margin-top: 8px;
         }
 
         .social-card-content blockquote {
@@ -2949,11 +2989,24 @@
                         <a href="https://www.linkedin.com/in/indian-institute-of-skill-development-and-research-iisdr-b13083395/"
                             target="_blank" class="social-follow-btn">Follow</a>
                     </div>
-                    <div class="social-card-content">
-                        <!-- Official Latest LinkedIn Post Embed -->
-                        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7454368806761668608"
-                            frameborder="0" allowfullscreen="" title="Embedded post"
-                            style="border: none; border-radius: 0 0 12px 12px;"></iframe>
+                    <div class="social-card-content native-post-content">
+                        <div class="social-post">
+                            <div class="post-avatar" style="background-color: #0077b5; color: white; font-weight: bold; font-size: 0.95rem;">in</div>
+                            <div class="post-text">
+                                <strong style="font-size: 0.95rem; color: #003d99;">Indian Institute of Skill Development and Research</strong>
+                                <div class="post-date">1,250 followers • 2mo • <span style="font-size: 0.8rem; display: inline-flex; align-items: center; gap: 3px;">Edited 🌐</span></div>
+                                <p style="margin-top: 10px; color: #333; font-size: 0.9rem; line-height: 1.5; margin-bottom: 8px;">
+                                    We are proud to share that the Indian Institute of Skill Development and Research (IISDR) has signed a Memorandum of Understanding (MoU) with Manel Srinivas Nayak Institute of Management (MSNIM) to strengthen academic and skill-development initiatives! 🤝🎓
+                                </p>
+                                <p style="color: #333; font-size: 0.9rem; line-height: 1.5; margin-bottom: 10px;">
+                                    This collaboration will open new avenues for our students and researchers in professional growth.
+                                </p>
+                                <div class="post-tags" style="color: #0077b5; font-weight: 600; margin-bottom: 12px;">#IISDR #MSNIM #MoU #SkillDevelopment #Mangaluru</div>
+                                <a href="https://www.linkedin.com/in/indian-institute-of-skill-development-and-research-iisdr-b13083395/" target="_blank" style="display: block; border-radius: 8px; overflow: hidden; border: 1px solid #eef2f6; line-height: 0;">
+                                    <img src="images/poster-mou-msnim.png" alt="IISDR MSNIM MoU" />
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -2972,14 +3025,28 @@
                         <a href="https://www.threads.net/@iisdr_official" target="_blank" class="social-follow-btn"
                             style="background-color: #000;">Follow</a>
                     </div>
-                    <div class="social-card-content">
-                        <!-- Official Latest Threads Post Embed -->
-                        <blockquote class="text-post-media"
-                            data-text-post-permalink="https://www.threads.com/@iisdr_official/post/DXyVWT9k9Wi?xmt=AQF0eRi9IJsdzYwVCLfI_eZxC1-rzIBHGqNF6H-hZ_FJ4PQwVQH_RFaB3g7JB7dwIzt1DH0&source_surface=35&slof=1"
-                            data-text-post-version="0" id="ig-tp-DXyVWT9k9Wi"
-                            style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 0; max-width:100%; min-width:0; padding:0; width:100%; height:100%;">
-                            <a href="https://www.threads.com/@iisdr_official/post/DXyVWT9k9Wi?xmt=AQF0eRi9IJsdzYwVCLfI_eZxC1-rzIBHGqNF6H-hZ_FJ4PQwVQH_RFaB3g7JB7dwIzt1DH0&source_surface=35&slof=1">View post on Threads</a>
-                        </blockquote>
+                    <div class="social-card-content native-post-content">
+                        <div class="social-post">
+                            <div class="post-avatar" style="background-color: #000000; color: white; font-weight: bold; font-size: 0.9rem; padding: 2px;">
+                                <svg width="16" height="16" viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M141.537 88.9883C140.71 88.5919 139.87 88.2104 139.019 87.8451C137.537 60.5382 122.616 44.905 97.5619 44.745C97.4484 44.7443 97.3355 44.7443 97.222 44.7443C82.2364 44.7443 69.7731 51.1409 62.102 62.7807L75.881 72.2328C81.6116 63.5383 90.6052 61.6848 97.2286 61.6848C97.3051 61.6848 97.3819 61.6848 97.4576 61.6855C105.707 61.7381 111.932 64.1366 115.961 68.814C118.893 72.2193 120.854 76.925 121.825 82.8638C114.511 81.6207 106.601 81.2385 98.145 81.7233C74.3247 83.0954 59.0111 96.9879 60.0396 116.292C60.5615 126.084 65.4397 134.508 73.775 140.011C80.8224 144.663 89.899 146.938 99.3323 146.423C111.79 145.74 121.563 140.987 128.381 132.296C133.559 125.696 136.834 117.143 138.28 106.366C144.217 109.949 148.617 114.664 151.047 120.332C155.179 129.967 155.42 145.8 142.501 158.708C131.182 170.016 117.576 174.908 97.0135 175.059C74.2042 174.89 56.9538 167.575 45.7381 153.317C35.2368 139.966 29.8077 120.682 29.6052 96C29.8077 71.3178 35.2368 52.0336 45.7381 38.6827C56.9538 24.4249 74.2039 17.11 97.0132 16.9405C119.988 17.1113 137.539 24.4614 148.902 38.852C158.157 50.5755 163.639 67.5681 165.175 87.2693L182.136 85.9529C180.375 63.3426 174.004 43.6841 162.247 28.8143C148.169 11.0287 126.353 2.14801 97.0135 2C67.6599 2.14833 45.8339 11.0253 31.7431 28.8152C18.6659 45.3956 12.1812 68.3297 12 96C12.1812 123.67 18.6659 146.604 31.7431 163.185C45.8339 180.975 67.6599 189.852 97.0135 190C122.14 189.828 140.231 183.743 154.542 169.444C171.745 152.257 172.936 130.632 166.721 116.141C162.067 105.292 153.376 96.223 141.537 88.9883ZM98.4405 129.507C88.0005 130.095 77.1544 125.409 76.619 115.343C76.0564 104.751 87.8105 97.9042 100.865 96.9038C108.683 96.3045 116.297 96.6713 121.782 98.3972C119.553 115.228 111.006 128.799 98.4405 129.507Z" fill="white" />
+                                </svg>
+                            </div>
+                            <div class="post-text">
+                                <strong style="font-size: 0.95rem; color: #000000;">iisdr_official</strong>
+                                <div class="post-date">@iisdr_official • 2mo</div>
+                                <p style="margin-top: 10px; color: #333; font-size: 0.9rem; line-height: 1.5; margin-bottom: 8px;">
+                                    Excited to announce our collaboration with the Department of Hospital Administration at Father Muller College of Allied Health Sciences! 🏥💼
+                                </p>
+                                <p style="color: #333; font-size: 0.9rem; line-height: 1.5; margin-bottom: 10px;">
+                                    Together, we will conduct joint workshops and certificate courses in healthcare management and leadership.
+                                </p>
+                                <div class="post-tags" style="color: #000000; font-weight: 600; margin-bottom: 12px;">#healthcare #leadership #education #IISDR #FatherMuller</div>
+                                <a href="https://www.threads.net/@iisdr_official" target="_blank" style="display: block; border-radius: 8px; overflow: hidden; border: 1px solid #eef2f6; line-height: 0;">
+                                    <img src="images/poster-mou-hospital.png" alt="IISDR Father Muller Collaboration" />
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -2992,12 +3059,26 @@
                             </svg>
                             Instagram
                         </h3>
-                        <a href="https://www.instagram.com/p/DXyVMsAk04s/?igsh=OHFmdWpvdHJwYnRm" target="_blank" class="social-follow-btn" style="background-color: #E1306C;">Follow</a>
+                        <a href="https://www.instagram.com/iisdr_official" target="_blank" class="social-follow-btn" style="background-color: #E1306C;">Follow</a>
                     </div>
-                    <div class="social-card-content">
-                        <a href="https://www.instagram.com/p/DXyVMsAk04s/?igsh=OHFmdWpvdHJwYnRm" target="_blank" style="display: flex; flex: 1; line-height: 0;">
-                            <img src="images/instagram-latest-post.jpg" alt="IISDR Instagram Post" />
-                        </a>
+                    <div class="social-card-content native-post-content">
+                        <div class="social-post">
+                            <div class="post-avatar" style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; font-weight: bold; font-size: 0.95rem;">📸</div>
+                            <div class="post-text">
+                                <strong style="font-size: 0.95rem; color: #2d3748;">iisdr_official</strong>
+                                <div class="post-date">Mangalore, India • 3mo</div>
+                                <p style="margin-top: 10px; color: #333; font-size: 0.9rem; line-height: 1.5; margin-bottom: 8px;">
+                                    A successful collaboration! IISDR has signed an MoU with the prestigious School of Social Work, Roshni Nilaya, Mangalore. 🤝✨
+                                </p>
+                                <p style="color: #333; font-size: 0.9rem; line-height: 1.5; margin-bottom: 10px;">
+                                    This partnership began with a guest lecture on India’s new Labour Codes, paving the way for research and capacity-building.
+                                </p>
+                                <div class="post-tags" style="color: #e1306c; font-weight: 600; margin-bottom: 12px;">#RoshniNilaya #LabourCodes #IISDR #SocialWork #Mangalore</div>
+                                <a href="https://www.instagram.com/iisdr_official" target="_blank" style="display: block; border-radius: 8px; overflow: hidden; border: 1px solid #eef2f6; line-height: 0;">
+                                    <img src="images/poster-mou-roshni.png" alt="IISDR School of Social Work Roshni Nilaya MoU" />
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -3012,7 +3093,7 @@
                         </h3>
                         <a href="https://youtu.be/yhMDIAZJReA" target="_blank" class="social-follow-btn" style="background-color: #FF0000;">Subscribe</a>
                     </div>
-                    <div class="social-card-content">
+                    <div class="social-card-content has-iframe">
                         <!-- YouTube Embed -->
                         <iframe style="border: none; border-radius: 0 0 12px 12px;" src="https://www.youtube.com/embed/yhMDIAZJReA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" title="IISDR Official YouTube Video"></iframe>
                     </div>
@@ -3061,8 +3142,6 @@
                     <li><a href="iisdr_disclaimer.html">Terms of Use</a></li>
                     <li><a href="iisdr_disclaimer.html">Copyright Policy</a></li>
                     <li><a href="iisdr_disclaimer.html">Disclaimer</a></li>
-                    <li><a href="iisdr_ejournal_contact_us.html">Grievance Redressal</a></li>
-                    <li><a href="iisdr_information_bulletins.html">Right to Information (RTI)</a></li>
                 </ul>
             </div>
 
