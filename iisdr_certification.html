@@ -1381,13 +1381,16 @@
                 <input type="tel" id="enq-phone" placeholder="Phone No*" required>
                 <input type="email" id="enq-email" placeholder="Email ID*" required>
                 <input type="text" id="enq-city" placeholder="City*" required>
-                <select id="enq-experience">
+                <select id="enq-experience" required>
                     <option value="" disabled selected>Work Experience in Years:*</option>
                     <option value="0-1">0 – 1 Year</option>
                     <option value="1-3">1 – 3 Years</option>
                     <option value="3-5">3 – 5 Years</option>
                     <option value="5-10">5 – 10 Years</option>
                     <option value="10+">10+ Years</option>
+                </select>
+                <select id="enq-program" required>
+                    <option value="" disabled selected>For which program are you enquiring?*</option>
                 </select>
                 <div class="captcha-row">
                     <input type="text" id="enq-captcha" placeholder="Captcha code">
@@ -1656,15 +1659,99 @@
         </div>
     </footer>
 
-    <!-- EmailJS SDK -->
-    
-    
-    
-    
-    
-    
-    
+    <!-- Form Logic & Captcha -->
     <script>
+        // Populate Programs Dropdown Dynamically
+        document.addEventListener('DOMContentLoaded', function() {
+            const programSelect = document.getElementById('enq-program');
+            const programTitles = document.querySelectorAll('.prog-card h3');
+            
+            if (programSelect && programTitles.length > 0) {
+                programTitles.forEach(function(titleElement) {
+                    const titleText = titleElement.textContent.trim();
+                    const option = document.createElement('option');
+                    option.value = titleText;
+                    option.textContent = titleText;
+                    programSelect.appendChild(option);
+                });
+            }
+            
+            generateCaptcha();
+        });
+
+        // Captcha Logic
+        let currentCaptcha = "";
+        function generateCaptcha() {
+            const chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+            const captchaLength = 6;
+            let captcha = "";
+            for (let i = 0; i < captchaLength; i++) {
+                captcha += chars[Math.floor(Math.random() * chars.length)];
+            }
+            currentCaptcha = captcha;
+            const captchaDisplay = document.getElementById('captcha-text');
+            if(captchaDisplay) {
+                captchaDisplay.textContent = captcha;
+                // Add some basic styling to make it look like a captcha
+                captchaDisplay.style.fontFamily = "monospace";
+                captchaDisplay.style.letterSpacing = "3px";
+                captchaDisplay.style.fontWeight = "bold";
+                captchaDisplay.style.background = "#eef2f6";
+                captchaDisplay.style.padding = "5px 15px";
+                captchaDisplay.style.borderRadius = "4px";
+                captchaDisplay.style.userSelect = "none";
+                captchaDisplay.style.color = "#003d99";
+            }
+        }
+
+        function submitEnquiry() {
+            const name = document.getElementById('enq-name').value;
+            const phone = document.getElementById('enq-phone').value;
+            const email = document.getElementById('enq-email').value;
+            const city = document.getElementById('enq-city').value;
+            const experience = document.getElementById('enq-experience').value;
+            const program = document.getElementById('enq-program').value;
+            const captchaInput = document.getElementById('enq-captcha').value;
+            const msgBox = document.getElementById('enquiry-msg');
+
+            // Add some basic styling to msgBox dynamically if it doesn't have it
+            msgBox.style.padding = "10px";
+            msgBox.style.marginBottom = "15px";
+            msgBox.style.borderRadius = "4px";
+            msgBox.style.fontWeight = "bold";
+            msgBox.style.display = "block";
+
+            if (!name || !phone || !email || !city || !experience || !program) {
+                msgBox.textContent = "Please fill in all required fields.";
+                msgBox.style.backgroundColor = "#ffebee";
+                msgBox.style.color = "#c62828";
+                return;
+            }
+
+            if (captchaInput !== currentCaptcha) {
+                msgBox.textContent = "Incorrect Captcha. Please try again.";
+                msgBox.style.backgroundColor = "#ffebee";
+                msgBox.style.color = "#c62828";
+                generateCaptcha();
+                return;
+            }
+
+            // Simulate form submission success
+            msgBox.textContent = "Thank you! Your enquiry for '" + program + "' has been submitted. Our team will contact you soon.";
+            msgBox.style.backgroundColor = "#e8f5e9";
+            msgBox.style.color = "#2e7d32";
+            
+            // Clear form
+            document.getElementById('enq-name').value = "";
+            document.getElementById('enq-phone').value = "";
+            document.getElementById('enq-email').value = "";
+            document.getElementById('enq-city').value = "";
+            document.getElementById('enq-experience').value = "";
+            document.getElementById('enq-program').value = "";
+            document.getElementById('enq-captcha').value = "";
+            generateCaptcha();
+        }
+    </script>
         // ============================================
         // VISITOR COUNTER (Dynamic Simulation)
         // ============================================
