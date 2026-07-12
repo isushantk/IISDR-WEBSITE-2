@@ -1556,38 +1556,161 @@
             }
             
 
-            // Simple Client-Side Search Routing
+            // Advanced Client-Side Search with Autocomplete Dropdown
             const searchBtn = navSearch ? navSearch.querySelector('button') : null;
             const searchInput = navSearch ? navSearch.querySelector('input') : null;
             if (searchBtn && searchInput) {
-                const performSearch = () => {
-                    const query = searchInput.value.toLowerCase().trim();
+                // Inject CSS for dropdown
+                if (!document.getElementById('search-dropdown-styles')) {
+                    const style = document.createElement('style');
+                    style.id = 'search-dropdown-styles';
+                    style.textContent = `
+                        .nav-search { position: relative; }
+                        .search-dropdown {
+                            position: absolute;
+                            top: 100%;
+                            left: 0;
+                            right: 0;
+                            background: white;
+                            border: 1px solid #ddd;
+                            border-radius: 4px;
+                            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                            max-height: 300px;
+                            overflow-y: auto;
+                            z-index: 1000;
+                            display: none;
+                            margin-top: 5px;
+                        }
+                        .search-dropdown.active {
+                            display: block;
+                        }
+                        .search-item {
+                            padding: 10px 15px;
+                            cursor: pointer;
+                            border-bottom: 1px solid #eee;
+                            color: #333;
+                            font-size: 14px;
+                            text-align: left;
+                            line-height: 1.4;
+                        }
+                        .search-item:last-child {
+                            border-bottom: none;
+                        }
+                        .search-item:hover {
+                            background: #f5f5f5;
+                        }
+                        .search-item .keyword {
+                            font-weight: bold;
+                            color: #003d99;
+                            display: block;
+                        }
+                        .search-item .page-name {
+                            font-size: 12px;
+                            color: #666;
+                        }
+                    `;
+                    document.head.appendChild(style);
+                }
+
+                // Create Dropdown element
+                let dropdown = document.querySelector('.search-dropdown');
+                if (!dropdown) {
+                    dropdown = document.createElement('div');
+                    dropdown.className = 'search-dropdown';
+                    navSearch.appendChild(dropdown);
+                }
+
+                const routes = [
+                    { keywords: ['about', 'history', 'vision', 'who we are'], page: 'About Us', url: 'iisdr_about_us.html' },
+                    { keywords: ['program', 'souvenir', 'leadership connect'], page: 'Programs', url: 'iisdr_programs.html' },
+                    { keywords: ['activity', 'news', 'events'], page: 'Activities', url: 'iisdr_activities.html' },
+                    { keywords: ['certificate', 'course', 'training'], page: 'Certification Programs', url: 'iisdr_certification.html' },
+                    { keywords: ['journal', 'thrive', 'research'], page: 'E-Journal', url: 'iisdr_ejournal.html' },
+                    { keywords: ['author guidelines', 'submission'], page: 'Author Guidelines', url: 'iisdr_author_guidelines.html' },
+                    { keywords: ['paper', 'call for papers'], page: 'Call for Papers', url: 'iisdr_call_for_papers.html' },
+                    { keywords: ['editor', 'editorial board'], page: 'Editorial Board', url: 'iisdr_editorial_board.html' },
+                    { keywords: ['contact', 'email', 'address'], page: 'Contact Us', url: 'iisdr_ejournal_contact_us.html' },
+                    { keywords: ['bulletin', 'information'], page: 'Information Bulletins', url: 'iisdr_information_bulletins.html' }
+                ];
+
+                const performSearch = (forceQuery) => {
+                    const query = (typeof forceQuery === 'string' ? forceQuery : searchInput.value).toLowerCase().trim();
                     if (!query) return;
                     
-                    const routes = {
-                        'about': 'iisdr_about_us.html',
-                        'history': 'iisdr_about_us.html',
-                        'vision': 'iisdr_about_us.html',
-                        'program': 'iisdr_programs.html',
-                        'souvenir': 'iisdr_programs.html',
-                        'activity': 'iisdr_activities.html',
-                        'certificate': 'iisdr_certification.html',
-                        'course': 'iisdr_certification.html',
-                        'journal': 'iisdr_ejournal.html',
-                        'thrive': 'iisdr_ejournal.html',
-                        'author': 'iisdr_author_guidelines.html',
-                        'paper': 'iisdr_call_for_papers.html',
-                        'editor': 'iisdr_editorial_board.html',
-                        'contact': 'iisdr_ejournal_contact_us.html',
-                        'bulletin': 'iisdr_information_bulletins.html'
-                    };
-
                     let matchedRoute = ''; 
-                    for (const [key, url] of Object.entries(routes)) {
-                        if (query.includes(key)) {
-                            matchedRoute = url;
+                    for (const route of routes) {
+                        if (route.keywords.some(kw => kw.includes(query) || query.includes(kw))) {
+                            matchedRoute = route.url;
                             break;
                         }
+                    }
+                    
+                    if (matchedRoute) {
+                        window.location.href = matchedRoute;
+                    } else {
+                        alert("No specific page found for '" + query + "'. Try keywords like 'about', 'programs', 'certificate', 'journal', or 'contact'.");
+                    }
+                };
+
+                // Show autocomplete
+                searchInput.addEventListener('input', () => {
+                    const query = searchInput.value.toLowerCase().trim();
+                    dropdown.innerHTML = '';
+                    
+                    if (!query) {
+                        dropdown.classList.remove('active');
+                        return;
+                    }
+
+                    let matches = [];
+                    for (const route of routes) {
+                        const matchedKeywords = route.keywords.filter(kw => kw.includes(query));
+                        if (matchedKeywords.length > 0) {
+                            matchedKeywords.forEach(kw => {
+                                matches.push({ keyword: kw, page: route.page, url: route.url });
+                            });
+                        }
+                    }
+
+                    if (matches.length > 0) {
+                        matches.forEach(match => {
+                            const item = document.createElement('div');
+                            item.className = 'search-item';
+                            // highlight matching part
+                            const highlightedKw = match.keyword.replace(new RegExp(query, 'gi'), match => `<span style="background:yellow; color:black;">${match}</span>`);
+                            item.innerHTML = `<span class="keyword">${highlightedKw}</span><span class="page-name">➔ ${match.page}</span>`;
+                            item.addEventListener('click', () => {
+                                searchInput.value = match.keyword;
+                                window.location.href = match.url;
+                            });
+                            dropdown.appendChild(item);
+                        });
+                        dropdown.classList.add('active');
+                    } else {
+                        const item = document.createElement('div');
+                        item.className = 'search-item';
+                        item.innerHTML = `<span class="page-name">No suggestions found. Hit Enter to search anyway.</span>`;
+                        dropdown.appendChild(item);
+                        dropdown.classList.add('active');
+                    }
+                });
+
+                // Hide dropdown when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (!navSearch.contains(e.target)) {
+                        dropdown.classList.remove('active');
+                    }
+                });
+
+                searchBtn.addEventListener('click', performSearch);
+                searchInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        dropdown.classList.remove('active');
+                        performSearch();
+                    }
+                });
+            }
+
                     }
                     
                     if (matchedRoute) {
