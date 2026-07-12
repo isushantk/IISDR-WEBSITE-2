@@ -399,27 +399,41 @@
             height: 100%;
             position: absolute;
             opacity: 0;
-            transition: opacity 0.8s ease-in-out;
-            animation: rotateSlides 18s infinite;
+            transition: opacity 0.5s ease-in-out;
             background: none;
-            /* Override any hero backgrounds just in case */
+            z-index: 1;
         }
 
-        .poster-carousel .carousel-slide:nth-child(1) {
-            animation-delay: 0s;
+        .poster-carousel .carousel-slide.active {
+            opacity: 1;
+            z-index: 2;
         }
 
-        .poster-carousel .carousel-slide:nth-child(2) {
-            animation-delay: -6s;
+        .poster-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            z-index: 10;
+            font-size: 1.5rem;
+            border-radius: 4px;
+            transition: background 0.3s;
         }
 
-        .poster-carousel .carousel-slide:nth-child(3) {
-            animation-delay: -12s;
+        .poster-control:hover {
+            background: rgba(0, 0, 0, 0.8);
         }
 
-        @keyframes rotateSlides {
-            0%, 26.66% { opacity: 1; }
-            33.33%, 100% { opacity: 0; }
+        .poster-control.prev {
+            left: 10px;
+        }
+
+        .poster-control.next {
+            right: 10px;
         }
 
         .poster-placeholder {
@@ -2375,6 +2389,8 @@
         <!-- LEFT COLUMN: POSTER CAROUSEL -->
         <div class="content-column">
             <div class="poster-carousel">
+                <button class="poster-control prev" onclick="prevPoster()">❮</button>
+                <button class="poster-control next" onclick="nextPoster()">❯</button>
                 <div class="carousel-slides">
                     <div class="carousel-slide" style="background-color: #f8f9fa;">
                         <img src="images/poster-media-1.jpg" alt="Poster Carousel Image 1"
@@ -2731,6 +2747,60 @@
     
     
     <script>
+        // ============================================
+        // POSTER CAROUSEL LOGIC
+        // ============================================
+        let currentPoster = 0;
+        let posterAutoSlideInterval = null;
+
+        function updatePosterCarousel() {
+            const posters = document.querySelectorAll('.poster-carousel .carousel-slide');
+            if(posters.length === 0) return;
+            posters.forEach((p, idx) => {
+                if (idx === currentPoster) {
+                    p.classList.add('active');
+                } else {
+                    p.classList.remove('active');
+                }
+            });
+        }
+
+        function nextPoster() {
+            const posters = document.querySelectorAll('.poster-carousel .carousel-slide');
+            if(posters.length === 0) return;
+            currentPoster = (currentPoster + 1) % posters.length;
+            updatePosterCarousel();
+            resetPosterAutoSlide();
+        }
+
+        function prevPoster() {
+            const posters = document.querySelectorAll('.poster-carousel .carousel-slide');
+            if(posters.length === 0) return;
+            currentPoster = (currentPoster - 1 + posters.length) % posters.length;
+            updatePosterCarousel();
+            resetPosterAutoSlide();
+        }
+
+        function startPosterAutoSlide() {
+            posterAutoSlideInterval = setInterval(() => {
+                const posters = document.querySelectorAll('.poster-carousel .carousel-slide');
+                if(posters.length > 0) {
+                    currentPoster = (currentPoster + 1) % posters.length;
+                    updatePosterCarousel();
+                }
+            }, 5000);
+        }
+
+        function resetPosterAutoSlide() {
+            clearInterval(posterAutoSlideInterval);
+            startPosterAutoSlide();
+        }
+
+        window.addEventListener('load', () => {
+            updatePosterCarousel();
+            startPosterAutoSlide();
+        });
+
         // ============================================
         // TAB SWITCHING FUNCTION
         // ============================================
