@@ -1652,20 +1652,21 @@
         <!-- RIGHT COLUMN: CONTACT FORM -->
         <aside class="sidebar contact-panel">
             <h2>Contact form</h2>
-            <p style="margin-bottom: 22px;">Or, you can just send an email: <a href="mailto:ucwtmlr@gmail.com" style="color: #5c7289; text-decoration: none;">ucwtmlr@gmail.com</a></p>
+            <p style="margin-bottom: 22px;">Or, you can just send an email: <a href="mailto:iisdrcp@gmail.com" style="color: #5c7289; text-decoration: none;">iisdrcp@gmail.com</a></p>
 
-            <form style="display: flex; flex-direction: column; gap: 22px;">
+            <form action="https://formsubmit.co/iisdrcp@gmail.com" method="POST" style="display: flex; flex-direction: column; gap: 22px;">
+                <input type="hidden" name="_subject" value="New message from E-Journal Contact Form">
                 <div class="contact-form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px;">
-                    <input type="text" placeholder="Jack" required>
-                    <input type="text" placeholder="Doe" required>
+                    <input type="text" name="First Name" placeholder="First Name" required>
+                    <input type="text" name="Last Name" placeholder="Last Name" required>
                 </div>
 
                 <div class="contact-form-grid">
-                    <input type="email" placeholder="Jackdoe@gmail.com" required>
+                    <input type="email" name="Email" placeholder="Email Address" required>
                 </div>
 
                 <div class="contact-form-grid">
-                    <textarea placeholder="What can we help you?" rows="6" required></textarea>
+                    <textarea name="Message" placeholder="What can we help you with?" rows="6" required></textarea>
                 </div>
 
                 <button class="contact-submit" type="submit">Send Message</button>
