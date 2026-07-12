@@ -1555,6 +1555,54 @@
                 });
             }
             
+
+            // Simple Client-Side Search Routing
+            const searchBtn = navSearch ? navSearch.querySelector('button') : null;
+            const searchInput = navSearch ? navSearch.querySelector('input') : null;
+            if (searchBtn && searchInput) {
+                const performSearch = () => {
+                    const query = searchInput.value.toLowerCase().trim();
+                    if (!query) return;
+                    
+                    const routes = {
+                        'about': 'iisdr_about_us.html',
+                        'history': 'iisdr_about_us.html',
+                        'vision': 'iisdr_about_us.html',
+                        'program': 'iisdr_programs.html',
+                        'souvenir': 'iisdr_programs.html',
+                        'activity': 'iisdr_activities.html',
+                        'certificate': 'iisdr_certification.html',
+                        'course': 'iisdr_certification.html',
+                        'journal': 'iisdr_ejournal.html',
+                        'thrive': 'iisdr_ejournal.html',
+                        'author': 'iisdr_author_guidelines.html',
+                        'paper': 'iisdr_call_for_papers.html',
+                        'editor': 'iisdr_editorial_board.html',
+                        'contact': 'iisdr_ejournal_contact_us.html',
+                        'bulletin': 'iisdr_information_bulletins.html'
+                    };
+
+                    let matchedRoute = ''; 
+                    for (const [key, url] of Object.entries(routes)) {
+                        if (query.includes(key)) {
+                            matchedRoute = url;
+                            break;
+                        }
+                    }
+                    
+                    if (matchedRoute) {
+                        window.location.href = matchedRoute;
+                    } else {
+                        alert("No specific page found for '" + query + "'. Try keywords like 'about', 'programs', 'certificate', 'journal', or 'contact'.");
+                    }
+                };
+
+                searchBtn.addEventListener('click', performSearch);
+                searchInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') performSearch();
+                });
+            }
+
             // Handle mobile dropdown menus
             const dropdowns = document.querySelectorAll('.nav-dropdown');
             dropdowns.forEach(function(dropdown) {
