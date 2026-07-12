@@ -1736,20 +1736,54 @@
                 return;
             }
 
-            // Simulate form submission success
-            msgBox.textContent = "Thank you! Your enquiry for '" + program + "' has been submitted. Our team will contact you soon.";
-            msgBox.style.backgroundColor = "#e8f5e9";
-            msgBox.style.color = "#2e7d32";
+            // Send to FormSubmit via AJAX
+            msgBox.textContent = "Sending enquiry...";
+            msgBox.style.backgroundColor = "#e3f2fd";
+            msgBox.style.color = "#1565c0";
             
-            // Clear form
-            document.getElementById('enq-name').value = "";
-            document.getElementById('enq-phone').value = "";
-            document.getElementById('enq-email').value = "";
-            document.getElementById('enq-city').value = "";
-            document.getElementById('enq-experience').value = "";
-            document.getElementById('enq-program').value = "";
-            document.getElementById('enq-captcha').value = "";
-            generateCaptcha();
+            const submitBtn = document.querySelector('.enquiry-submit-btn');
+            if (submitBtn) submitBtn.disabled = true;
+
+            fetch("https://formsubmit.co/ajax/iisdrcp@gmail.com", {
+                method: "POST",
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    Name: name,
+                    Phone: phone,
+                    Email: email,
+                    City: city,
+                    Experience: experience,
+                    Program: program,
+                    _subject: "New Certification Enquiry: " + program
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                msgBox.textContent = "Thank you! Your enquiry for '" + program + "' has been submitted. Our team will contact you soon.";
+                msgBox.style.backgroundColor = "#e8f5e9";
+                msgBox.style.color = "#2e7d32";
+                
+                // Clear form
+                document.getElementById('enq-name').value = "";
+                document.getElementById('enq-phone').value = "";
+                document.getElementById('enq-email').value = "";
+                document.getElementById('enq-city').value = "";
+                document.getElementById('enq-experience').value = "";
+                document.getElementById('enq-program').value = "";
+                document.getElementById('enq-captcha').value = "";
+                generateCaptcha();
+            })
+            .catch(error => {
+                msgBox.textContent = "Error sending enquiry. Please try again later.";
+                msgBox.style.backgroundColor = "#ffebee";
+                msgBox.style.color = "#c62828";
+            })
+            .finally(() => {
+                if (submitBtn) submitBtn.disabled = false;
+            });
         }
     </script>
         // ============================================
