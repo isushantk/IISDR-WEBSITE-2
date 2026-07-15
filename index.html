@@ -376,6 +376,21 @@
             background-size: cover;
         }
 
+        .carousel-slide.slide-18 {
+            background: url('images/hero/hero-summit-1.jpeg') no-repeat center center;
+            background-size: cover;
+        }
+
+        .carousel-slide.slide-19 {
+            background: url('images/hero/hero-summit-2.jpeg') no-repeat center center;
+            background-size: cover;
+        }
+
+        .carousel-slide.slide-20 {
+            background: url('images/hero/hero-summit-3.jpeg') no-repeat center center;
+            background-size: cover;
+        }
+
         .carousel-controls {
             position: absolute;
             bottom: 20px;
@@ -3073,6 +3088,9 @@
             <div class="carousel-slide slide-15"></div>
             <div class="carousel-slide slide-16"></div>
             <div class="carousel-slide slide-17"></div>
+            <div class="carousel-slide slide-18"></div>
+            <div class="carousel-slide slide-19"></div>
+            <div class="carousel-slide slide-20"></div>
         </div>
         <button class="carousel-arrow prev" onclick="previousSlide()" aria-label="Previous slide">‹</button>
         <button class="carousel-arrow next" onclick="nextSlide()" aria-label="Next slide">›</button>
@@ -3094,6 +3112,9 @@
             <button class="carousel-dot" onclick="goToSlide(14)" aria-label="Go to slide 15"></button>
             <button class="carousel-dot" onclick="goToSlide(15)" aria-label="Go to slide 16"></button>
             <button class="carousel-dot" onclick="goToSlide(16)" aria-label="Go to slide 17"></button>
+            <button class="carousel-dot" onclick="goToSlide(17)" aria-label="Go to slide 18"></button>
+            <button class="carousel-dot" onclick="goToSlide(18)" aria-label="Go to slide 19"></button>
+            <button class="carousel-dot" onclick="goToSlide(19)" aria-label="Go to slide 20"></button>
         </div>
     </section>
 
@@ -3522,7 +3543,7 @@
         // HERO CAROUSEL (AUTO-SLIDE EVERY 4 SECONDS)
         // ============================================
         let currentSlide = 0;
-        const totalSlides = 17;
+        const totalSlides = 20;
         let heroAutoSlideInterval = null;
 
         function goToSlide(index) {
