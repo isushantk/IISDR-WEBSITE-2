@@ -291,6 +291,11 @@
             opacity: 1;
         }
 
+        .carousel-slide.slide-0 {
+            background: url('images/hero/hero-untitled-design.png') no-repeat center center;
+            background-size: cover;
+        }
+
         .carousel-slide.slide-1 {
             background: url('images/hero/hero-ud-1.png') no-repeat center center;
             background-size: cover;
@@ -2577,7 +2582,9 @@
          ============================================ -->
     <section class="hero-section" aria-label="Featured content carousel">
         <div class="carousel-container">
-            <div class="carousel-slide active slide-1">
+            <div class="carousel-slide active slide-0">
+            </div>
+            <div class="carousel-slide slide-1">
             </div>
             <div class="carousel-slide slide-2">
             </div>
@@ -2610,26 +2617,27 @@
         <button class="carousel-arrow prev" onclick="previousSlide()" aria-label="Previous slide">‹</button>
         <button class="carousel-arrow next" onclick="nextSlide()" aria-label="Next slide">›</button>
         <div class="carousel-controls">
-            <button class="carousel-dot active" onclick="goToSlide(0)" aria-label="Go to slide 1"></button>
-            <button class="carousel-dot" onclick="goToSlide(1)" aria-label="Go to slide 2"></button>
-            <button class="carousel-dot" onclick="goToSlide(2)" aria-label="Go to slide 3"></button>
-            <button class="carousel-dot" onclick="goToSlide(3)" aria-label="Go to slide 4"></button>
-            <button class="carousel-dot" onclick="goToSlide(4)" aria-label="Go to slide 5"></button>
-            <button class="carousel-dot" onclick="goToSlide(5)" aria-label="Go to slide 6"></button>
-            <button class="carousel-dot" onclick="goToSlide(6)" aria-label="Go to slide 7"></button>
-            <button class="carousel-dot" onclick="goToSlide(7)" aria-label="Go to slide 8"></button>
-            <button class="carousel-dot" onclick="goToSlide(8)" aria-label="Go to slide 9"></button>
-            <button class="carousel-dot" onclick="goToSlide(9)" aria-label="Go to slide 10"></button>
-            <button class="carousel-dot" onclick="goToSlide(10)" aria-label="Go to slide 11"></button>
-            <button class="carousel-dot" onclick="goToSlide(11)" aria-label="Go to slide 12"></button>
-            <button class="carousel-dot" onclick="goToSlide(12)" aria-label="Go to slide 13"></button>
-            <button class="carousel-dot" onclick="goToSlide(13)" aria-label="Go to slide 14"></button>
-            <button class="carousel-dot" onclick="goToSlide(14)" aria-label="Go to slide 15"></button>
-            <button class="carousel-dot" onclick="goToSlide(15)" aria-label="Go to slide 16"></button>
-            <button class="carousel-dot" onclick="goToSlide(16)" aria-label="Go to slide 17"></button>
-            <button class="carousel-dot" onclick="goToSlide(17)" aria-label="Go to slide 18"></button>
-            <button class="carousel-dot" onclick="goToSlide(18)" aria-label="Go to slide 19"></button>
-            <button class="carousel-dot" onclick="goToSlide(19)" aria-label="Go to slide 20"></button>
+            <button class="carousel-dot active" onclick="goToSlide(0)" aria-label="Go to slide 0"></button>
+            <button class="carousel-dot" onclick="goToSlide(1)" aria-label="Go to slide 1"></button>
+            <button class="carousel-dot" onclick="goToSlide(2)" aria-label="Go to slide 2"></button>
+            <button class="carousel-dot" onclick="goToSlide(3)" aria-label="Go to slide 3"></button>
+            <button class="carousel-dot" onclick="goToSlide(4)" aria-label="Go to slide 4"></button>
+            <button class="carousel-dot" onclick="goToSlide(5)" aria-label="Go to slide 5"></button>
+            <button class="carousel-dot" onclick="goToSlide(6)" aria-label="Go to slide 6"></button>
+            <button class="carousel-dot" onclick="goToSlide(7)" aria-label="Go to slide 7"></button>
+            <button class="carousel-dot" onclick="goToSlide(8)" aria-label="Go to slide 8"></button>
+            <button class="carousel-dot" onclick="goToSlide(9)" aria-label="Go to slide 9"></button>
+            <button class="carousel-dot" onclick="goToSlide(10)" aria-label="Go to slide 10"></button>
+            <button class="carousel-dot" onclick="goToSlide(11)" aria-label="Go to slide 11"></button>
+            <button class="carousel-dot" onclick="goToSlide(12)" aria-label="Go to slide 12"></button>
+            <button class="carousel-dot" onclick="goToSlide(13)" aria-label="Go to slide 13"></button>
+            <button class="carousel-dot" onclick="goToSlide(14)" aria-label="Go to slide 14"></button>
+            <button class="carousel-dot" onclick="goToSlide(15)" aria-label="Go to slide 15"></button>
+            <button class="carousel-dot" onclick="goToSlide(16)" aria-label="Go to slide 16"></button>
+            <button class="carousel-dot" onclick="goToSlide(17)" aria-label="Go to slide 17"></button>
+            <button class="carousel-dot" onclick="goToSlide(18)" aria-label="Go to slide 18"></button>
+            <button class="carousel-dot" onclick="goToSlide(19)" aria-label="Go to slide 19"></button>
+            <button class="carousel-dot" onclick="goToSlide(20)" aria-label="Go to slide 20"></button>
         </div>
     </section>
 
@@ -2689,6 +2697,10 @@
                 <button class="poster-control prev" onclick="prevPoster()">❮</button>
                 <button class="poster-control next" onclick="nextPoster()">❯</button>
                 <div class="carousel-slides">
+                    <div class="carousel-slide" style="background-color: #f8f9fa;">
+                        <img src="images/poster-whatsapp-2026-07-16.jpeg" alt="Poster New WhatsApp"
+                            style="width: 100%; height: 100%; object-fit: fill;">
+                    </div>
                     <div class="carousel-slide" style="background-color: #f8f9fa;">
                         <img src="images/poster-media-1.jpg" alt="Poster Carousel Image 1"
                             style="width: 100%; height: 100%; object-fit: fill;">
@@ -3053,7 +3065,7 @@
         // HERO CAROUSEL (AUTO-SLIDE EVERY 4 SECONDS)
         // ============================================
         let currentSlide = 0;
-        const totalSlides = 20;
+        const totalSlides = 21;
         let heroAutoSlideInterval = null;
 
         function goToSlide(index) {
