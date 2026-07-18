@@ -24,6 +24,7 @@ NAVBAR_TEMPLATE = """    <nav class="nav-bar" role="navigation" aria-label="Main
                     <a href="https://www.fathermuller.edu.in/allied-health-sciences/department-of-hospital-administration.php" target="_blank">Father Muller College of Allied Health Sciences</a>
                     <a href="https://msnim.edu.in/" target="_blank">Manel Srinivas Nayak Institute of Management (MSNIM)</a>
                     <a href="https://sjec.ac.in/" target="_blank">St Joseph Engineering College (SJEC)</a>
+                    <a href="https://staloysius.edu.in/" target="_blank">St. Aloysius University</a>
                 </div>
             </li>
             <li><a href="iisdr_information_bulletins.html" class="nav-link-bulletins">Information Bulletins</a></li>
