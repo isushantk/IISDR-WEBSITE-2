@@ -2371,5 +2371,34 @@
             initializeAboutTabs();
         });
     </script>
+
+    <script>
+        // ============================================
+        // VISITOR COUNTER (Dynamic Simulation)
+        // ============================================
+        function initializeVisitorCounter() {
+            const COUNTER_KEY = 'iisdr_final_visitor_count'; 
+            const START_COUNT = 0;
+            let visitorCount = localStorage.getItem(COUNTER_KEY);
+            if (visitorCount === null) {
+                visitorCount = START_COUNT;
+            } else {
+                visitorCount = parseInt(visitorCount) + 1;
+            }
+            function updateDisplay(count) {
+                const el = document.getElementById('visitor-counter');
+                if (el) {
+                    el.textContent = count.toLocaleString('en-IN');
+                }
+                localStorage.setItem(COUNTER_KEY, count);
+            }
+            updateDisplay(visitorCount);
+            setInterval(() => {
+                visitorCount++;
+                updateDisplay(visitorCount);
+            }, Math.floor(Math.random() * (60000 - 30000 + 1)) + 30000);
+        }
+        window.addEventListener('load', initializeVisitorCounter);
+    </script>
 </body>
 </html>

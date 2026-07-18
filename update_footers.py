@@ -254,17 +254,7 @@ def update_file(filepath):
     content = re.sub(r'window\.addEventListener\(\'load\', initializeVisitorCounter\);', '', content)
     
     if '</body>' in content:
-        # Check if there is already a script block to append to
-        script_match = re.search(r'<script.*?>', content)
-        if script_match:
-            # Find the last </script> tag
-            last_script_end = content.rfind('</script>')
-            if last_script_end != -1:
-                 content = content[:last_script_end] + VISITOR_INIT + '\n' + content[last_script_end:]
-            else:
-                 content = content.replace('</body>', '    <script>\n' + VISITOR_INIT + '\n    </script>\n</body>')
-        else:
-            content = content.replace('</body>', '    <script>\n' + VISITOR_INIT + '\n    </script>\n</body>')
+        content = content.replace('</body>', '    <script>\n' + VISITOR_INIT + '\n    </script>\n</body>')
 
     # 4. Standardize Mangaluru -> Mangalore
     content = content.replace('Mangaluru', 'Mangalore')
