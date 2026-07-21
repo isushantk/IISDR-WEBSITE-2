@@ -495,6 +495,10 @@ def update_file(filename):
         current_nav = current_nav.replace(f'class="{active_link_class}"', f'class="{active_link_class} active"')
 
     # Aggressive HTML replacement
+    
+    # Strip out any old navigation scripts to prevent duplicates
+    content = re.sub(r'<script>\s*document\.addEventListener\('DOMContentLoaded', function\(\) \{\s*const navToggle.*?\}\);\s*\}\);\s*</script>', '', content, flags=re.DOTALL)
+    
     if '<nav' in content:
         content = re.sub(r'<nav.*?>.*?</nav>', current_nav, content, flags=re.DOTALL)
     else:

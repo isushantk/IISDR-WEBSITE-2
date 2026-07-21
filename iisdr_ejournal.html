@@ -1708,17 +1708,6 @@
             const navLinks = document.querySelector('.nav-links');
             const navSearch = document.querySelector('.nav-search');
             
-            if (navToggle && navLinks && navSearch) {
-                navToggle.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
-                    navToggle.setAttribute('aria-expanded', !isExpanded);
-                    navToggle.classList.toggle('active');
-                    navLinks.classList.toggle('active');
-                    navSearch.classList.toggle('active');
-                });
-            }
-            
 
             // Advanced Client-Side Search with Autocomplete Dropdown
             const searchBtn = navSearch ? navSearch.querySelector('button') : null;
