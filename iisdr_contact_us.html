@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="About THRIVE - E-Journal by IISDR">
-    <title>About THRIVE - E-Journal</title>
+    <meta name="description" content="Contact Us - IISDR">
+    <title>Contact Us - IISDR</title>
     <style>
         /* ============================================
            GLOBAL STYLES & CSS RESET
@@ -166,12 +166,12 @@
         .hero-banner {
             background: linear-gradient(135deg, #003d99 0%, #002d77 100%);
             color: #ffffff;
-            padding: 40px 20px;
+            padding: 88px 20px;
             text-align: center;
         }
 
         .hero-banner h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: bold;
             margin: 0;
         }
@@ -203,27 +203,27 @@
            ============================================ */
         .about-container {
             display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 20px;
+            grid-template-columns: 1.1fr 0.95fr;
+            gap: 48px;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 60px 20px 30px;
+            align-items: start;
         }
 
         .about-content {
-            background-color: #ffffff;
-            padding: 20px;
-            border: 1px solid #cccccc;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+            background-color: transparent;
+            padding: 0 10px;
+            border: none;
+            box-shadow: none;
         }
 
         .about-content h2 {
-            font-size: 1.4rem;
-            color: #003d99;
-            font-weight: bold;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #ff9933;
+            font-size: 2.1rem;
+            color: #5c7289;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
         }
 
         .about-content p {
@@ -656,6 +656,64 @@
 
         .skip-link:focus {
             top: 0;
+        }
+
+        .contact-panel {
+            background-color: #eaf4fd;
+            padding: 34px 34px 38px;
+            border-radius: 10px;
+            border: none;
+            box-shadow: none;
+        }
+
+        .contact-panel h2 {
+            color: #5c7289;
+            font-size: 2.2rem;
+            line-height: 1.1;
+            margin-bottom: 14px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .contact-panel p {
+            color: #5e6066;
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+
+        .contact-form-grid input,
+        .contact-form-grid textarea {
+            width: 100%;
+            border: 1px solid #eef0f3;
+            border-radius: 8px;
+            background-color: #ffffff;
+            color: #5e6066;
+            font-size: 1rem;
+            font-family: Arial, sans-serif;
+        }
+
+        .contact-form-grid input {
+            padding: 14px 14px;
+        }
+
+        .contact-form-grid textarea {
+            padding: 14px 14px;
+            min-height: 146px;
+            resize: vertical;
+        }
+
+        .contact-submit {
+            background-color: #667b8e;
+            color: #ffffff;
+            border: none;
+            border-radius: 999px;
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 16px 20px;
+        }
+
+        .contact-submit:hover {
+            background-color: #586b7d;
         }
 
         :focus {
@@ -1483,7 +1541,7 @@
             </li>
             <li><a href="iisdr_information_bulletins.html" class="nav-link-bulletins">Information Bulletins</a></li>
             <li class="nav-dropdown">
-                <a href="#" class="nav-link-ejournal active">E-Journal</a>
+                <a href="#" class="nav-link-ejournal">E-Journal</a>
                 <div class="dropdown-menu">
                     <a href="iisdr_ejournal_about_thrive.html">About THRIVE</a>
                     <a href="iisdr_journal_particulars.html">Journal Particulars</a>
@@ -1496,7 +1554,7 @@
                 </div>
             </li>
             <li><a href="iisdr_certification.html" class="nav-link-certification">Certification Programs</a></li>
-            <li><a href="iisdr_contact_us.html" class="nav-link-contact">Contact Us</a></li>
+            <li><a href="iisdr_contact_us.html" class="nav-link-contact active">Contact Us</a></li>
         </ul>
         <div class="nav-search">
             <input type="text" placeholder="Search IISDR..." aria-label="Search website">
@@ -1755,74 +1813,58 @@
     <!-- ============================================
          HERO BANNER
          ============================================ -->
-    <section class="hero-banner" role="region" aria-label="About THRIVE banner">
-        <h1>About THRIVE</h1>
+    <section class="hero-banner" role="region" aria-label="Contact Us banner">
+        <h1>Contact Us</h1>
     </section>
 
     <!-- ============================================
          BREADCRUMB
          ============================================ -->
     <div class="breadcrumb">
-        <a href="iisdr_website.html">Home</a> / <a href="#">E-Journal</a> / <span>About THRIVE</span>
+        <a href="iisdr_website.html">Home</a> / <a href="iisdr_ejournal.html">E-Journal</a> / <span>Contact Us</span>
     </div>
 
     <!-- ============================================
          MAIN CONTENT
          ============================================ -->
     <main id="main-content" class="about-container">
-        <!-- LEFT COLUMN: VOLUMES AND ISSUES -->
+        <!-- LEFT COLUMN: GET IN TOUCH -->
         <article class="about-content">
+            <h2>Get in touch</h2>
 
-            <h2 style="margin-top: 40px;">About THRIVE</h2>
-            <p>
-                <strong>THRIVE – International Research Journal of Humanities, Social Sciences and Management Studies</strong> is an open-access scholarly journal published by the Indian Institute of Skill Development and Research (IISDR). Established in 2025, the journal is dedicated to serving the academic and professional needs of scholars, researchers, students, and management practitioners across the globe.
-            </p>
-
-            <p>
-                THRIVE publishes high-quality theoretical and empirical research covering a wide range of subjects in management, including multidisciplinary studies, inter-functional collaborations, and core functional domains of management. The journal is released biannually, with online issues published in January and June. Each issue also features a case study and selected book reviews, offering readers deeper insights into contemporary developments in the field.
-            </p>
-
-            <p>
-                The journal invites original, factual, and data-driven contributions as well as conceptual papers supported by strong theoretical foundations. THRIVE welcomes comprehensive research papers of up to 8000 words that explore diverse aspects of business, human resources, management, and education.
-            </p>
-
-            <p>
-                To ensure academic rigor and publication quality, all submissions undergo a double-blind peer-review process. Manuscripts are initially screened by the editorial team for suitability and quality; those meeting the standards are forwarded to the Advisory Board for detailed review.
-            </p>
-
-            <p>
-                THRIVE remains committed to fostering knowledge, encouraging scholarly dialogue, and promoting research that contributes meaningfully to the global understanding of management and social sciences.
-            </p>
+            <div style="margin-bottom: 30px;">
+                <p style="margin-bottom: 20px; color: #5e6066; font-size: 1.05rem; line-height: 1.6;">
+                    Indian Institute of Skill Development and Research (IISDR) is committed to building competence, enhancing employability, and fostering professional excellence through industry-recognized skill development and research programs.
+                </p>
+                
+                <p style="color: #5e6066; font-size: 1.05rem;">
+                    <strong>Email:</strong> <a href="mailto:iisdrcp@gmail.com" style="color: #003d99; text-decoration: none; font-weight: 600;">iisdrcp@gmail.com</a>
+                </p>
+            </div>
         </article>
 
-        <!-- RIGHT COLUMN: SIDEBAR -->
-        <aside class="sidebar">
-            <!-- Search Box -->
-            <div class="search-box">
-                <input type="text" placeholder="Search..." aria-label="Search THRIVE content">
-                <button aria-label="Submit search">🔍 Search</button>
-            </div>
+        <!-- RIGHT COLUMN: CONTACT FORM -->
+        <aside class="sidebar contact-panel">
+            <h2>Contact form</h2>
+            <p style="margin-bottom: 22px;">Or, you can just send an email: <a href="mailto:iisdrcp@gmail.com" style="color: #5c7289; text-decoration: none;">iisdrcp@gmail.com</a></p>
 
-            <!-- Recent News -->
-            <div class="recent-news">
-                <h3>Recent news</h3>
-
-                <div class="news-item">
-                    <div class="news-thumbnail" style="background-color: #f0f0f0; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #666;">Healthcare</div>
-                    <div class="news-content">
-                        <h4><a href="#">Healthcare</a></h4>
-                        <div class="news-date">📅 March 20, 2024</div>
-                    </div>
+            <form action="https://formsubmit.co/iisdrcp@gmail.com" method="POST" style="display: flex; flex-direction: column; gap: 22px;">
+                <input type="hidden" name="_subject" value="New message from E-Journal Contact Form">
+                <div class="contact-form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px;">
+                    <input type="text" name="First Name" placeholder="First Name" required>
+                    <input type="text" name="Last Name" placeholder="Last Name" required>
                 </div>
 
-                <div class="news-item">
-                    <div class="news-thumbnail" style="background-color: #f0f0f0; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #666;">Volunteering</div>
-                    <div class="news-content">
-                        <h4><a href="#">Volunteering Clean</a></h4>
-                        <div class="news-date">📅 October 24, 2024</div>
-                    </div>
+                <div class="contact-form-grid">
+                    <input type="email" name="Email" placeholder="Email Address" required>
                 </div>
-            </div>
+
+                <div class="contact-form-grid">
+                    <textarea name="Message" placeholder="What can we help you with?" rows="6" required></textarea>
+                </div>
+
+                <button class="contact-submit" type="submit">Send Message</button>
+            </form>
         </aside>
     </main>
 

@@ -43,7 +43,7 @@ NAVBAR_TEMPLATE = """    <nav class="nav-bar" role="navigation" aria-label="Main
                 </div>
             </li>
             <li><a href="iisdr_certification.html" class="nav-link-certification">Certification Programs</a></li>
-            <li><a href="iisdr_ejournal_contact_us.html" class="nav-link-contact">Contact Us</a></li>
+            <li><a href="iisdr_contact_us.html" class="nav-link-contact">Contact Us</a></li>
         </ul>
         <div class="nav-search">
             <input type="text" placeholder="Search IISDR..." aria-label="Search website">
@@ -51,7 +51,7 @@ NAVBAR_TEMPLATE = """    <nav class="nav-bar" role="navigation" aria-label="Main
         </div>
     </nav>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener(\'DOMContentLoaded', function() {
             const navToggle = document.querySelector('.nav-toggle');
             const navLinks = document.querySelector('.nav-links');
             const navSearch = document.querySelector('.nav-search');
@@ -393,11 +393,11 @@ def get_active_class(filename):
     if filename == 'iisdr_programs.html': return 'nav-link-programs'
     if filename == 'iisdr_information_bulletins.html': return 'nav-link-bulletins'
     if filename == 'iisdr_certification.html': return 'nav-link-certification'
-    if filename == 'iisdr_ejournal_contact_us.html': return 'nav-link-contact'
+    if filename == 'iisdr_contact_us.html': return 'nav-link-contact'
     # Dropdown children
     if filename in ['iisdr_ejournal_about_thrive.html', 'iisdr_journal_particulars.html', 
                   'iisdr_editorial_board.html', 'iisdr_author_guidelines.html', 
-                  'iisdr_ejournal.html', 'iisdr_disclaimer.html', 'iisdr_call_for_papers.html']:
+                  'iisdr_ejournal.html', 'iisdr_disclaimer.html', 'iisdr_call_for_papers.html', 'iisdr_ejournal_contact_us.html']:
         return 'nav-link-ejournal'
     return None
 
@@ -498,7 +498,7 @@ def update_file(filename):
     # Aggressive HTML replacement
     
     # Strip out any old navigation scripts to prevent duplicates
-    content = re.sub(r'<script>\s*document\.addEventListener\('DOMContentLoaded', function\(\) \{\s*const navToggle.*?\}\);\s*\}\);\s*</script>', '', content, flags=re.DOTALL)
+    content = re.sub(r'<script>\s*document\.addEventListener\(\'DOMContentLoaded\', function\(\) \{\s*const navToggle.*?\}\);\s*\}\);\s*</script>', '', content, flags=re.DOTALL)
     
     if '<nav' in content:
         content = re.sub(r'<nav.*?>.*?</nav>', current_nav, content, flags=re.DOTALL)
