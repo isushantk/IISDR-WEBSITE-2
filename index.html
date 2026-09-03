@@ -3227,7 +3227,11 @@
                 <button class="poster-control prev" onclick="prevPoster()">❮</button>
                 <button class="poster-control next" onclick="nextPoster()">❯</button>
                 <div class="carousel-slides">
-                                        <div class="carousel-slide" style="background-color: #f8f9fa;">
+                                                            <div class="carousel-slide" style="background-color: #f8f9fa;">
+                        <img src="images/popup-whatsapp-2026-09-01.jpeg" alt="Poster MoU New"
+                            style="width: 100%; height: 100%; object-fit: fill;">
+                    </div>
+<div class="carousel-slide" style="background-color: #f8f9fa;">
                         <img src="images/poster-whatsapp-2026-09-02-1.jpeg" alt="Poster MoU New"
                             style="width: 100%; height: 100%; object-fit: fill;">
                     </div>
@@ -3777,6 +3781,26 @@
         }
         window.addEventListener('load', initializeVisitorCounter);
     </script>
+
+<!-- Welcome Popup Modal -->
+<div id="welcome-modal" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); align-items: center; justify-content: center;">
+    <div style="position: relative; max-width: 90%; max-height: 90%;">
+        <span onclick="document.getElementById('welcome-modal').style.display='none'" style="position: absolute; right: -15px; top: -15px; color: white; font-size: 30px; font-weight: bold; cursor: pointer; background: black; border-radius: 50%; width: 40px; height: 40px; text-align: center; line-height: 35px; border: 2px solid white; z-index: 10000;">&times;</span>
+        <img src="images/popup-whatsapp-2026-09-01.jpeg" style="max-width: 100%; max-height: 85vh; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.5);">
+    </div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if(!sessionStorage.getItem('popupShown')) {
+        const modal = document.getElementById('welcome-modal');
+        if (modal) {
+            modal.style.display = 'flex';
+            sessionStorage.setItem('popupShown', 'true');
+        }
+    }
+});
+</script>
+
 </body>
 </html>
 <!-- Force deploy fix 1785343123 -->
