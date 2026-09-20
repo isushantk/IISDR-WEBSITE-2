@@ -2262,7 +2262,12 @@
             }
         }
         /* === NAVBAR STYLES END === */
-    </style>
+    
+.carousel-slide.slide-hero-teaching-paradigm {
+            background: url('images/hero-banner-teaching-paradigm-2026.png') no-repeat center center;
+            background-size: cover;
+        }
+</style>
 </head>
 
 <body>
@@ -2602,7 +2607,8 @@
          ============================================ -->
     <section class="hero-section" aria-label="Featured content carousel">
         <div class="carousel-container">
-            <div class="carousel-slide active slide-0">
+            <div class="carousel-slide active slide-hero-teaching-paradigm"></div>
+            <div class="carousel-slide slide-0">
             </div>
             <div class="carousel-slide slide-1">
             </div>
@@ -2661,6 +2667,7 @@
             <button class="carousel-dot" onclick="goToSlide(19)" aria-label="Go to slide 19"></button>
             <button class="carousel-dot" onclick="goToSlide(20)" aria-label="Go to slide 20"></button>
             <button class="carousel-dot" onclick="goToSlide(21)" aria-label="Go to slide 21"></button>
+            <button class="carousel-dot" onclick="goToSlide(22)" aria-label="Go to slide 22"></button>
         </div>
     </section>
 
@@ -3129,7 +3136,7 @@
         // HERO CAROUSEL (AUTO-SLIDE EVERY 4 SECONDS)
         // ============================================
         let currentSlide = 0;
-        const totalSlides = 22;
+        const totalSlides = 23;
         let heroAutoSlideInterval = null;
 
         function goToSlide(index) {
