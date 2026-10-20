@@ -27,6 +27,7 @@ NAVBAR_TEMPLATE = """    <nav class="nav-bar" role="navigation" aria-label="Main
                     <a href="https://staloysius.edu.in/" target="_blank">St. Aloysius University (DEEMED TO BE UNIVERSITY)</a>
                     <a href="https://www.stagnescollege.edu.in/" target="_blank">St. Agnes College (Autonomous)</a>
                     <a href="https://srinathuniversity.ac.in/" target="_blank">Srinath University</a>
+                    <a href="https://www.theiffai.com/" target="_blank">International Federation For Artificial Intelligence ( IFFAI )</a>
                 </div>
             </li>
             <li><a href="iisdr_information_bulletins.html" class="nav-link-bulletins">Information Bulletins</a></li>
